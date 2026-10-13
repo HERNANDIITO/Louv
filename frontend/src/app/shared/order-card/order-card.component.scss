@@ -1,0 +1,97 @@
+.order-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: solid 1px rgb(214, 214, 214);
+  padding: 1em 0 1em 0;
+
+  .orderRow {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .firstDetails {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    padding: 0.75em;
+  }
+
+  .value {
+    font-size: 12px;
+    color: black;
+  }
+
+  .name {
+    margin-left: 0.45em;
+  }
+
+  .price {
+    margin-left: 0.5em;
+  }
+
+  .state {
+    margin-left: 0.55em;
+  }
+
+  .flecha {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.25s ease;
+    margin-left: 3.5em;
+  }
+
+  .flecha.rotated {
+    transform: rotate(-90deg);
+  }
+  
+  .sectionsDos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.75em 1em;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 0.75em;
+    border-top: 1px solid rgb(220, 220, 220);
+  }
+
+  .seconDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0.9em 1em;
+    background: rgb(248, 248, 248);
+  }
+
+  .products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .product-name {
+    font-weight: bold;
+  }
+
+  .dedication {
+    font-style: italic;
+    opacity: 0.8;
+  }
+
+  .state-in-cart {
+    color: rgb(0, 89, 255);
+    font-weight: bold;
+  }
+
+  .state-ordered {
+    color: rgb(216, 97, 0);
+    font-weight: bold;
+  }
+
+  .state-delivered {
+    color: green;
+    font-weight: bold;
+  }
+}

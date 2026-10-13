@@ -1,0 +1,46 @@
+@use "../../../styles/variables" as vars;
+
+.big-switch {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    position: relative;
+    background-color: vars.$light-gray;
+    cursor: pointer;
+
+    border-radius: 16px;
+
+    height: 45px;
+
+    width: 100%;
+    margin: 0;
+
+    .state {
+        z-index: 100;
+        margin: auto;
+        width: fit-content;
+        // padding: 0 50px;
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: calc(50% - 2px - 3px);
+        height: 38px;
+        background-color: vars.$light-purple;
+        border: 1px solid vars.$purple;
+        left: 3px;
+        top: 50%;
+        transition: transform .2s;
+        border-radius: 14px;
+    }
+
+    &.left::before {
+        transform: translateX(0) translateY(-50%);
+    }
+
+    &.right::before {
+        transform: translateX(100%) translateY(-50%);
+    }
+
+}

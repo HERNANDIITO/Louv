@@ -1,0 +1,61 @@
+@if(filteredEmbededSettings().length > 0){
+    <app-multi-switch 
+      [options]="gemOptions()" 
+      [selectedIndex]="selectedGemIndex()"
+      (selectionChange)="updateSelectedIndex($event)">
+    </app-multi-switch>
+
+    <div class="setting items">
+        @for (setting of section(); track setting._id; let i = $index) {
+            @if (jewel().settings[selectedGemIndex()] && !setting.type.includes(SETTING_TYPE.EMBEDED) && setting.compatibleCuts && setting.compatibleCuts[0].imagePerGem) {
+                <app-item
+                    #item
+                    [selected]="jewel().settings[selectedGemIndex()].id === setting._id" 
+                    [isCompatible]="isCompatible({settingID: setting._id}, selectedGemIndex())"
+                    [open]="subsectionOpen && setting._id === jewel().settings[selectedGemIndex()].id"
+                    [item]="setting"
+                    [isMain]="true"
+                    [img] = "'/images/settings/' + setting.compatibleCuts[0].imagePerGem[0].image"
+                    (click)="onSettingClick(setting._id); this.selectedCol.set(i); moveDetailsBelowSelectedRow()">
+                </app-item>
+            }
+        }
+    </div>
+    <div #subsection class="subsection" [class]="{closed: !subsectionOpen, left: selectedCol() % 3 === 0, right: (selectedCol() + 1) % 3 === 0}">        
+        <p class="section-title">Número de garras</p>
+        <div class="clawNumber items">
+            @for (item of filteredClawNumbers(); track item._id) {
+                @if ( jewel().settings[selectedGemIndex()] && jewel().settings[selectedGemIndex()].clawNumber && item.compatibleCuts && item.compatibleCuts[0].imagePerGem ) {
+                    <app-item 
+                        [selected]="jewel().settings[selectedGemIndex()].clawNumber === item._id" 
+                        [item]="item" 
+                        [img] = "'/images/settings/' + item.compatibleCuts[0].imagePerGem[0].image"
+                        (beenSelected)="onClawNumberClick($event)">
+                    </app-item>
+                }
+            }
+        </div>
+        
+        @if (selectedClawNumber()?.compatibleCuts && jewel().settings[selectedGemIndex()]) {
+            <p class="section-title">Tipo de garras</p>
+            <div class="clawType items">
+                @for (compatCut of selectedClawNumber()?.compatibleCuts; track $index) {
+                    @for (item of compatCut.clawType; track item._id) {
+                        @if (compatCut.cut === this.selectedCut()?._id && item.cuts && item.cuts[0].imagePerGem) {
+                            <app-item 
+                                [selected]="jewel().settings[selectedGemIndex()].clawType === item._id" 
+                                [item]="item" 
+                                [img] = "'/images/settings/' + item.cuts[0].imagePerGem[0].image"
+                                (beenSelected)="onClawTypeClick($event)">
+                            </app-item>
+                        }
+                    }
+                }
+            </div>
+        }
+    </div>
+}@else {
+  <div>
+      <p>No hay opciones disponibles para tu configuración actual.</p>
+  </div>
+}

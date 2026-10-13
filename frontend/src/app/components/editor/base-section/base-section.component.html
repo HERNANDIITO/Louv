@@ -1,0 +1,48 @@
+<app-size-section></app-size-section>
+
+<!-- Listado de Estructuras Base -->
+<p class="section-title">Modelo</p>
+<div class="base items">
+  @for (item of section(); track item._id; let i = $index) {
+    <app-item 
+      #item
+      [item]="item" 
+      [open]="subsectionOpen && item._id === jewel().baseStructure"
+      [selected]="item._id === jewel().baseStructure"
+      [isMain]="true"
+      [img] = "'/images/bases/' + item.profiles[0].variants[0].image"
+      (click)="onItemClick('base', item._id); selectedCol.set(i); moveDetailsBelowSelectedRow()">
+    </app-item>
+}
+  <div #subsection class="subsection" [class]="{closed: !subsectionOpen, left: selectedCol() % 3 === 0, right: (selectedCol() + 1) % 3 === 0}">
+    <p class="description">{{selectedBase()?.description}}</p>
+    <div class="wrapper">
+      <p class="section-title">Perfil</p>
+      <div class="profile subsection-items">
+        @for (item of selectedBase()?.profiles; track item.profile._id) {
+          <app-item
+            [selected]="item.profile._id === jewel().profile"
+            [item]="item.profile"
+            [img] = "'/images/profiles/' + item.profile.image"
+            (click)="onItemClick('profile', item.profile._id)"
+          >
+          </app-item>
+        }
+      </div>
+    </div>
+    <div class="wrapper">
+      <p class="section-title">Variantes</p>
+      <div class="variant subsection-items">
+        @for (item of selectedProfile()?.variants; track item._id) {
+          <app-item
+            [selected]="item._id === jewel().variant"
+            [item]="item"
+            [img] = "'/images/bases/' + item.image"
+            (click)="onItemClick('variant', item._id)"
+          >
+          </app-item>
+        }
+      </div>
+    </div>
+  </div>
+</div>

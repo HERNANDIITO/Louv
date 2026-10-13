@@ -1,0 +1,155 @@
+@use "./variables" as vars;
+
+@mixin button-base {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: vars.$border-radius-principal;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden; // necesario para que el shine no sobresalga
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background-color: #cccccc;
+        color: #666666;
+        border: 1px solid #999999;
+    }
+}
+
+@mixin hover-bg($color-hover) {
+  &:hover:not(:disabled) {
+    background-color: $color-hover;
+  }
+}
+
+// Mixin para el efecto shine wave
+@mixin shine-wave {
+  &::after {
+    content: '';
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: -75%; // empieza fuera del botón
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: skewX(-25deg);
+    transition: none;
+  }
+
+  &:hover:not(:disabled)::after {
+    animation: shine 1s forwards;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -75%;
+    }
+    100% {
+      left: 125%;
+    }
+  }
+}
+
+@mixin editor-items {
+  .items {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 120px));
+      gap: 18px;
+      margin: 5px 0;
+      flex-wrap: wrap;
+      justify-content: space-between
+  }
+
+  .description {
+    color: vars.$purple;
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-family: vars.$abhaya;
+    font-size: 24px;
+  }
+
+  .section-subtitle {
+    font-family: vars.$abhaya;
+    font-size: 18px;
+  }
+
+  .closed {
+    display: none !important;
+  }
+
+  .subsection {
+    margin-top: -21px;
+    border-width: 3px;
+    border-radius: 10px;
+    border-style: solid;
+    background: vars.$selected-gray;
+    border-color: vars.$selected-dark-gray;
+    grid-column: span 3;
+    padding: 20px 20px;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    &.left {
+      border-top-left-radius: 0;
+    }
+
+    &.right {
+      border-top-right-radius: 0;
+    }
+
+    .subsection-items {
+      display: flex;
+      flex-flow: row;
+    }
+  }
+
+  :host {
+    display: flex;
+    flex-flow: column;
+    gap: 18px;
+  }
+
+  .info {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      background-color: vars.$selected-gray;
+      padding: 8px;
+      border-radius: vars.$border-radius-principal;
+  }
+
+  .selected {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      
+      button {
+          color: vars.$purple;
+          transition: color .025;
+            
+          &:hover {
+              color: vars.$light-purple;
+              cursor: pointer;
+          }
+      }
+  }
+}
+

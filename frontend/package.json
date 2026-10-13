@@ -1,0 +1,81 @@
+{
+  "name": "louv",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint",
+    "format": "prettier --write .",
+    "lint:fix": "ng lint --fix"
+  },
+  "prettier": {
+    "overrides": [
+      {
+        "files": "*.html",
+        "options": {
+          "parser": "angular"
+        }
+      }
+    ]
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/cdk": "^20.2.11",
+    "@angular/common": "20.0.0",
+    "@angular/compiler": "20.0.0",
+    "@angular/core": "20.0.0",
+    "@angular/forms": "20.0.0",
+    "@angular/platform-browser": "20.0.0",
+    "@angular/router": "20.0.0",
+    "@fontsource-variable/gantari": "^5.2.8",
+    "@fontsource/abhaya-libre": "^5.2.7",
+    "@fortawesome/angular-fontawesome": "^3.0.0",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@rasahq/chat-widget-ui": "^0.1.11",
+    "chart.js": "^4.5.1",
+    "echarts": "^6.0.0",
+    "gl-matrix": "^3.4.4",
+    "jspdf": "^4.2.1",
+    "jspdf-autotable": "^5.0.7",
+    "jwt-decode": "^4.0.0",
+    "material-symbols": "^0.38.0",
+    "ngx-echarts": "^20.0.2",
+    "rxjs": "7.8.0",
+    "sweetalert2": "^11.26.3",
+    "three": "^0.181.2",
+    "three-mesh-bvh": "^0.9.9",
+    "tslib": "2.3.0",
+    "uuid": "^13.0.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@angular/build": "20.0.5",
+    "@angular/cli": "20.0.5",
+    "@angular/compiler-cli": "20.0.0",
+    "@types/jasmine": "5.1.0",
+    "@types/jszip": "^3.4.0",
+    "@types/three": "^0.181.0",
+    "@types/uuid": "^10.0.0",
+    "angular-eslint": "20.3.0",
+    "eslint": "9.35.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "jasmine-core": "5.7.0",
+    "karma": "6.4.0",
+    "karma-chrome-launcher": "3.2.0",
+    "karma-coverage": "2.2.0",
+    "karma-jasmine": "5.1.0",
+    "karma-jasmine-html-reporter": "2.1.0",
+    "prettier": "3.6.2",
+    "prettier-eslint": "16.4.2",
+    "typescript": "5.8.2",
+    "typescript-eslint": "8.40.0"
+  }
+}

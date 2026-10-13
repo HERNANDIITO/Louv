@@ -1,0 +1,52 @@
+<div class="cart-container">
+
+  <button
+        class="icon-button"
+        [class.is-landing]="isLanding()"
+        title="Cesta"
+        (click)="toggleDropdown()"
+    >
+        <fa-icon [icon]="faBagShopping" size="lg"></fa-icon>
+        @if (cartItems().length > 0) {
+            <span class="cart-badge" [class.is-landing]="isLanding()">{{ cartItems().length }}</span>
+        }
+    </button>
+
+    <div class="dropdown-menu" [class.open]="isDropdownOpen()">
+        <div class="cart-header">
+            <span class="h2-primary">CESTA</span>
+        </div>
+
+        <div class="cart-items">
+            @for (item of cartItems(); track item.id) {
+                <div class="cart-item">
+                    <input
+                    id="addToCart"
+                    type="checkbox"
+                    class="checkbox"
+                    />
+                    <img [src]="item.image" [alt]="item.name" class="item-img">
+                    <div class="item-info">
+                        <span class="item-name">{{ item.name }}</span>
+                        <span class="item-price">{{ item.price | currency:'EUR' }}</span>
+                    </div>
+                    <button class="remove-btn">
+                        <fa-icon [icon]="faXmark"></fa-icon>
+                    </button>
+                </div>
+            } @empty {
+                <p class="empty-msg">Tu cesta está vacía</p>
+            }
+        </div>
+
+        <div class="cart-footer">
+            <div class="total-row">
+                <span>Total</span>
+                <span class="total-amount">{{ totalCart() | currency:'EUR' }}</span>
+            </div>
+            <button class="btn btn--small btn--full btn--checkout" (click)="goToCheckout()">
+                Tramitar artículos
+            </button>
+        </div>
+    </div>
+</div>

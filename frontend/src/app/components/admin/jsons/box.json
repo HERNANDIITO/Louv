@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "1",
+    "name": "Caja Cuadrada",
+    "description": "Caja rígida con forma cuadrada.",
+    "model": "premium_a1",
+    "image": "images/box_premium_a1.png",
+    "outerMaterials": ["676f1aaa9a1bcd01a1000101", "676f1aaa9a1bcd01a1000102"],
+    "innerMaterials": ["676f1bbb9a1bcd01a1000201"],
+    "detailMaterials": ["676f1ccc9a1bcd01a1000301"]
+  },
+  {
+    "_id": "2",
+    "name": "Caja Redonda",
+    "description": "Caja rígida con forma redonda.",
+    "model": "eco_green",
+    "image": "images/box_eco_green.png",
+    "outerMaterials": ["676f1aaa9a1bcd01a1000103"],
+    "innerMaterials": ["676f1bbb9a1bcd01a1000202"],
+    "detailMaterials": []
+  },
+  {
+    "_id": "3",
+    "name": "Caja Corazón",
+    "description": "Caja rígida con forma de corazón.",
+    "model": "deluxe_black",
+    "image": "images/box_deluxe_black.png",
+    "outerMaterials": ["676f1aaa9a1bcd01a1000104"],
+    "innerMaterials": ["676f1bbb9a1bcd01a1000203", "676f1bbb9a1bcd01a1000204"],
+    "detailMaterials": ["676f1ccc9a1bcd01a1000302"]
+  }
+]

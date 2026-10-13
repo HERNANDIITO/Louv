@@ -1,0 +1,51 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #000000;
+  padding-block: 6rem;
+  padding-inline: 8rem;
+
+  > h2 {
+    color: vars.$light-purple;
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  > h3 {
+    color: vars.$light-purple;
+    font-style: italic;
+    font-weight: lighter;
+    margin-bottom: 2.5rem;
+  }
+}
+
+.iframe-wrapper {
+  width: 100%;
+  position: relative;
+
+  iframe {
+    height: 80vh;
+    aspect-ratio: 16 / 9; // Mejor que una altura fija en rem para responsiveness
+    height: auto;
+    border-radius: 0.5rem;
+    will-change: transform;
+    transition: filter .3s ease-in;
+  }
+  
+  .blurry {
+    filter: blur(4px);
+    pointer-events: none;
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 101;
+  }
+}

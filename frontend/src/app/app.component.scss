@@ -1,0 +1,37 @@
+@use "../styles/variables" as vars;
+
+.chat-toggle-btn {
+  position: fixed;        /* Fijo en pantalla */
+  bottom: 25px;           /* Desde abajo */
+  right: 45px;            /* Desde la derecha */
+  width: 70px;            /* Tamaño ancho */
+  height: 70px;           /* Tamaño alto */
+  border-radius: 50%;     /* Hace el botón redondo */
+  border: none;
+  background-color: vars.$purple;
+  color: #FFFCF6;
+  font-size: 24px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;          /* Para que esté sobre todo */
+  transition: background-color 0.3s ease, color .3s ease;
+
+  .icon {
+    position: absolute;
+    opacity: 1;
+    transition: opacity .3s ease;
+
+    &.hidden {
+      opacity: 0;
+    }
+  }
+  
+  &:hover {
+    background-color: vars.$light-purple;
+    color: vars.$purple;
+  }
+}
+

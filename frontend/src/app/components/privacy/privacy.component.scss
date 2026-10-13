@@ -1,0 +1,58 @@
+@use "../../../styles/variables" as vars;
+
+/* Layout general de la página */
+.privacy-policy {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+/* Espaciado y legibilidad (solo dentro de esta página) */
+.privacy-policy {
+
+  h1 {
+    color: vars.$purple;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: vars.$purple;
+  }
+
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: vars.$purple;
+  }
+
+  h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: vars.$purple;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+   .list-primary {
+    margin-left: 1.5rem;        // sangría
+    margin-bottom: 1.5rem;      // separación después de la lista
+    padding-left: 0;            // opcional, si quieres controlar la sangría con margin
+    list-style-type: disc;      // puntos por defecto
+  }
+
+  .list-primary li {
+    font-size: vars.$font-size-text;
+    color: vars.$black;
+    margin-bottom: 1rem;       // espacio entre ítems
+    line-height: 1.7;
+  }
+
+  .list-primary li strong {
+    font-weight: 600;           // resalta los títulos de cada ítem
+  }
+}

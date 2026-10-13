@@ -1,0 +1,72 @@
+@use "../../../../styles/variables" as vars;
+
+::ng-deep body {
+  background: vars.$white !important;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: scroll;
+  padding: 2rem 20px;
+  height: 100vh;
+}
+
+app-stats-sidebar {
+  flex: 0 0 280px;
+  border-right: 1px solid vars.$gray;
+}
+
+/* Contenido principal */
+.orders-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em 2em 2em;
+  overflow: hidden;      
+}
+
+/* Cabecera de columnas */
+.sections {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  align-items: center;
+  background: rgb(230, 230, 230);
+  padding: 1em;
+  font-size: 14px;
+  font-weight: bold;
+  width: 100%;
+  position: sticky;
+  top: 0; 
+  z-index: 10;
+}
+
+/* Lista de pedidos con scroll */
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                 
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);  
+}
+
+/* Scrollbar - Chrome, Edge, Safari */
+.orders-list::-webkit-scrollbar {
+  width: 12px;
+}
+
+.orders-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.orders-list::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 4px;
+}
+
+/* Firefox */
+.orders-list {
+  scrollbar-width: thin;
+  scrollbar-color: black transparent;
+}

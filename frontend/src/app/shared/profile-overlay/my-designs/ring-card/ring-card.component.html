@@ -1,0 +1,4 @@
+<button class="ring-card" [class.selected]="selected()">
+  <img [src]="jewelService.getJewelPhotoUrl(ringData().id)+ '?t=' + reloadTrigger" (error)="$any($event.target).src = '/images/newRingPlaceholder.png'" alt="Miniatura de {{ringData().nombre}}">
+  <p>{{ringData().nombre}}</p>
+</button>

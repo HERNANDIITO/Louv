@@ -1,0 +1,323 @@
+<div class="user-data-container">
+  <form [formGroup]="userData" (ngSubmit)="onSubmit()">
+    <div class="section-header">
+      <h2 class="h2-primary">Datos personales</h2>
+    </div>
+
+    <div class="form-section">
+      <div class="form-row">
+        <div class="input-container">
+          <app-custom-input
+            id="name"
+            label="Nombre *"
+            [control]="userData.controls.name"
+            placeholder="Escriba su nombre"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isDataInvalid(userData.controls.name)) {
+            <span class="field-error">{{
+              getErrorMessage(userData.controls.name)
+            }}</span>
+          }
+        </div>
+
+        <div class="input-container">
+          <app-custom-input
+            id="surname"
+            label="Apellidos"
+            [control]="userData.controls.surname"
+            placeholder="Escriba sus apellidos"
+            [showErrors]="false"
+          ></app-custom-input>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-container">
+          <app-custom-input
+            id="email"
+            label="Email *"
+            type="email"
+            [control]="userData.controls.email"
+            placeholder="Escriba su email"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isDataInvalid(userData.controls.email)) {
+            <span class="field-error">{{
+              getErrorMessage(userData.controls.email)
+            }}</span>
+          }
+        </div>
+
+        <div class="input-container">
+          <app-custom-input
+            id="dni"
+            label="DNI"
+            [control]="userData.controls.dni"
+            placeholder="Escriba su DNI"
+            [showErrors]="false"
+          ></app-custom-input>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-wrapper option-wrapper">
+          <label class="option">Tratamiento</label>
+          <div class="options">
+            @for (t of TITLES; track t.label) {
+              <label class="option-label">
+                <input
+                  type="radio"
+                  [value]="t.value"
+                  [formControl]="userData.controls.title"
+                />
+                {{ t.label }}
+              </label>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="h2-primary">Dirección</h2>
+      @if (showAddress()) {
+        <button
+          type="button"
+          class="dark-button"
+          (click)="showAddress.set(false)"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon> Eliminar dirección
+        </button>
+      }
+    </div>
+
+    <div class="form-section">
+      @if (!showAddress()) {
+        <button
+          type="button"
+          class="dark-button"
+          (click)="showAddress.set(true)"
+        >
+          + Añadir dirección
+        </button>
+      } @else {
+        <div [formGroup]="userData.controls.address">
+          <div class="form-row">
+            <div class="input-container">
+              <app-custom-input
+                id="country"
+                type="select"
+                label="País *"
+                placeholder="Seleccionar País"
+                [control]="userData.controls.address.controls.country"
+                [showErrors]="false"
+              >
+                @for (c of COUNTRIES; track c.value) {
+                  <option [value]="c.value">{{ c.label }}</option>
+                }
+              </app-custom-input>
+              @if (isDataInvalid(userData.controls.address.controls.country)) {
+                <span class="field-error">Obligatorio</span>
+              }
+            </div>
+
+            <div class="input-container">
+              <app-custom-input
+                id="province"
+                type="select"
+                label="Provincia *"
+                placeholder="Seleccionar Provincia"
+                [control]="userData.controls.address.controls.province"
+                [showErrors]="false"
+              >
+                @for (p of SPAIN_PROVINCES; track p) {
+                  <option [value]="p">{{ p }}</option>
+                }
+              </app-custom-input>
+              @if (isDataInvalid(userData.controls.address.controls.province)) {
+                <span class="field-error">Obligatorio</span>
+              }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-container">
+              <app-custom-input
+                id="locality"
+                label="Localidad *"
+                [control]="userData.controls.address.controls.locality"
+                placeholder="Escriba su localidad"
+                [showErrors]="false"
+              ></app-custom-input>
+              @if (isDataInvalid(userData.controls.address.controls.locality)) {
+                <span class="field-error">Obligatorio</span>
+              }
+            </div>
+
+            <div class="input-container">
+              <app-custom-input
+                id="postalCode"
+                label="Código Postal *"
+                [control]="userData.controls.address.controls.postalCode"
+                placeholder="Ej: 28001"
+                [showErrors]="false"
+              ></app-custom-input>
+              @if (
+                isDataInvalid(userData.controls.address.controls.postalCode)
+              ) {
+                <span class="field-error">
+                  {{
+                    getErrorMessage(
+                      userData.controls.address.controls.postalCode
+                    )
+                  }}
+                </span>
+              }
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="input-container">
+              <app-custom-input
+                id="street"
+                label="Calle y número *"
+                [control]="userData.controls.address.controls.street"
+                placeholder="Calle, número, piso..."
+                [showErrors]="false"
+              ></app-custom-input>
+              @if (isDataInvalid(userData.controls.address.controls.street)) {
+                <span class="field-error">Obligatorio</span>
+              }
+            </div>
+
+            <div class="input-container">
+              <app-custom-input
+                id="extraInfo"
+                label="Información extra"
+                [control]="userData.controls.address.controls.extraInfo"
+                placeholder="Portal, escalera, etc."
+                [showErrors]="false"
+              ></app-custom-input>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="section-header">
+      <h2 class="h2-primary">Teléfono</h2>
+      @if (hasPhone()) {
+        <button type="button" class="dark-button" (click)="hasPhone.set(false)">
+          <fa-icon [icon]="faTrash"></fa-icon> Eliminar teléfono
+        </button>
+      }
+    </div>
+
+    <div class="form-section">
+      @if (!hasPhone()) {
+        <button type="button" class="dark-button" (click)="hasPhone.set(true)">
+          + Añadir teléfono
+        </button>
+      } @else {
+        <div class="form-row">
+          <div class="input-container">
+            <app-custom-input
+              id="number"
+              label="Teléfono"
+              type="tel"
+              [control]="userData.controls.number"
+              placeholder="Ej: 600 00 00 00"
+              [showErrors]="false"
+            ></app-custom-input>
+            @if (isDataInvalid(userData.controls.number)) {
+              <span class="field-error">{{
+                getErrorMessage(userData.controls.number)
+              }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="button-container">
+      <button type="submit" class="purple-button">
+        Guardar datos <fa-icon [icon]="faFloppyDisk"></fa-icon>
+      </button>
+    </div>
+  </form>
+
+  <hr class="form-divider" />
+
+  <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+    <h2 class="h2-primary">Cambiar contraseña</h2>
+
+    <div class="form-section">
+      <div class="form-row">
+        <div class="input-container full-width">
+          <app-custom-input
+            id="currentPassword"
+            type="password"
+            label="Contraseña actual *"
+            [control]="passwordForm.controls.currentPassword"
+            placeholder="Escriba su contraseña actual"
+            autocomplete="off"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isPasswordInvalid(passwordForm.controls.currentPassword)) {
+            <span class="field-error">
+              Debes introducir tu contraseña actual para realizar cambios.
+            </span>
+          }
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="input-container">
+          <app-custom-input
+            id="newPassword"
+            type="password"
+            label="Nueva contraseña *"
+            [control]="passwordForm.controls.newPassword"
+            placeholder="Mín. 8 caracteres, símbolos..."
+            autocomplete="off"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isPasswordInvalid(passwordForm.controls.newPassword)) {
+            <span class="field-error">{{
+              getErrorMessage(passwordForm.controls.newPassword)
+            }}</span>
+          }
+        </div>
+
+        <div class="input-container">
+          <app-custom-input
+            id="confirmNewPassword"
+            type="password"
+            label="Repetir nueva contraseña *"
+            [control]="passwordForm.controls.confirmNewPassword"
+            placeholder="Repita la nueva contraseña"
+            autocomplete="off"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isPasswordInvalid(passwordForm.controls.confirmNewPassword)) {
+            <span class="field-error">{{
+              getErrorMessage(passwordForm.controls.confirmNewPassword)
+            }}</span>
+          }
+        </div>
+      </div>
+
+      @if (submittedPassword() && passwordForm.hasError("passwordsMismatch")) {
+        <div class="form-row" style="margin-top: -10px; margin-bottom: 10px">
+          <span class="field-error">Las contraseñas no coinciden.</span>
+        </div>
+      }
+      <div class="button-container">
+        <button type="submit" class="purple-button">
+          Cambiar contraseña <fa-icon [icon]="faFloppyDisk"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

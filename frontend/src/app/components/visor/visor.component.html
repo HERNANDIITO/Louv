@@ -1,0 +1,36 @@
+<div
+  class="viewport"
+  [class.fullscreen]="fullscreen() != undefined ? fullscreen() : true"
+>
+  <div class="jewel-name-wrapper">
+    <h2 class="jewel-name">
+      {{ this.editJewelService.jewel().name }}
+    </h2>
+    @if (this.price) {
+      <div class="price">
+        <span>
+          {{ price }}
+        </span>
+      </div>
+    }
+  </div>
+  @if (!error()) {
+    <app-engine
+    [mini]="true"
+    [forceload]="true"
+    [noBackground]="noBG() != undefined ? noBG() : true"
+    [engineSelector]="engineSelector()"
+    [autoRotation]="false"
+    ></app-engine>
+  }
+  @if(!isMyDesigns()) {
+    <div class="switch-wrapper">
+      <app-big-switch
+        [onValue]="'ThreeJS'"
+        [offValue]="'WebGL'"
+        (status)="swapEngine($event)"
+        [checked]="engineSelector()"
+      ></app-big-switch>
+    </div>
+  }
+</div>

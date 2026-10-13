@@ -1,0 +1,286 @@
+@use "../../../../../styles/variables" as vars;
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(13, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  overflow: auto;
+}
+
+.stats-subsection-capsule {
+  background-color: #fff;
+  border: 1px solid vars.$gray;
+  border-radius: 30px;
+  padding: 2rem;
+}
+
+.generalFilter {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  grid-area: 1 / 1 / 2 / 3;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .switch-container {
+    flex: 1;
+    min-width: 0;
+  }
+
+  app-big-switch {
+    display: block;
+    width: 100%;
+  }
+}
+
+.budget-dist {
+  grid-area: 2 / 1 / 6 / 3;
+  padding-left: 0;
+
+  h2 {
+    padding-left: 2rem;
+  }
+}
+
+.metal-use { 
+  grid-area: 1 / 3 / 6 / 7; 
+
+  h2 {
+    display: block;
+  }
+}
+
+.gems-and-cuts-use {
+  grid-area: 6 / 1 / 11 / 7;
+
+  .title-gems-and-cuts-use {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-bottom: .6rem;
+
+    .full-switch-container {
+      display: flex;
+      flex-flow: row;
+      align-items: center;
+      gap: 1rem;
+      max-width: 30%;
+      min-width: 20%;
+
+      .switch-container {
+        flex: 1;
+        min-width: 0;
+      }
+    }
+  }
+}
+
+.metal-and-gem-combinations {
+  grid-area: 11 / 1 / 14 / 7; 
+}
+
+h2 {
+    font-family: vars.$abhaya;
+    font-weight: 400;
+    font-size: 24px;
+    display: inline;
+    padding-right: 1.5rem;
+}
+
+.chart-budget {
+  width: 100%;
+  height: 20rem;
+}
+
+.chart-materials {
+  width: 100%;
+  height: 25rem;
+} 
+
+.chart-gems-cuts {
+  width: 100%;
+  height: 25rem;
+}
+
+.metal-and-gem-combinations {
+  display: flex;
+  flex-direction: column;
+}
+
+.combinations-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.combination-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 120px;
+}
+
+.combo-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.metalIcon {
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 50%;
+}
+
+/* ICONO GEMA */
+.gemIcon {
+  width: 5rem;
+  height: 5rem;
+  margin-left: -0.7rem;
+  object-fit: contain;
+}
+
+/* PLUS */
+.plus {
+  font-size: 38px;
+  font-weight: 700;
+  color: #562172;
+}
+
+/* % */
+.percentage {
+  font-size: 40px;
+  font-weight: 800;
+  color: #562172;
+  line-height: 1;
+}
+
+/* TEXTO */
+.combo-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #562172;
+}
+
+// para hacer scroll
+:host {
+  display: block;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Oro Amarillo 9k */
+.gold9K {
+  background: linear-gradient(-33deg, 
+    #D4AF37,  /* Gold, base */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #B38A3A,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */ 
+    #B38A3A  /* Mid gold */
+  );
+}
+
+/* Oro Amarillo 14k */
+.gold14K {
+  background: linear-gradient(-33deg, 
+    #F1C27D,  /* Yellowish gold, base */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #D69A2A,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #D69A2A  /* Mid gold */
+  );
+}
+
+/* Oro Amarillo 18k */
+.gold18K {
+  background: linear-gradient(-33deg, 
+    #F2A900,  /* Rich yellow gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #C78C3D,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #C78C3D  /* Mid gold */
+  );
+}
+
+/* Oro Rosa 9k */
+.roseGold9K {
+  background: linear-gradient(-33deg, 
+    #E4B7A0,  /* Soft rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #C08C70,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #C08C70  /* Mid rose gold */
+  );
+}
+
+/* Oro Rosa 14k */
+.roseGold14K {
+  background: linear-gradient(-33deg, 
+    #D18F6B,  /* Richer rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #B8775C,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #B8775C  /* Mid rose gold */
+  );
+}
+
+/* Oro Rosa 18k */
+.roseGold18K {
+  background: linear-gradient(-33deg, 
+    #C07A5A,  /* Deep rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A7664D,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A7664D  /* Mid rose gold */
+  );
+}
+
+/* Oro Blanco 9k */
+.whiteGold9K {
+  background: linear-gradient(-33deg, 
+    #D3D3D3,  /* Light silver/gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A8A8A8,  /* Mid silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A8A8A8  /* Mid silver */
+  );
+}
+
+/* Oro Blanco 14K */
+.whiteGold14K {
+  background: linear-gradient(-33deg, 
+    #B4B4B4,  /* Silverish gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #8A8A8A,  /* Mid silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #8A8A8A  /* Mid silver */
+  );
+}
+
+/* Oro Blanco 18k */
+.whiteGold18K {
+  background: linear-gradient(-33deg, 
+    #A9A9A9,  /* Silver */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #707070,  /* Dark silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #707070  /* Dark silver */
+  );
+}
+
+/* Platino */
+.Pt950 {
+  background: linear-gradient(-33deg, 
+    #B0C4DE,  /* Platinum grayish blue */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A8A8A8,  /* Mid gray */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A8A8A8  /* Mid gray */
+  );
+}

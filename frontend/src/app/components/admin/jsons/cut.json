@@ -1,0 +1,137 @@
+[
+  {
+    "_id": "677001aa9a1bcd01a2000001",
+    "name": "Corte Redondo Excelente",
+    "description": "Corte clásico con brillante redondo de máxima calidad.",
+    "model": "round_excellent",
+    "width": "6.50",
+    "height": "6.48",
+    "depth": "4.03"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000002",
+    "name": "Corte Princesa Premium",
+    "description": "Corte princesa con proporciones premium.",
+    "model": "princess_premium",
+    "width": "5.50",
+    "height": "5.48",
+    "depth": "3.70"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000003",
+    "name": "Corte Esmeralda",
+    "description": "Corte rectangular tipo esmeralda con gran claridad.",
+    "model": "emerald_cut",
+    "width": "6.90",
+    "height": "5.00",
+    "depth": "3.60"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000004",
+    "name": "Corte Oval Excelente",
+    "description": "Corte ovalado simétrico ideal para anillos modernos.",
+    "model": "oval_excellent",
+    "width": "7.80",
+    "height": "5.80",
+    "depth": "3.55"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000005",
+    "name": "Corte Marquesa",
+    "description": "Corte marquesa con proporción alargada.",
+    "model": "marquise_cut",
+    "width": "10.50",
+    "height": "5.20",
+    "depth": "3.30"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000006",
+    "name": "Corte Pera",
+    "description": "Corte lágrima clásico.",
+    "model": "pear_shape",
+    "width": "8.20",
+    "height": "5.40",
+    "depth": "3.60"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000007",
+    "name": "Corte Corazón",
+    "description": "Corte romántico en forma de corazón.",
+    "model": "heart_cut",
+    "width": "6.80",
+    "height": "7.00",
+    "depth": "3.95"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000008",
+    "name": "Corte Radiante",
+    "description": "Corte radiante moderno con alta dispersión.",
+    "model": "radiant_cut",
+    "width": "6.20",
+    "height": "5.00",
+    "depth": "3.45"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000009",
+    "name": "Corte Cojín",
+    "description": "Corte cushion ligeramente redondeado.",
+    "model": "cushion_cut",
+    "width": "6.00",
+    "height": "6.00",
+    "depth": "3.80"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000010",
+    "name": "Corte Asher",
+    "description": "Corte cuadrado inspirado en el estilo vintage.",
+    "model": "asscher_cut",
+    "width": "5.60",
+    "height": "5.60",
+    "depth": "3.65"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000011",
+    "name": "Corte Baguette",
+    "description": "Corte rectangular estilizado.",
+    "model": "baguette_cut",
+    "width": "6.00",
+    "height": "3.00",
+    "depth": "2.20"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000012",
+    "name": "Corte Trilliant",
+    "description": "Corte triangular muy brillante.",
+    "model": "trilliant_cut",
+    "width": "7.00",
+    "height": "7.00",
+    "depth": "3.80"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000013",
+    "name": "Corte Hexagonal",
+    "description": "Corte moderno de seis lados.",
+    "model": "hexagon_cut",
+    "width": "6.50",
+    "height": "6.50",
+    "depth": "4.00"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000014",
+    "name": "Corte Triangular",
+    "description": "Corte geométrico con estilo minimalista.",
+    "model": "triangle_cut",
+    "width": "6.30",
+    "height": "6.00",
+    "depth": "3.50"
+  },
+  {
+    "_id": "677001aa9a1bcd01a2000015",
+    "name": "Corte Octagonal",
+    "description": "Corte octagonal con excelente simetría.",
+    "model": "octagon_cut",
+    "width": "7.10",
+    "height": "7.10",
+    "depth": "4.10"
+  }
+]

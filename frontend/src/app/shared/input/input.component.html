@@ -1,0 +1,11 @@
+<label [class]="customClass()">
+    <input 
+        (input)="onChange($event)" 
+        type="text" 
+        [placeholder]="placeholder()" 
+        [value]="initialValue()"
+    >
+    @if (icon() === 'search') {
+        <fa-icon [icon]="faSearch" class="text-icon"></fa-icon>
+    }
+</label>

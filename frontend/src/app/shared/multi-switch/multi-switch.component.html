@@ -1,0 +1,28 @@
+<div class="multi-switch">
+  @for (option of options(); track $index) {
+    <div class="state" 
+         [class.active]="selectedIndex() === $index" 
+         (click)="select($index)">
+         @if(optionType() === "gem") {
+          <fa-icon [icon]="faGem" size="sm"></fa-icon>
+         }@else{
+          <fa-icon [icon]="faObjectGroup" size="sm"></fa-icon>
+         }
+      {{ option }}
+    </div>
+  }
+</div>
+<!-- <div class="multi-switch" 
+     [style.--total]="options().length" 
+     [style.--selected]="selectedIndex()">
+  
+  <div class="slider"></div>
+
+  @for (option of options(); track $index) {
+    <div class="state" 
+         [class.active]="selectedIndex() === $index" 
+         (click)="select($index)">
+      {{ option }}
+    </div>
+  }
+</div> -->

@@ -1,0 +1,10 @@
+User-agent: *
+# Bloquear páginas privadas
+Disallow: /recuperacion-cuenta/
+Disallow: /completar-registro/
+Disallow: /inicio-sesion/
+Disallow: /registro/
+
+# Permitir todo lo demás
+Allow: /
+Sitemap: https://louv.ovh/sitemap-index.xml

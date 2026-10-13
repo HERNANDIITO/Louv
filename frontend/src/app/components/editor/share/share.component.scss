@@ -1,0 +1,132 @@
+@use '../../../../styles/variables' as styles;
+
+.share-wrapper {
+    padding: 40px;
+    border-radius: 30px;
+    background-color: styles.$white; 
+    filter: drop-shadow(0 2px 12px rgba(14, 14, 14, 0.3));
+
+    max-width: 390px;
+
+    border: 2px solid styles.$light-purple;
+
+    display: flex;
+    flex-flow: column;
+    gap: 35px;
+
+    transition: width .3s;
+
+    .title {
+      font-family: styles.$abhaya;
+      font-size: 24px;
+    }
+    
+    .share-content {
+        display: flex;
+        flex-flow: column;
+        gap: 20px;
+
+        .link-wrapper {
+          display: flex;
+          flex-flow: row;
+          width: 100%;
+          position: relative;
+          transition: opacity .3s ease, color .1s ease, transform .3s ease;
+          opacity: 1;
+          cursor: pointer;
+          transform: translateY(0px);
+
+          &.hidden {
+            opacity: 0;
+            transform: translateY(5px);
+            pointer-events: none;
+          }
+
+          &:hover {
+            color: styles.$purple;
+            &::after {
+              background-color: styles.$purple;
+            }
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: styles.$black;
+            top: 100%;
+            left: 0;
+            z-index: 10000;
+            transition: background-color, .1s ease;
+          }
+          
+          .purple-link {
+            flex: 1;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .purple {
+            color: styles.$purple;
+          }
+
+          .flip {
+            color: transparent;
+            width: 20px;
+            perspective: 1000px; 
+            transform-style: preserve-3d;
+            transition: transform 0.3s;
+            animation: none;
+            
+            .inner, .outer {
+              background: styles.$white;
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              -webkit-backface-visibility: hidden; /* Safari */
+              backface-visibility: hidden;
+            }
+
+            .outer {
+              transform: rotateY(180deg);
+            }
+          }
+
+          .flipped {
+            transform: rotateY(180deg);
+          }
+        }
+    }
+}
+
+.enter-animation {
+  animation: desplegar 0.3s ease;
+}
+
+.leave-animation {
+    animation: plegar 0.3s ease;
+}
+
+@keyframes desplegar {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plegar {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}

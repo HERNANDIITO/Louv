@@ -1,0 +1,132 @@
+@use "../../../styles/variables" as vars;
+
+/* Contenedor principal del input */
+.input-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  /* Estilos para el Label */
+  label {
+    font-size: 18px;
+    color: vars.$purple;
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  /* Asterisco de requerido */
+  .required-asterisk {
+    color: vars.$purple;
+    margin-left: 4px;
+  }
+  .input-logo-container {
+    width: 100%;
+    border-bottom: 1.5px solid vars.$purple;
+    padding: 0 0 4px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .button-icon {
+    background: none;
+    border: none;
+    color: vars.$purple;
+    span {
+      cursor: pointer;
+    }
+  }
+
+  /* Inputs, textareas y selects */
+  input,
+  textarea,
+  select {
+    width: 100%;
+    color: vars.$purple;
+
+    border: none;
+
+    line-height: 1.5;
+
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    background-color: transparent;
+    padding-left: 10px;
+    font-size: 18px;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: vars.$purple;
+    }
+
+    &::placeholder {
+      color: vars.$dark-gray;
+      font-size: 18px;
+      font-weight: medium;
+      opacity: 1;
+    }
+  }
+
+  /* Select: quitar flecha y añadir personalizada */
+  .select-wrapper {
+    position: relative;
+    display: inline-block; /* opcional según layout */
+    width: 100%;
+  }
+
+  .select-wrapper select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    cursor: pointer;
+    width: 100%;
+    padding-right: 35px; /* espacio para la flecha */
+  }
+
+  .select-wrapper .select-arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px; /* tamaño real de la flecha */
+    height: 16px;
+    stroke: black;
+    fill: none;
+    stroke-width: 2;
+    pointer-events: none;
+  }
+
+  select option {
+    color: #333;
+  }
+
+  select option[disabled][selected] {
+    color: vars.$light-gray;
+  }
+
+  /* === NUEVO: Layout horizontal y vertical === */
+  &.column {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &.row {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    label {
+      min-width: fit-content; // ajustable según diseño
+      text-align: right;
+      margin: 0;
+    }
+
+    input,
+    textarea,
+    select {
+      flex: 1;
+    }
+  }
+}

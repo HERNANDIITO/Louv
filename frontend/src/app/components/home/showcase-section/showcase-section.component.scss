@@ -1,0 +1,58 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: block;
+  padding: 1rem 2rem 4rem 2rem;
+  text-align: center;
+  background-color: vars.$light-purple;
+
+   > h2 {
+    color: vars.$purple;
+    margin-top: 4rem;
+  }
+
+  > h3 {
+    font-style: italic;
+    font-weight: lighter;
+    color: vars.$purple;
+    margin-bottom: 4rem;
+  }
+}
+
+.gallery-compact {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 70%;
+  gap: 8px;
+  
+  * > img {
+    border-radius: 8px;
+    height: 250px;
+    width: 250px;
+  }
+  
+}
+
+.row {
+  display: flex;
+  flex-flow: row;
+  gap: 8px;
+  width: 100%;
+}
+
+.six {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.wide {
+  flex: 1;
+  object-fit: cover;
+}
+
+.featured {
+  height: 100% !important;
+  width: 500px !important;
+}

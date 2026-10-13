@@ -1,0 +1,1 @@
+export type MaterialName = 'Oro amarillo' | 'Oro rosa' | 'Oro blanco' | 'Platino';

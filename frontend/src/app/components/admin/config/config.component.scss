@@ -1,0 +1,166 @@
+@use "../../../../styles/variables" as vars;
+
+::ng-deep body {
+  background: vars.$white !important;
+}
+
+.stats-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: scroll;
+  padding: 2rem 20px;
+  height: 100vh;
+}
+
+app-stats-sidebar {
+  flex: 0 0 280px;
+  border-right: 2px solid vars.$purple;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1em 2em 2em 2em;
+  overflow: hidden;
+
+  .configurations {
+    padding: 1rem;
+
+    form {
+      padding-bottom: 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 3rem;
+      align-items: start;
+      margin-bottom: 1.5rem;
+    }
+
+    .input-with-error-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+      width: 100%;
+
+      app-custom-input {
+        width: 100%;
+      }
+
+      .field-error-right {
+        color: #dc3545;
+        font-size: 0.75rem;
+        font-weight: 500;
+        padding-bottom: 0;
+        margin-top: 0.25rem;
+        display: block;
+        white-space: normal;
+        line-height: 1.3;
+      }
+    }
+
+    .mismatch-container {
+      margin-bottom: 1rem;
+      color: #dc3545;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .btn--fit {
+      width: fit-content;
+      margin-top: 1rem;
+    }
+
+    .totp,
+    .logout {
+      border-top: vars.$light-gray solid 1px;
+      padding-block: 1.5rem;
+    }
+
+    .inlineTOTP {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      span {
+        border: vars.$light-gray solid 1px;
+        border-radius: vars.$border-radius-principal;
+        padding: 0.5rem;
+        height: fit-content;
+        font-size: vars.$font-size-text;
+      }
+
+      .totp-configurado {
+        color: green;
+        border-color: rgba(0, 128, 0, 0.2);
+      }
+
+      .totp-no-configurado {
+        color: rgb(255, 106, 0);
+        border-color: rgba(255, 106, 0, 0.2);
+      }
+    }
+
+    .already-totp {
+      padding: 0.8rem;
+      border-radius: 16px;
+      background: rgb(231, 231, 231);
+      width: fit-content;
+    }
+
+    fa-icon {
+      margin-right: 0.5rem;
+    }
+
+    p {
+      width: 80%;
+      margin-bottom: 1rem;
+      color: vars.$black;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .content .configurations form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .content .configurations .input-with-error-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+
+    .field-error-right {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  app-stats-sidebar {
+    flex: none;
+    border-right: none;
+    border-bottom: 2px solid vars.$purple;
+  }
+
+  .content .configurations .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

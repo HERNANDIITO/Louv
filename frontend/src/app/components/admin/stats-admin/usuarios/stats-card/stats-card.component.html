@@ -1,0 +1,19 @@
+<div class="card">
+  <small>{{ data.visits }} visitas</small>
+
+  <h3>{{ data.percentage }}%</h3>
+
+  <div class="card-header">
+    <fa-icon [icon]="data.icon"></fa-icon>
+    <p>{{ data.title }}</p>
+  </div>
+
+  <span [ngClass]="{
+  positive: data.change > 0,
+  negative: data.change < 0,
+  neutral: data.change === 0
+}">
+  {{ data.change > 0 ? '↑' : (data.change < 0 ? '↓' : '—') }}
+  {{ data.change }}%
+</span>
+</div>

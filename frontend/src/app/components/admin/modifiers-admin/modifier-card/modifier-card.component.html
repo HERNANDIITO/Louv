@@ -1,0 +1,51 @@
+<div class="modifier-card">
+
+  <div class="row" [class.details-visible]="showDetails()">
+
+    <div class="main-data">
+      <span class="value name">{{ modifier().name }}</span>
+      <span class="value category">{{ modifier().category }}</span>
+      <span class="value category">{{ modifier().description ? modifier().description : 'NA' }}</span>
+      <span class="value image-name">{{ getImageName() }}</span>
+
+      <span class="value model">{{ getModel() }}</span>
+
+      <button class="toggle-btn" (click)="toggleDetails()">
+        <fa-icon
+            [icon]="faChevronLeft"
+            [class.rotated]="showDetails()"
+        ></fa-icon>
+        </button>
+      </div>
+
+    @if(showDetails()){
+        <!-- <div class="labels-row">
+        @for(d of getDetailsList(); track d.label){
+            <div class="label" >{{ d.label.toUpperCase() }}</div>
+        }
+        @if(modifier().description){
+            <div class="label">DESCRIPCIÓN</div>
+        }
+        @if(modifier().meaning){
+            <div class="label">SIGNIFICADO</div>
+        }
+       </div>
+
+      <div class="values-row">
+        @for(d of getDetailsList(); track d.label){
+            <div class="value" id="v" >{{ d.value }}</div>
+        }
+        @if(modifier().description){
+            <div class="value">{{ modifier().description }}</div>
+        }
+        @if(modifier().meaning){
+            <div class="value" id="m">{{ modifier().meaning }}</div>
+        }
+      </div> -->
+      <div class="details-container">
+        <app-json-explorer [data]="modifier().raw"></app-json-explorer>
+      </div>
+    
+    }
+  </div>
+</div>

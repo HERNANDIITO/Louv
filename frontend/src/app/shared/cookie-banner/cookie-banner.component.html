@@ -1,0 +1,17 @@
+<div class="cookie-banner" *ngIf="show">
+    <h1 class="h1-primary" class="h1-primary--left">Uso de cookies</h1>
+  <p class="text-primary">
+    En LOUV utilizamos cookies propias y de terceros para ofrecerle una experiencia personalizada, 
+    mejorar nuestros servicios y mostrarle contenido adaptado a sus intereses.
+    No cosentir o retirar el consentimiento puede afectar negativamente a ciertas
+    funciones o características. Para más información puede consultar nuestra 
+    <a routerLink="/politica-de-cookies" class="white-link">Política de Cookies</a>.
+  </p>
+
+  <div class="actions">
+    <button class="primary" (click)="openSettings()">Configurar</button>
+    <button class="secondary" (click)="rejectAll()">Rechazar cookies</button>
+    <button class="primary" (click)="acceptAll()">Aceptar todas</button>
+  </div>
+</div>
+

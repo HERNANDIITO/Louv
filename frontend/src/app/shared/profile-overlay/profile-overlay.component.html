@@ -1,0 +1,25 @@
+<!-- Fondo oscuro -->
+<div class="overlay-backdrop" (click)="close.emit()">
+  <!-- Ventana principal -->
+  <div class="overlay-window" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="close.emit()"> <fa-icon [icon]="faXmark"></fa-icon> </button>
+    <app-profile-nav (changeActive)="changeView($event)"></app-profile-nav>
+    <hr class="separator">
+    <main class="content">
+      @switch (active()) {
+        @case ("Mis anillos") {
+          <app-my-designs (close)="onClose()"></app-my-designs>
+        }
+
+        @case ("Mis pedidos") {
+          <app-my-orders></app-my-orders>
+        }
+  
+        @case ("Mis datos") {
+          <app-my-data></app-my-data>
+        }
+      }
+    </main>
+  </div>
+</div>
+

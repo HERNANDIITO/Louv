@@ -1,0 +1,72 @@
+@use "../../../styles/variables" as vars;
+
+.profile-container {
+    position: relative; 
+    display: inline-block;
+
+    .dropdown-button {
+        transition: 
+            border-bottom-left-radius .1s, 
+            border-bottom-right-radius .1s, 
+            border-bottom .1s,
+            box-shadow .1s,
+            background-color .1s
+            ;
+        &.open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100%);
+    right: 0;
+    width: 300px;
+    background-color: vars.$white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xs;
+    
+    /* OCULTAR POR DEFECTO */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+/* Clase para MOSTRAR el menú */
+.dropdown-menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    
+    &::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Estilo del nombre de usuario */
+.user-name {
+    font-size: vars.$font-size-h2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid vars.$light-gray;
+    color: vars.$purple;
+}
+
+
+
+

@@ -1,0 +1,332 @@
+[
+  {
+    "_id": { "$oid": "671f10000000000000000101" },
+    "orderNumber": "ORD-1001",
+    "user": { "$oid": "66abc0000000000000001001" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-05T12:20:00Z",
+    "lastUpdate": "2025-01-05T12:20:00Z",
+    "taxableTotalPrice": "45.50",
+    "totalPrice": "55.50",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Luna 4",
+      "extraInfo": "",
+      "postalCode": "28010",
+      "locality": "Madrid",
+      "province": "Madrid",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Anillo Aurora", "material": "Oro" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000102" },
+    "orderNumber": "ORD-1002",
+    "user": { "$oid": "66abc0000000000000001002" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-02T09:12:00Z",
+    "lastUpdate": "2025-01-03T08:00:00Z",
+    "taxableTotalPrice": "82.00",
+    "totalPrice": "90.00",
+    "shippingPrice": "8.00",
+    "address": {
+      "street": "Av. del Sol 22",
+      "extraInfo": "",
+      "postalCode": "46001",
+      "locality": "Valencia",
+      "province": "Valencia",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Collar Estrella", "material": "Plata" }, "dedication": "Para Laura" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000103" },
+    "orderNumber": "ORD-1003",
+    "user": { "$oid": "66abc0000000000000001003" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-01T11:00:00Z",
+    "lastUpdate": "2025-01-04T10:30:00Z",
+    "taxableTotalPrice": "110.00",
+    "totalPrice": "120.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Fuego 12",
+      "extraInfo": "",
+      "postalCode": "41001",
+      "locality": "Sevilla",
+      "province": "Sevilla",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Pulsera Océano", "material": "Oro blanco" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000104" },
+    "orderNumber": "ORD-1004",
+    "user": { "$oid": "66abc0000000000000001004" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-03T17:00:00Z",
+    "lastUpdate": "2025-01-07T10:00:00Z",
+    "taxableTotalPrice": "30.00",
+    "totalPrice": "35.00",
+    "shippingPrice": "5.00",
+    "address": {
+      "street": "Calle Norte 88",
+      "extraInfo": "",
+      "postalCode": "48001",
+      "locality": "Bilbao",
+      "province": "Bizkaia",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Colgante Hoja", "material": "Plata" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000105" },
+    "orderNumber": "ORD-1005",
+    "user": { "$oid": "66abc0000000000000001005" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-04T08:10:00Z",
+    "lastUpdate": "2025-01-06T16:40:00Z",
+    "taxableTotalPrice": "60.00",
+    "totalPrice": "70.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Verde 5",
+      "extraInfo": "",
+      "postalCode": "29001",
+      "locality": "Málaga",
+      "province": "Málaga",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Anillo Mariposa", "material": "Oro rosa" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000106" },
+    "orderNumber": "ORD-1006",
+    "user": { "$oid": "66abc0000000000000001006" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-02T17:00:00Z",
+    "lastUpdate": "2025-01-05T14:00:00Z",
+    "taxableTotalPrice": "95.00",
+    "totalPrice": "105.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Av. Sur 7",
+      "extraInfo": "",
+      "postalCode": "50001",
+      "locality": "Zaragoza",
+      "province": "Zaragoza",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Pendientes Cielo", "material": "Plata" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000107" },
+    "orderNumber": "ORD-1007",
+    "user": { "$oid": "66abc0000000000000001007" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-02T10:00:00Z",
+    "lastUpdate": "2025-01-06T12:20:00Z",
+    "taxableTotalPrice": "140.00",
+    "totalPrice": "150.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Lago 1",
+      "extraInfo": "",
+      "postalCode": "28005",
+      "locality": "Madrid",
+      "province": "Madrid",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Collar Sol", "material": "Oro" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000108" },
+    "orderNumber": "ORD-1008",
+    "user": { "$oid": "66abc0000000000000001008" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-01T13:00:00Z",
+    "lastUpdate": "2025-01-10T09:00:00Z",
+    "taxableTotalPrice": "160.00",
+    "totalPrice": "170.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Arena 12",
+      "extraInfo": "",
+      "postalCode": "30001",
+      "locality": "Murcia",
+      "province": "Murcia",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Pulsera Tierra", "material": "Plata" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000109" },
+    "orderNumber": "ORD-1009",
+    "user": { "$oid": "66abc0000000000000001009" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-01T10:00:00Z",
+    "lastUpdate": "2025-01-12T12:00:00Z",
+    "taxableTotalPrice": "85.00",
+    "totalPrice": "95.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Camino Sur 20",
+      "extraInfo": "",
+      "postalCode": "45001",
+      "locality": "Toledo",
+      "province": "Toledo",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Anillo Luna", "material": "Oro blanco" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000110" },
+    "orderNumber": "ORD-1010",
+    "user": { "$oid": "66abc0000000000000001010" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-01T09:00:00Z",
+    "lastUpdate": "2025-01-11T08:00:00Z",
+    "taxableTotalPrice": "210.00",
+    "totalPrice": "225.00",
+    "shippingPrice": "15.00",
+    "address": {
+      "street": "Paseo Azul 8",
+      "extraInfo": "",
+      "postalCode": "28007",
+      "locality": "Madrid",
+      "province": "Madrid",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Collar Cosmos", "material": "Oro" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000111" },
+    "orderNumber": "ORD-1011",
+    "user": { "$oid": "66abc0000000000000001011" },
+    "state": "delivered",
+    "cartCreationDate": "2025-01-01T08:00:00Z",
+    "lastUpdate": "2025-01-14T19:00:00Z",
+    "taxableTotalPrice": "180.00",
+    "totalPrice": "195.00",
+    "shippingPrice": "15.00",
+    "address": {
+      "street": "Calle Otoño 33",
+      "extraInfo": "",
+      "postalCode": "18001",
+      "locality": "Granada",
+      "province": "Granada",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Pulsera Brisa", "material": "Plata" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000112" },
+    "orderNumber": "ORD-1012",
+    "user": { "$oid": "66abc0000000000000001012" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-01T07:00:00Z",
+    "lastUpdate": "2025-01-15T11:00:00Z",
+    "taxableTotalPrice": "120.00",
+    "totalPrice": "130.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Mar 11",
+      "extraInfo": "",
+      "postalCode": "07001",
+      "locality": "Palma",
+      "province": "Islas Baleares",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Collar Coral", "material": "Oro rosa" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000113" },
+    "orderNumber": "ORD-1013",
+    "user": { "$oid": "66abc0000000000000001013" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-01T06:00:00Z",
+    "lastUpdate": "2025-01-16T14:00:00Z",
+    "taxableTotalPrice": "70.00",
+    "totalPrice": "75.00",
+    "shippingPrice": "5.00",
+    "address": {
+      "street": "Av. Primavera 2",
+      "extraInfo": "",
+      "postalCode": "29002",
+      "locality": "Málaga",
+      "province": "Málaga",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Pulsera Rosa", "material": "Plata" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000114" },
+    "orderNumber": "ORD-1014",
+    "user": { "$oid": "66abc0000000000000001014" },
+    "state": "inCart",
+    "cartCreationDate": "2025-01-01T05:00:00Z",
+    "lastUpdate": "2025-01-10T10:00:00Z",
+    "taxableTotalPrice": "50.00",
+    "totalPrice": "60.00",
+    "shippingPrice": "10.00",
+    "address": {
+      "street": "Calle Viento 6",
+      "extraInfo": "",
+      "postalCode": "08001",
+      "locality": "Barcelona",
+      "province": "Barcelona",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Anillo Sol", "material": "Oro amarillo" }, "dedication": "" }
+    ]
+  },
+  {
+    "_id": { "$oid": "671f10000000000000000115" },
+    "orderNumber": "ORD-1015",
+    "user": { "$oid": "66abc0000000000000001015" },
+    "state": "ordered",
+    "cartCreationDate": "2025-01-01T04:00:00Z",
+    "lastUpdate": "2025-01-20T18:00:00Z",
+    "taxableTotalPrice": "200.00",
+    "totalPrice": "220.00",
+    "shippingPrice": "20.00",
+    "address": {
+      "street": "Av. Montaña 9",
+      "extraInfo": "",
+      "postalCode": "39001",
+      "locality": "Santander",
+      "province": "Cantabria",
+      "country": "España"
+    },
+    "products": [
+      { "jewelrySchema": { "name": "Collar Estrella Fugaz", "material": "Oro blanco" }, "dedication": "" }
+    ]
+  }
+]

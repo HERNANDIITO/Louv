@@ -1,0 +1,23 @@
+<div class="group">
+  <h2>Uso forma de caja</h2>
+  <div class="chart-container">
+    <div echarts [options]="option" class="chart"></div>
+  </div>    
+</div>
+
+<div class="group">
+  <h2>Uso materiales cajas</h2>
+
+  <div class="charts-row">
+    <app-box-mat-card 
+      title="Interior"
+      [data]="matInterior">
+    </app-box-mat-card>
+
+    <app-box-mat-card 
+      title="Exterior"
+      [data]="matExterior">
+    </app-box-mat-card>
+  </div>
+
+</div>

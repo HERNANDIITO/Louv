@@ -1,0 +1,92 @@
+
+:host {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.no-bg {
+  background: none !important;
+}
+
+canvas {
+    position: absolute;
+    width: 100% !important;  // No quitar important, no hay alternativa!
+    height: 100% !important; // No quitar important, no hay alternativa!
+    z-index: 0;
+    overflow: hidden;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,0.00) 0%,
+      rgba(255,255,255,0.32) 46%,
+      rgba(255,255,255,0.00) 58%
+    ),
+    radial-gradient(circle at 18% 14%, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.00) 20%),
+    radial-gradient(circle at 82% 18%, rgba(245,246,248,0.72) 0%, rgba(245,246,248,0.00) 24%),
+    radial-gradient(circle at 50% 72%, rgba(228,232,237,0.22) 0%, rgba(228,232,237,0.00) 30%),
+    radial-gradient(circle at 50% 110%, rgba(212,216,222,0.14) 0%, rgba(212,216,222,0.00) 38%),
+    linear-gradient(
+      180deg,
+      #fcfcfd 0%,
+      #f8f8f9 18%,
+      #f3f4f6 42%,
+      #eeeff2 70%,
+      #eaebee 100%
+    );
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.not-visible {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.big-loader {
+  height: 100vh;
+  width: 100vw;
+  right: 0vw;
+}
+
+.mini-loader {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  position: absolute !important;
+  z-index: 1061;
+}
+
+.loader {
+  position: fixed;
+
+  background-color: #fafafa62;
+  z-index: 1059;
+  transition: background-color .2s ease-in-out;
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+    transition: opacity .2s ease-in-out;
+  }
+}
+
+.hidden {
+  background-color: transparent;
+  pointer-events: none;
+  transition: background-color .2s ease-in-out;
+
+
+  .spinner {
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+
+  }
+}

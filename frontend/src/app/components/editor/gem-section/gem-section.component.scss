@@ -1,0 +1,60 @@
+@use "../../../../styles/variables" as vars;
+@use "../../../../styles/mixins" as mixins;
+
+@include mixins.editor-items;
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+.sizeSelector {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+
+    .size {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+
+        span.light-button {
+            height: fit-content;
+            padding: 5px 10px;
+        }
+    }
+}
+
+.small {
+    font-size: large;
+}
+
+.medium {
+    font-size: x-large;
+}
+
+.big {
+    font-size: xx-large;
+}
+
+.legend-note {
+  display: flex;
+  align-items: center; 
+  gap: 10px;         
+  
+  padding: 12px 16px;
+  background-color: vars.$white;
+  border-left: 4px solid vars.$warningOrange; 
+  border-radius: 4px;
+  
+  font-size: 0.85rem;
+  color: #5d4037; 
+  margin-bottom: 20px;
+}
+
+.legend-note .note-icon {
+  color: vars.$warningOrange;
+  font-size: 1.1rem;
+}

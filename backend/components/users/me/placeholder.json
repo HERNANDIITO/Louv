@@ -1,0 +1,56 @@
+{
+  "name": "Anillo de Compromiso Eterno",
+  "creationDate": "2026-02-05T00:00:00.000Z",
+  "currentPrice": "1,250.00",
+  "snapshot": "../documents/placeholders/placeholder.image.png",
+  "composition": {
+    "baseStructure": {
+      "name": "Solitaire Clásico",
+      "description": "Diseño clásico solitario con perfil cómodo y una piedra central."
+    },
+    "profile": "Medio bisel",
+    "variant": {
+      "name": "1 gema",
+      "price": "10"
+    },
+    "material": {
+      "name": "Oro amarillo",
+      "description": "Aleación clásica de oro amarillo, cálida y duradera.",
+      "purity": "14K",
+      "purityComposition": "58% oro, 42% cobre/plata",
+      "price": "100"
+    },
+    "size": {
+      "name": "12",
+      "system": "ES-IT"
+    },
+    "settings": [
+      {
+        "name": "Chatón",
+        "clawNumber": "4 garras",
+        "clawType": "doble",
+        "gemstone": {
+          "name": "Diamante",
+          "description": "Piedra extremadamente dura y brillante; símbolo de pureza y eternidad.",
+          "isSyntetic": false
+        },
+        "gemstoneCut": "Princesa"
+      },
+      {
+        "name": "Chatón",
+        "clawNumber": "4 garras",
+        "clawType": "doble",
+        "gemstone": {
+          "name": "Diamante",
+          "description": "Piedra extremadamente dura y brillante; símbolo de pureza y eternidad.",
+          "isSyntetic": false
+        },
+        "gemstoneCut": "Princesa"
+      }
+    ]
+  },
+  "box": "caja corazón",
+  "boxInnerMaterial": "cuero beige",
+  "boxOuterMaterial": "terciopelo rojo",
+  "boxDetailColor": "acabado oro rosa"
+}

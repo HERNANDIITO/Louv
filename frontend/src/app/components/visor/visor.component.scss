@@ -1,0 +1,71 @@
+@use "../../../styles/variables" as styles;
+
+.viewport {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    &.fullscreen {
+        top: calc(styles.$navbar-height + 10px);
+        height: calc(100vh - styles.$navbar-height - 10px);
+        width: 100vw;
+    }
+    
+    .jewel-name-wrapper {
+        position: absolute;
+        background-color: transparent;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        width: 100%;
+
+        .jewel-name {
+            flex-grow: 1;
+            font-size: 40px;
+            font-family: styles.$abhaya, regular;
+            color: styles.$black;
+            background-color: transparent;
+            line-height: 24px;
+            align-content: center;
+            font-weight: 100;
+            background: none;
+            border: none;
+            outline: none;
+            height: 50px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 70%;
+            text-align: center;
+            margin: auto;
+            text-shadow:
+              0.8px 0 0 rgba(255, 255, 255, 0.802),    /* Desplaza a la derecha */
+              -0.8px 0 0 rgba(255, 255, 255, 0.802),   /* Desplaza a la izquierda */
+              0 0.8px 0 rgba(255, 255, 255, 0.802),    /* Desplaza abajo */
+              0 -0.8px 0 rgba(255, 255, 255, 0.802);   /* Desplaza arriba */
+        }
+
+        .price {
+            font-family: styles.$gantari;
+            color: styles.$dark-gray;
+            display: block;
+            margin-top: auto;
+            text-align: center;
+            text-shadow:
+              0.8px 0 0 rgba(255, 255, 255, 0.802),    /* Desplaza a la derecha */
+              -0.8px 0 0 rgba(255, 255, 255, 0.802),   /* Desplaza a la izquierda */
+              0 0.8px 0 rgba(255, 255, 255, 0.802),    /* Desplaza abajo */
+              0 -0.8px 0 rgba(255, 255, 255, 0.802);   /* Desplaza arriba */
+        }
+    }
+}
+
+.switch-wrapper {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 300px;
+}

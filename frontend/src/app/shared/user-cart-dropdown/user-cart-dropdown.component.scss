@@ -1,0 +1,159 @@
+@use "../../../styles/variables" as vars;
+
+.cart-container {
+    position: relative; 
+    display: inline-block;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 160%;
+    right: 0;
+    width: 300px;
+    background-color: vars.$light-purple;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    z-index: 1000;
+    color: vars.$purple;
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-xs;
+    
+    /* OCULTAR POR DEFECTO */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+
+    &::before {
+        content: ''; 
+        position: absolute;
+        top: -7px;
+        right: 12px; 
+        width: 16px;   /* Ancho del "diamante" */
+        height: 16px;  /* Alto del "diamante" */
+        
+        background-color: vars.$light-purple; 
+        border-radius: 3px; 
+        
+        // Rotar para formar un diamante
+        transform: rotate(45deg); 
+        
+        z-index: 999; 
+        
+        // oculto por defecto
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+    }
+}
+
+/* Clase para MOSTRAR el menú */
+.dropdown-menu.open {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    
+    &::before {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+.cart-badge {
+    position: absolute;
+    top: -10px;    
+    right: -4px; 
+    background-color: vars.$purple;
+    color: vars.$light-purple;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 16px;
+    height: 16px;
+    border-radius: 50%; /* Lo hace circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+
+    &.is-landing {
+      background-color: vars.$purple;
+    }
+}
+/* Lista de productos */
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+    border-top: 1px solid vars.$light-gray;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #000;
+    gap: 10px;
+    position: relative;
+}
+
+.item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.item-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.item-price {
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: vars.$purple;
+}
+
+/* Pie del carrito */
+.cart-footer {
+    margin-top: 15px;
+}
+
+.total-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.btn--checkout {
+    background-color: vars.$purple; /* El color rojizo de tu imagen */
+    color: vars.$light-purple;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn--checkout:hover {
+    background-color: vars.$light-purple;
+}
+
+
+
+

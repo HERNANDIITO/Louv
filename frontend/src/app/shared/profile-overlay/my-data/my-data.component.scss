@@ -1,0 +1,138 @@
+@use "../../../../styles/variables" as vars;
+
+form {
+  padding-right: 16px;
+  margin-top: 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.field-error {
+  color: #dc3545;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+  display: block;
+  white-space: normal;
+  line-height: 1.3;
+}
+
+.section-error-msg {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #dc3545;
+  font-size: 0.9rem;
+}
+
+.user-data-container {
+  color: vars.$black;
+
+  .section-header {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+
+    .h2-primary {
+      align-content: center;
+    }
+  }
+
+  .form-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-bottom: 0.01rem solid #ddd;
+  }
+
+  /* ===== MODIFICADO ===== */
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    align-items: start;
+    margin-bottom: 1.25rem;
+  }
+
+  /* NUEVO */
+  .form-row > :only-child {
+    grid-column: 1 / -1;
+  }
+
+  .input-wrapper {
+    display: flex;
+    flex-direction: column; // Label arriba, input debajo
+    flex: 1;
+    min-width: 0;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 3rem;
+    align-items: end; // <<---- Esto alinea todo al bottom de la fila
+    margin-bottom: 1.25rem;
+  }
+
+  /* Si solo hay un input en la fila, ocupa toda la fila */
+  .form-row > :only-child {
+    grid-column: 1 / -1;
+  }
+
+  .options {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .treatment-wrapper {
+    display: flex;
+    flex-direction: column; // label arriba, radios debajo
+    justify-content: flex-start; // alinea con el top del input
+    gap: 0.25rem;
+  }
+
+  .treatment-options {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .treatment-options label {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .treatment-options input[type="radio"] {
+    margin-right: 0.5rem; // espacio de 0.5rem entre radio y texto
+  }
+
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem * 2;
+  }
+
+  hr {
+    margin-top: 2em;
+  }
+
+  /* ===== NUEVO — Responsive inputs ===== */
+  @media (max-width: 768px) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.modifier-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(214, 214, 214);
+  padding: 1em 0;
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-data {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    padding: 0.5em;
+    margin-left: 0.75em;
+    font-size: 12px;
+  }
+
+  .value {
+    font-size: 12px;
+    padding-right: 1rem;
+    color: black;
+  }
+
+  .preview {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    }
+
+    .toggle-btn fa-icon {
+    display: inline-block;
+    transition: transform 0.25s ease;
+    }
+
+    .toggle-btn fa-icon.rotated {
+    transform: rotate(-90deg);
+    }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-top: 0.75em;
+
+    .labels-row,
+    .values-row {
+      display: flex;
+    }
+
+    .labels-row {
+      background: rgb(230, 230, 230);
+      padding: 0.5em;
+    }
+
+    .labels-row .label {
+      background: rgb(230, 230, 230);
+      font-weight: bold;
+      padding: 0.5em;
+      font-size: 12px;
+      flex: 1;
+      text-align: left;
+    }
+
+    .values-row .value {
+      background: #fff;
+      padding: 1em 0 0.5em 1em;
+      font-size: 12px;
+      flex: 1;
+      text-align: left;
+    }
+  }
+
+  #m{
+    margin-right: 1em;
+  }
+
+  .details-container {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    text-align: left; /* Para que la jerarquía se vea bien */
+    }
+}

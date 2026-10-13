@@ -1,0 +1,14 @@
+<h2 class="h1-primary h1-primary--stylish" id="exelearning">Un viaje desde el corazón hasta tus manos</h2>
+<h3 class="h2-primary">Descubre toda la magia que esconden nuestros anillos.</h3>
+<div class="iframe-wrapper">
+  @if (!beenClicked) {
+    <button class="purple-button" (click)="beenClicked = !beenClicked">¡Comienza a aprender!</button>
+  }
+  <iframe
+    src="objeto-aprendizaje/index.html"
+    width="100%"
+    height="900px"
+    [class.blurry]="!beenClicked"
+    style="border:none;">
+  </iframe>
+</div>

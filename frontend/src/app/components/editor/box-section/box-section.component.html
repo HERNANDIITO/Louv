@@ -1,0 +1,41 @@
+<div class="items">
+    @for (item of boxShapes(); track item._id; let i = $index) {
+        <app-item
+            #item
+            [item]="item"
+            [selected]="item._id === jewel().box.shape"
+            [open]="subsectionOpen && item._id === jewel().box.shape"
+            [isMain]="true"
+            [img]="'images/cajas/' + item.image"
+            (click)="onShapeClick(item._id, i); moveDetailsBelowSelectedRow(i)"
+        ></app-item>
+    }
+    
+    @if (selectedBox() && subsectionOpen) {
+        <div #subsection class="subsection" [class]="{closed: !subsectionOpen, left: selectedCol % 3 === 0, right: (selectedCol + 1) % 3 === 0}">
+            <p class="section-title">Materiales</p>
+            <div class="colors-wrapper">
+                <span class="description"><span class="bold">Exterior:</span>{{selectedOuterColor()?.name ? selectedOuterColor()?.name : 'Sin seleccionar'}}</span>
+                <div id="outer" class="palette">
+                    <div class="colors">
+                        @for (color of outerColors; track $index) {
+                            <button class="btn--clear" (click)="onExtColorClick(color)" [class.selected]="color._id === jewel().box.outerColor" >
+                                <img [src]="'images/cajas/materiales/' + color.image" alt="{{color.name}}">
+                            </button>
+                        }
+                    </div>
+                </div>
+                <span class="description"><span class="bold">Interior:</span> {{selectedInnerColor()?.name ? selectedInnerColor()?.name : 'Sin seleccionar'}}</span>
+                <div id="inner" class="palette">
+                    <div class="colors">
+                        @for (color of innerColors; track $index) {
+                            <button class="btn--clear" (click)="onIntColorClick(color)" [class.selected]="color._id === jewel().box.innerColor" >
+                                <img [src]="'images/cajas/materiales/' + color.image" alt="{{color.name}}">
+                            </button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

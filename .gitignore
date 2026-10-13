@@ -1,0 +1,4 @@
+.DS_Store
+backend/public/captures/anillo*
+frontend/dist/*
+frontend/dist

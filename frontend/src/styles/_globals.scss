@@ -1,0 +1,182 @@
+@use "variables" as vars;
+
+/* Tipografía base que se hereda automáticamente a todo */
+html,
+body,
+app-root {
+  font-family: vars.$google-sans;
+}
+
+body {
+  background: radial-gradient( circle at 20% 80%, #EDD3F1 0%, #fff 50%, #fff 100%);
+  min-height: 100vh;
+}
+
+/* Forzar herencia en TODOS los elementos */
+* {
+  font-family: inherit;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Excepción para Font Awesome - permite que use su propia fuente */
+.fa,
+.fas,
+.far,
+.fal,
+.fab,
+.fad {
+  font-family: Font Awesome 6 Free !important;
+}
+
+.text-icon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.control-error {
+  font-size: 12px;
+  color: vars.$red;
+}
+
+.separator {
+  border: 1px solid #D9D9D9
+}
+/* Toggle Switch */
+
+
+.getPDF{
+    padding-inline: 1rem;
+    p{
+        width: fit-content;
+        text-align: left;
+    }
+    div{
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        p{
+            font-weight: bold;
+        }
+    }
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;  
+}
+
+.tooltiptext {
+  font-size: 14px;
+  visibility: hidden;
+  width: max-content;
+  background-color: rgb(72, 72, 72);
+  color: vars.$light-purple;
+  text-align: center;
+  border-radius: 7px; 
+  padding: 6px 12px;
+  position: absolute;
+  z-index: 10;
+  
+  /* Posicionamiento: abajo del botón */
+  top: 120%; 
+  left: 50%;
+  transform: translateX(-50%); /* Lo centra perfectamente respecto al botón */
+  
+  transition: opacity 0.1s; /* Opcional: para que aparezca suave */
+  opacity: 0;
+}
+
+/* El "piquito" redondeado */
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  
+  /* 1. Lo posicionamos en el borde superior del tooltip */
+  top: 5%; 
+  left: 50%;
+  
+  /* 2. Definimos el tamaño */
+  width: 12px;
+  height: 12px;
+  background-color: rgb(72, 72, 72);
+  
+  /* 3.
+     - translate(-50%, -50%) lo centra horizontalmente y lo sube la mitad 
+     - rotate(45deg) lo convierte en diamante */
+  transform: translate(-50%, -50%) rotate(45deg);
+  
+  border-radius: 2px; /* Puntas redondeadas */
+  z-index: -1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+    
+
+
+.option-wrapper {
+  display: flex;
+  flex-flow: column;
+  gap: 5px;
+
+  .options {
+    display: flex;
+    gap: 8px;
+
+    .option-label {
+      font-family: vars.$google-sans-24;
+      color: vars.$purple;
+      border-radius: vars.$border-radius;
+      border-width: vars.$border-width;
+      outline: none;
+      font-size: 1rem;
+      height: 48px;
+      cursor: pointer;
+
+      background-color: vars.$white;
+      border-style: solid;
+      border-color: vars.$light-purple;
+
+      align-content: center;
+
+      &:not(.only-icon) {
+        padding: 5px 20px;
+      }
+
+      &:hover {
+        background-color: vars.$purple;
+        color: vars.$white;
+        border-color: vars.$light-purple;
+        transition: all 0.1s;
+        border-color: vars.$purple;
+      }
+
+      &:has(input:checked) {
+        background-color: vars.$purple;
+        color: vars.$white;
+        border-color: vars.$purple;
+      }
+
+      input {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #fff;
+        margin: 0;
+      }
+    }
+  }
+
+  .option {
+    font-size: 18px;
+    color: vars.$purple;
+    font-weight: 600;
+    width: fit-content;
+  }
+}

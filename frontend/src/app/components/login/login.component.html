@@ -1,0 +1,66 @@
+  @if (isLoading()) {
+    <app-loading-spinner></app-loading-spinner>
+  }
+    <div class="wrapper">
+      <div class="title-wrapper">
+        <h1 class="h1-primary h1-primary--center h1-primary--stylish">Inicio de sesión</h1>
+        <p>Estamos encantados de volver a verle.</p>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        
+        <div class="inputs">
+          <app-custom-input
+            [control]="loginForm.controls.email"
+            id="email"
+            type="email"
+            label="Email"
+            placeholder="Introduzca su email"
+          ></app-custom-input>
+          @if (
+            loginForm.controls.email.touched &&
+            loginForm.controls.email.dirty &&
+            loginForm.controls.email.invalid
+          ) {
+            <span class="control-error">El formato del email no es correcto.</span>
+          }
+          <app-custom-input
+            [control]="loginForm.controls.password"
+            id="password"
+            type="password"
+            label="Contraseña"
+            placeholder="Introduzca su contraseña"
+          ></app-custom-input>
+      
+          <div class="options">
+            <label for="rememberMe">
+              <input
+                [formControl]="loginForm.controls.rememberMe"
+                id="rememberMe"
+                type="checkbox"
+                class="checkbox"
+              />
+              Recordarme
+            </label>
+          </div>
+        </div>
+    
+        <div class="button-wrapper">
+          <button
+            type="submit"
+            class="purple-button"
+            [disabled]="loginForm.invalid"
+          >
+            Iniciar sesión
+            <fa-icon [icon]="icons.faChevronRight"></fa-icon>
+          </button>
+          <button
+            type="button"
+            class="dark-button"
+            (click)="oauth()"
+          >
+            <img class="google-icon" src="/icons/google-icon.svg" alt="Google" />
+            Continuar con Google
+          </button>
+        </div>
+      </form>
+    </div>

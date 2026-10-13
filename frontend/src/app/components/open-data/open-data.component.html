@@ -1,0 +1,76 @@
+<section>
+  <h1>¿Qué son estos datos?</h1>
+  <p>
+    Este apartado contiene una colección de datos generados a partir de la
+    actividad del sistema. Aquí podrás consultar información general sobre
+    diferentes métricas internas y registros disponibles. Algunos de estos datos
+    incluyen resúmenes mensuales, así como información sobre fuentes de tráfico,
+    el uso de gemas, metales, engastes y tipos de bases.
+  </p>
+
+  <h2>¿Cómo acceder a ellos?</h2>
+  <p>
+    Es muy sencillo. Solo tienes que hacer clic en el botón inferior para
+    descargar los archivos disponibles. Cada fichero está en formato CSV y se
+    entrega comprimido en un archivo ZIP por motivos de espacio. Para
+    descomprimirlo, puedes usar herramientas como 7-Zip (gratuito) o WinRAR.
+  </p>
+</section>
+
+<button
+  class="purple-button"
+  (click)="downloadOpenData()"
+  [disabled]="isLoading()"
+>
+  @if (isLoading()) {
+    <span>Generando archivo...</span>
+  } @else {
+    <span>Descargar ZIP</span>
+  }
+</button>
+
+<section>
+  <h3>Consideraciones</h3>
+
+  <ul class="considerations-list">
+    <li>
+      El conjunto de datos es publicado por el equipo de estudiantes Patata Team
+      bajo una licencia
+      <a
+        href="https://creativecommons.org/licenses/by/4.0/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="cc-license"
+      >
+        <i class="fa-brands fa-creative-commons"></i>
+        Creative Commons BY 4.0 </a
+      >.
+    </li>
+
+    <li>
+      Los archivos se distribuyen en formato ZIP e incluyen los datos
+      organizados en CSV para facilitar su consulta y tratamiento.
+    </li>
+
+    <li>
+      La información se actualizará automáticamente de forma semanal (todos los
+      lunes a las 00:00, hora peninsular) y, posteriormente, de manera mensual,
+      estando disponible principalmente en español.
+    </li>
+
+    <li>
+      El conjunto inicial de datos corresponde a la segunda mitad de mayo.
+    </li>
+
+    <li>
+      Estos datos han sido generados con fines académicos y demostrativos, por
+      lo que pueden contener errores, inconsistencias o modificaciones futuras.
+    </li>
+
+    <li>
+      Cualquier información relacionada con ventas, métricas económicas o
+      apartados legales debe considerarse ficticia, ya que el proyecto no
+      representa una actividad comercial real.
+    </li>
+  </ul>
+</section>

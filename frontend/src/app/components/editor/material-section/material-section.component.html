@@ -1,0 +1,30 @@
+<!-- Listado de Materiales (Oro, Plata, Platino...) -->
+<div class="material items">
+    @for (item of section(); track item._id; let i = $index) {
+        <app-item 
+            #item
+            [selected]="item._id === jewel().material" 
+            [open]="subsectionOpen && item._id === jewel().material"
+            [item]="item" 
+            [isMain]="true"
+            [material]="item.purities[0].class"
+            (beenSelected)="onItemClick('material', item._id); selectedCol.set(i); moveDetailsBelowSelectedRow()">
+        </app-item>
+    }
+</div>
+
+<!-- Listado de Purezas (Solo si el material seleccionado tiene purezas) -->
+<div #subsection class="subsection" class="subsection" [class]="{closed: !subsectionOpen, left: selectedCol() % 3 === 0, right: (selectedCol() + 1) % 3 === 0}">
+    <p class="description">{{selectedMaterial()?.description}}</p>
+    <p class="section-title">Pureza</p>
+    <div class="purity items">
+        @for (item of selectedMaterial()?.purities; track item._id) {
+            <app-item 
+                [selected]="item._id === jewel().purity" 
+                [item]="item" 
+                [material]="item.class"
+                (beenSelected)="onItemClick('purity', item._id)">
+            </app-item>
+        }
+    </div>
+</div>

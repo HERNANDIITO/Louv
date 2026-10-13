@@ -1,0 +1,337 @@
+@use "../../../../../styles/variables" as vars;
+
+.stats-row {
+  display: flex;
+  flex-direction: column; 
+  gap: .25rem; 
+  margin-bottom: 1.5rem; 
+  padding: 2rem 1.25rem; 
+  background-color: #fff;
+  border: 0.0625rem solid vars.$light-gray;
+  border-radius: 0.75rem;
+}
+
+.header-container {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.sources-grid {
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  app-stats-card {
+    flex: 1; 
+  }
+}
+
+.funnel-container {
+  position: relative;
+  width: 100%;
+  height: 850px; 
+  margin: .1rem 0;
+
+  .chart-funnel-bg {
+    width: 100%;
+    height: 100%;
+  }
+}
+.funnel-steps-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+ 
+
+  .funnel-step-row {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; 
+    
+    .metrics-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem; 
+      width: 100%;
+      pointer-events: auto;
+
+      .metric-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .m-content-inline {
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          gap: 0.5rem;
+          margin-bottom: 0.25rem;
+        }
+
+        .m-value, .m-label { 
+          font-size: 1.25rem; 
+          font-weight: 800; 
+          color: vars.$purple; 
+          line-height: 1;
+          white-space: nowrap; 
+        }
+
+        .percentage-pill {
+          background-color: #fff;
+          border: 1px solid vars.$light-gray;
+          padding: 0.2rem 0.8rem;
+          border-radius: 2rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+
+          .pill-text {
+            font-size: 0.85rem; 
+            font-weight: 700;
+            color: vars.$black;
+          }
+
+          .status-circle {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            
+            &.c-pos { background-color: #4ade80; } 
+            &.c-neg { background-color: #f87171; } 
+            &.c-neu { background-color: #fbbf24; } 
+          }
+        }
+      }
+    }
+  }
+}
+
+.funnel-step-row:nth-child(2) {
+  .m-value {
+    font-size: 1.8rem; 
+  }
+}
+
+.funnel-container .chart {
+  width: 100%;
+  height: 100%;
+}
+
+.stats-section {
+  background-color: #fff;
+  border-radius: 1rem; 
+  padding: 1.125rem 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; 
+  flex: 1;
+  min-width: 0;
+  align-self: flex-start;
+  border: 0.0625rem solid vars.$light-gray;
+  color: vars.$purple;
+}
+
+.stats-section h2 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: vars.$black;
+  margin: 0;
+}
+
+.stats-body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  width: 100%;
+}
+
+.stats-text {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; 
+  padding-left: 1.5625rem; 
+  text-align: center;
+}
+
+
+.stats-text p:nth-of-type(1) {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+}
+
+
+.stats-text p:nth-of-type(2) {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0; 
+}
+
+
+.stats-text p:nth-of-type(3) {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.25rem 0; 
+}
+
+.stats-text ol {
+  margin: 0;
+  padding-left: 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem; 
+  align-items: center;
+}
+
+.stats-text ol li {
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+
+.chart-line {
+  width: 10rem;
+  height: 4.375rem; 
+}
+
+.stats-pie {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-pie {
+  width: 25rem; 
+  height: 20rem;
+}
+
+.dashboard-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem; 
+  padding-right: 1.25rem; 
+}
+
+.stats-section {
+  flex: 1;
+}
+
+.little-stat {
+  background-color: #fff;
+  border-radius: 1rem; 
+  padding: 1.35rem 1.5rem; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem; 
+  flex: 1;
+  border: 0.0625rem solid vars.$light-gray;
+}
+
+.little-stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem; 
+  flex: 0 0 18.75rem;
+}
+
+.little-stat h4 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4a1a7a;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.little-stat p {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4a1a7a;
+  margin: 0;
+  max-width: 13.75rem; 
+  line-height: 1.4;
+}
+
+.little-stat span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem; 
+  padding: 0.5rem 1.25rem; 
+  border-radius: 62.4375rem; 
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+.little-stat span.positive {
+  background-color: #b8f0b0;
+  color: #1a1a1a;
+}
+
+.little-stat span.negative {
+  background-color: #f0b0b0;
+  color: #1a1a1a;
+}
+
+:host {
+  display: block;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.factu__titulo {
+  font-size: vars.$font-size-h3;
+  font-weight: 600;
+  color: vars.$dark-gray;
+  margin: 0 0 vars.$spacing-sm 0;
+}
+
+
+.btn-icon {
+    background: none;    
+    border: none;        
+    cursor: pointer;     
+    color: #888;         
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    fa-icon {
+      font-size: 1.2rem;  
+    }
+
+    &:hover {
+      color: #555;       
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95); 
+    }
+
+    &:focus {
+      outline: none;     
+    }
+
+    &.disabled {
+      color: #ddd;         
+      cursor: not-allowed; 
+      pointer-events: none; 
+      transform: none !important;
+    }
+  }

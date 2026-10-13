@@ -1,0 +1,362 @@
+[
+  {
+    "_id": "677100aa9a1bcd01a2000101",
+    "material": "gold",
+    "name": "Oro Amarillo",
+    "description": "Metal precioso clásico utilizado desde la antigüedad.",
+    "meaning": "Riqueza y prosperidad.",
+    "zodiac": ["Leo", "Aries"],
+    "recommendedGems": ["6770gem0001", "6770gem0003"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000101",
+        "class": "Gold 18K",
+        "purity": "18K",
+        "pricePermm3": "64000.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "75% oro, 25% aleaciones",
+        "image": "images/materials/gold_18k.jpg",
+        "texture": "polished",
+        "description": "Oro 18 quilates con brillo intenso.",
+        "meaning": "Equilibrio y éxito."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000102",
+    "material": "silver",
+    "name": "Plata Esterlina",
+    "description": "Aleación de plata muy utilizada en joyería.",
+    "meaning": "Pureza y claridad.",
+    "zodiac": ["Libra", "Acuario"],
+    "recommendedGems": ["6770gem0004"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000102",
+        "class": "Silver 925",
+        "purity": "925",
+        "pricePermm3": "850.00",
+        "allegies": true,
+        "allergens": ["Nickel"],
+        "composition": "92.5% plata, 7.5% cobre",
+        "image": "images/materials/silver_925.jpg",
+        "texture": "polished",
+        "description": "Plata clásica con acabado brillante.",
+        "meaning": "Tranquilidad y protección."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000103",
+    "material": "platinum",
+    "name": "Platino",
+    "description": "Metal de alta calidad, muy resistente.",
+    "meaning": "Pureza absoluta.",
+    "zodiac": ["Virgo"],
+    "recommendedGems": ["6770gem0002", "6770gem0006"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000103",
+        "class": "Platinum 950",
+        "purity": "950",
+        "pricePermm3": "74000.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "95% platino, 5% iridio",
+        "image": "images/materials/platinum_950.jpg",
+        "texture": "polished",
+        "description": "Platino de alta resistencia.",
+        "meaning": "Fuerza y claridad."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000104",
+    "material": "copper",
+    "name": "Cobre",
+    "description": "Metal rojizo conocido desde la antigüedad.",
+    "meaning": "Vitalidad y energía.",
+    "zodiac": ["Aries"],
+    "recommendedGems": [],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000104",
+        "class": "Copper Pure",
+        "purity": "999",
+        "pricePermm3": "95.00",
+        "allegies": true,
+        "allergens": ["Copper"],
+        "composition": "Cobre puro",
+        "image": "images/materials/copper_pure.jpg",
+        "texture": "polished",
+        "description": "Cobre puro pulido.",
+        "meaning": "Energía y conexión."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000105",
+    "material": "titanium",
+    "name": "Titanio",
+    "description": "Metal ligero y muy resistente.",
+    "meaning": "Resistencia y poder.",
+    "zodiac": ["Escorpio"],
+    "recommendedGems": ["6770gem0007"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000105",
+        "class": "Titanium Grade 2",
+        "purity": "Grade2",
+        "pricePermm3": "430.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "Titanio puro grado 2",
+        "image": "images/materials/titanium2.jpg",
+        "texture": "matte",
+        "description": "Titanio grado 2 con acabado mate.",
+        "meaning": "Control y estabilidad."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000106",
+    "material": "steel",
+    "name": "Acero Inoxidable",
+    "description": "Metal resistente y económico.",
+    "meaning": "Protección.",
+    "zodiac": ["Capricornio"],
+    "recommendedGems": [],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000106",
+        "class": "Steel 316L",
+        "purity": "316L",
+        "pricePermm3": "20.00",
+        "allegies": true,
+        "allergens": ["Nickel"],
+        "composition": "Acero quirúrgico 316L",
+        "image": "images/materials/steel_316L.jpg",
+        "texture": "polished",
+        "description": "Acero de alta durabilidad.",
+        "meaning": "Protección y estructura."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000107",
+    "material": "gold",
+    "name": "Oro Blanco",
+    "description": "Oro mezclado con paladio y níquel.",
+    "meaning": "Elegancia y luz.",
+    "zodiac": ["Tauro", "Libra"],
+    "recommendedGems": ["6770gem0011"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000107",
+        "class": "White Gold 14K",
+        "purity": "14K",
+        "pricePermm3": "51000.00",
+        "allegies": true,
+        "allergens": ["Nickel"],
+        "composition": "58% oro, paladio y níquel",
+        "image": "images/materials/white_gold_14k.jpg",
+        "texture": "polished",
+        "description": "Oro blanco brillante.",
+        "meaning": "Claridad mental."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000108",
+    "material": "silver",
+    "name": "Plata Fina",
+    "description": "Plata de máxima pureza.",
+    "meaning": "Pureza espiritual.",
+    "zodiac": ["Piscis"],
+    "recommendedGems": [],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000108",
+        "class": "Silver 999",
+        "purity": "999",
+        "pricePermm3": "1000.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "Plata pura",
+        "image": "images/materials/silver_999.jpg",
+        "texture": "polished",
+        "description": "Plata muy brillante.",
+        "meaning": "Sanación y pureza."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000109",
+    "material": "bronze",
+    "name": "Bronce",
+    "description": "Aleación tradicional de cobre y estaño.",
+    "meaning": "Estabilidad.",
+    "zodiac": ["Aries"],
+    "recommendedGems": [],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000109",
+        "class": "Bronze Classic",
+        "purity": "Classic",
+        "pricePermm3": "75.00",
+        "allegies": true,
+        "allergens": ["Copper"],
+        "composition": "88% cobre, 12% estaño",
+        "image": "images/materials/bronze.jpg",
+        "texture": "matte",
+        "description": "Bronce tradicional.",
+        "meaning": "Confianza."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000110",
+    "material": "platinum",
+    "name": "Platino Industrial",
+    "description": "Versión industrial para joyería fuerte.",
+    "meaning": "Fortaleza extrema.",
+    "zodiac": [],
+    "recommendedGems": ["6770gem0009"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000110",
+        "class": "Platinum 900",
+        "purity": "900",
+        "pricePermm3": "70000.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "90% platino, 10% aleaciones",
+        "image": "images/materials/platinum_900.jpg",
+        "texture": "polished",
+        "description": "Platino de grado 900.",
+        "meaning": "Resistencia absoluta."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000111",
+    "material": "copper",
+    "name": "Cobre Pulido",
+    "description": "Versión pulida para diseños modernos.",
+    "meaning": "Vitalidad.",
+    "zodiac": ["Aries"],
+    "recommendedGems": ["6770gem0010"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000111",
+        "class": "Copper Fine",
+        "purity": "Fine",
+        "pricePermm3": "120.00",
+        "allegies": true,
+        "allergens": ["Copper"],
+        "composition": "Cobre refinado",
+        "image": "images/materials/copper_fine.jpg",
+        "texture": "polished",
+        "description": "Cobre refinado y pulido.",
+        "meaning": "Energía creativa."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000112",
+    "material": "titanium",
+    "name": "Titanio Oscuro",
+    "description": "Titanio anodizado con tono oscuro.",
+    "meaning": "Protección.",
+    "zodiac": ["Capricornio"],
+    "recommendedGems": [],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000112",
+        "class": "Titanium Grade 5",
+        "purity": "Grade5",
+        "pricePermm3": "600.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "Titanio grado 5",
+        "image": "images/materials/titanium5.jpg",
+        "texture": "matte",
+        "description": "Acabado matte oscuro.",
+        "meaning": "Firmeza mental."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000113",
+    "material": "steel",
+    "name": "Acero Cepillado",
+    "description": "Acero con acabado cepillado elegante.",
+    "meaning": "Estructura.",
+    "zodiac": [],
+    "recommendedGems": ["6770gem0008"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000113",
+        "class": "Steel 304",
+        "purity": "304",
+        "pricePermm3": "15.00",
+        "allegies": true,
+        "allergens": ["Nickel"],
+        "composition": "Acero 304",
+        "image": "images/materials/steel_304.jpg",
+        "texture": "brushed",
+        "description": "Acero con vetas finas.",
+        "meaning": "Orden y estabilidad."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000114",
+    "material": "gold",
+    "name": "Oro Rosa",
+    "description": "Oro aleado con cobre para un color rosado.",
+    "meaning": "Amor y armonía.",
+    "zodiac": ["Tauro", "Cáncer"],
+    "recommendedGems": ["6770gem0012"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000114",
+        "class": "Rose Gold 18K",
+        "purity": "18K",
+        "pricePermm3": "65000.00",
+        "allegies": true,
+        "allergens": ["Copper"],
+        "composition": "75% oro, 25% cobre",
+        "image": "images/materials/rose_gold_18k.jpg",
+        "texture": "polished",
+        "description": "Oro rosado brillante.",
+        "meaning": "Romance y calidez."
+      }
+    ]
+  },
+  {
+    "_id": "677100aa9a1bcd01a2000115",
+    "material": "silver",
+    "name": "Plata Oxidada",
+    "description": "Plata con tratamiento químico oscuro.",
+    "meaning": "Misterio.",
+    "zodiac": ["Escorpio"],
+    "recommendedGems": ["6770gem0013"],
+    "purities": [
+      {
+        "_id": "677100aa9a1bcd01b1000115",
+        "class": "Silver Oxide",
+        "purity": "925",
+        "pricePermm3": "900.00",
+        "allegies": false,
+        "allergens": [],
+        "composition": "Plata 925 oxidada",
+        "image": "images/materials/silver_oxide.jpg",
+        "texture": "matte",
+        "description": "Plata oscurecida.",
+        "meaning": "Transformación."
+      }
+    ]
+  }
+]

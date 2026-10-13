@@ -1,0 +1,90 @@
+<div class="stats-row">
+  <div class="header-container">
+    <h2 class="factu__titulo">
+      <button (click)="prevMonth()" class="btn-icon"><fa-icon [icon]="faAngleLeft"></fa-icon></button>
+      Usuarios {{ getMonthName() }} {{ year }}
+      <button (click)="nextMonth()" class="btn-icon" [disabled]="esFuturo()"  [class.disabled]="esFuturo()"><fa-icon [icon]="faAngleRight"></fa-icon></button>
+    </h2>
+  </div>
+
+  <div class="sources-grid">
+    <app-stats-card *ngFor="let item of sourcesStats" [data]="item"></app-stats-card>
+  </div>
+
+  <div class="funnel-container">
+    <div echarts [options]="option" class="chart-funnel-bg"></div>
+
+    <div class="funnel-steps-overlay">
+      <div *ngFor="let step of complexFunnel; let i = index" class="funnel-step-row">
+        <div class="metrics-group">
+          <div *ngFor="let m of step.metrics" class="metric-item">
+
+           <div class="m-content-inline">
+          <span class="m-value">{{ m.value }}</span>
+          <span class="m-label" *ngIf="m.label">{{ m.label }}</span>
+        </div>
+            
+            <div class="percentage-pill">
+              <span class="status-circle" [ngClass]="{'c-pos': m.change > 0, 'c-neg': m.change < 0, 'c-neu': m.change === 0}"></span>
+              <span class="pill-text">
+                {{ m.change > 0 ? '↑' : (m.change < 0 ? '↓' : '—' ) }} {{ Math.abs(m.change) }}%
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-row">
+  <div class="stats-section">
+    <h2>Ubicación y sexo de usuarios registrados</h2>
+    <div class="stats-body">
+      <div class="stats-text">
+        <p>{{ totalUsuarios }}</p>
+        <p>Usuarios registrados</p>
+
+        <div echarts [options]="chartOption" class="chart-line"></div>
+
+        <p>Top 3 mejores ciudades:</p>
+        <ol>
+          <li *ngFor="let item of ciudades">
+            {{ item }}
+          </li>
+        </ol>
+        <p class="unknown-stats" style="font-size: 0.9rem; color: #666; margin-top: 10px;">
+          Ubicación desconocida: <strong>{{ porcentajeDesconocido }}</strong>
+        </p>
+      </div>
+
+      <div class="stats-pie">
+        <div echarts [options]="chartOption2" class="chart-pie"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="little-stats-column">
+    <div class="little-stat">
+      <h4>{{ avgDesignTimeStr }}</h4>
+      <p>Tiempo medio para completar un diseño</p>
+      <span [ngClass]="{
+      'positive': avgDesignTimeChange < 0, 
+      'negative': avgDesignTimeChange > 0
+    }">
+        {{ avgDesignTimeChange > 0 ? '↑' : (avgDesignTimeChange < 0 ? '↓' : '' ) }} {{ Math.abs(avgDesignTimeChange) }}%
+          </span>
+    </div>
+    <div class="little-stat">
+      <h4>{{ recurrentRate }}%</h4>
+      <p>Usuarios recurrentes</p>
+      <span [ngClass]="{
+      'positive': recurrentRateChange > 0,
+      'negative': recurrentRateChange < 0
+    }">
+        {{ recurrentRateChange > 0 ? '↑' : (recurrentRateChange < 0 ? '↓' : '' ) }} {{ Math.abs(recurrentRateChange) }}%
+          </span>
+    </div>
+  </div>
+</div>
+<app-go-up-button></app-go-up-button>

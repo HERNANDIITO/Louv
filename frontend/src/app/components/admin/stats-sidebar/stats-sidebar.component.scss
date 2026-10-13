@@ -1,0 +1,46 @@
+@use "../../../../styles/variables" as vars;
+
+.sidebar {
+  padding-top: 2em;
+
+  h1 {
+    font-size: 24px;
+    font-family: vars.$abhaya;
+    color: vars.$black;
+    line-height: 24px;
+    font-weight: 100 !important;
+    margin-left: 16px;
+    margin-bottom: 24px;
+  }
+
+  nav {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    gap: 12px;
+
+    button {
+      text-wrap: nowrap;
+    }
+  }
+
+  padding: 0 16px;
+
+  .dark-button {
+    border: 2px solid vars.$purple;
+    transition: border-color 0.5s;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+      border: 2px solid vars.$purple;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px vars.$purple;
+    }
+  }
+}
+
+.top-right {
+  position: absolute;
+  top: 2em;
+  right: 16px;
+}

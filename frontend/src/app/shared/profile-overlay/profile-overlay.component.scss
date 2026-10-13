@@ -1,0 +1,52 @@
+@use "../../../styles/variables" as vars;
+
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
+}
+
+.overlay-window {
+  position: fixed;
+  height: 80%;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  padding: 40px;
+
+  display: flex;
+  flex-flow: row;
+
+  background-color: vars.$white;
+  border-radius: 30px;
+
+  .separator {
+    margin: 0 19px;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    transform: translateX(50%) translateY(-50%);
+    cursor: pointer;
+
+    transition: transform .3s ease-in-out;
+
+    color: vars.$dark-gray;
+
+    &:hover {
+      transform: translateX(50%) translateY(-50%) scale(1.2);
+    }
+  }
+
+  .content {
+    flex: 1;
+    overflow: scroll;
+  }
+}

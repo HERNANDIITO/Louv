@@ -1,0 +1,240 @@
+@use "../../../../styles/variables" as vars;
+
+.controls {
+  display: flex;
+  flex-flow: column;
+  background-color: vars.$white;
+  padding: 20px;
+  border-radius: 10px;
+
+  filter: drop-shadow(0 2px 4px rgba(14, 14, 14, 0.3));
+
+  
+  
+  gap: 20px;
+
+  .control-wrapper {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+
+    .control-item {
+      display: flex;
+      flex-flow: column;
+
+      .text {
+        height: fit-content;
+        margin: auto 0;
+      }
+
+      fa-icon {
+        font-size: 1.5rem;
+      }
+      
+      span {
+        display: flex;
+        flex-flow: row;
+        white-space: nowrap;
+        gap: 5px;
+      }
+  
+      .control-action {
+        margin-left: 1rem;
+        .text {
+          color: vars.$purple;
+        }
+      }
+    }
+  }
+
+}
+
+.click {
+  position: relative;
+  ::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: vars.$light-purple;
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    z-index: 2;
+  }
+
+  ::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(86, 33, 114, 1) 0%, transparent 90%);
+    border-radius: 50%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  &:hover {
+    ::before {
+      animation: click 0.05s forwards;
+    }
+
+    ::after {
+      animation: after-click 0.05s forwards;
+    }
+  }
+}
+
+.wheel {
+  position: relative;
+  ::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 8px;
+    height: 12px;
+    background-color: vars.$light-purple;
+    border-radius: 50%;
+    left: 11px;
+    top: 0;
+    z-index: 2;
+
+  }
+  &:hover {
+    ::before {
+      animation: wheel 1s infinite;
+    }
+  }
+}
+
+.double {
+  &:hover {
+    ::before {
+      animation: double-click 1.5s infinite !important;
+    }
+  }
+  &:hover {
+    ::after {
+      animation: after-double-click 1.5s infinite !important;
+    }
+  }
+}
+
+.left {
+  ::before {
+    left: 3px;
+  }
+  ::after {
+    left: 3px;
+  }
+}
+
+.right {
+  ::before {
+    left: 15px;
+  }
+  ::after {
+    left: 15px;
+  }
+}
+
+@keyframes click {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.5);
+  }
+}
+
+@keyframes after-click {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes double-click {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(0.5);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.5);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes after-double-click {
+  0% {
+    transform: scale(1);
+  }
+
+  10% {
+    transform: scale(1.5);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.5);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes wheel {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(-50%);
+    scale: 1.25;
+  }
+
+  50% {
+    transform: translateY(0);
+    scale: 1;
+  }
+
+  75% {
+    transform: translateY(50%);
+    scale: 0.75;
+  }
+
+  100% {
+    transform: translateY(0%);
+    scale: 1;
+  }
+}

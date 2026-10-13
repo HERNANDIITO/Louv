@@ -1,0 +1,37 @@
+<div class="profile-container">
+
+  <button
+        class="light-button dropdown-button"
+        [class.is-landing]="isLanding()"
+        title="Perfil"
+        (click)="toggleDropdown()"
+        [class.open]="isDropdownOpen()"
+    >
+        <fa-icon [icon]="faUser" size="lg"></fa-icon> Mi cuenta
+    </button>
+
+    <div class="dropdown-menu" [class.open]="isDropdownOpen()">
+        <span class="user-name">
+            {{ userName() }}
+        </span>
+        @if(authService.isAdmin()){
+            <button class="light-button"  routerLink="/estadisticas-admin">
+                <fa-icon [icon]="faChartSimple"></fa-icon>
+                Panel de administración
+            </button>
+            <button class="light-button"  routerLink="/configuracion-admin">
+                <fa-icon [icon]="faGear"></fa-icon>
+                Configuración
+            </button>
+        }@else{
+            <button class="light-button"  (click)="openProfile()">
+                <fa-icon [icon]="faUser"></fa-icon>
+                Ir a mi cuenta
+            </button>
+        }
+        <button class="dark-button" (click)="logout()">
+            <fa-icon [icon]="faSignOutAlt"></fa-icon>
+            Cerrar sesión
+        </button>
+    </div>
+</div>

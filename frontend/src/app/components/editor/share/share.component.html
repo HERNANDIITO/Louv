@@ -1,0 +1,20 @@
+@if (!justDownload()) {
+    <div class="share-wrapper" animate.enter="enter-animation" animate.leave="leave-animation">
+        <p class="title">Compartir</p>
+        <div class="share-content">
+            <app-switch [text]="'Incluir precio'" (status)="showPrice($event)" [checked]="showPriceValue"></app-switch>
+            <app-big-switch [onValue]="'PDF'" [offValue]="'Enlace'" [checked]="PDFOrLinkValue()" (status)="PDFOrLink($event)"></app-big-switch>
+            <div class="link-wrapper" (click)="copyLink()" [class.hidden]="!PDFOrLinkValue()">
+                <p class="purple-link">{{shareLink()}}</p>
+                <div #flip class="flip"
+                (transitionend)="onTransitionEnd($event)"
+                >
+                    <fa-icon class="purple inner" [icon]="faCopy"></fa-icon>
+                    <fa-icon class="purple outer" [icon]="faCheck"></fa-icon>
+                </div>
+            </div>
+    
+        </div>
+        <button (click)="PDFOrLinkValue() ? getShareLink() : downloadPDF()" class="purple-button">{{ PDFOrLinkValue() ? 'Generar nuevo enlace' : 'Descargar PDF' }}</button>
+    </div>
+}

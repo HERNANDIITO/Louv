@@ -1,0 +1,35 @@
+<aside class="sidebar">
+  <h1>Perfil personal</h1>
+  <nav>
+    <button
+      class="clear-button"
+      (click)="changeView('Mis anillos')"
+      [class.dark-button]="active() === 'Mis anillos'"
+    >
+    <fa-icon [icon]="icons.faGem"></fa-icon>
+    <span>
+      Gestionar diseños
+    </span>
+    </button>
+    <button
+      class="clear-button"
+      (click)="changeView('Mis pedidos')"
+      [class.dark-button]="active() === 'Mis pedidos'"
+    >
+    <fa-icon [icon]="icons.faShoppingCart"></fa-icon>
+    <span>
+      Consultar pedidos
+    </span>    
+    </button>
+    <button
+      class="clear-button"
+      (click)="changeView('Mis datos')"
+      [class.dark-button]="active() === 'Mis datos'"
+    >
+    <fa-icon [icon]="icons.faGear"></fa-icon>
+    <span>
+      Configurar cuenta
+    </span>    
+    </button>
+  </nav>
+</aside>

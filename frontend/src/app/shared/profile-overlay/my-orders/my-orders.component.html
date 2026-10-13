@@ -1,0 +1,111 @@
+<div class="search-filter-container">
+  <app-input placeholder="Buscar..." icon="search"></app-input>
+  <button class="filter-btn">
+    <fa-icon [icon]="faSliders"></fa-icon> Filtrar
+  </button>
+</div>
+
+<div class="orders-list">
+  @for (p of orders(); track p._id) {
+    <app-accordion-item>
+
+      <div class="accordion-title" slot="title">
+        <p><b>N.º pedido:</b> {{ p.orderNumber }}</p>
+        <p>
+          <b>Total: {{ p.totalPrice.$numberDecimal | number:'1.2-2' }}€</b>
+        </p>
+      </div>
+
+      <div class="accordion-content">
+        <div class="order-info-header">
+          <div class="date-address">
+            <p>
+              <strong>Fecha:</strong>
+              {{ p.cartCreationDate | date: "dd 'de' MMMM 'de' yyyy" }}
+            </p>
+            @if (p.address) {
+              <p>
+                <strong>Dirección:</strong> {{ p.address.street }}
+                {{ p.address.province }}, {{ p.address.locality }}
+              </p>
+            }
+          </div>
+          <span class="state-tag" [class]="getStateInfo(p.state).class">
+            {{ getStateInfo(p.state).label }}
+          </span>
+        </div>
+
+        @for (prod of p.products; track prod._id) {
+          <div class="product-detail">
+            <div class="product-image">
+              <img
+                [authSrc]="orderService.getOrderJewelPhotoUrl(p._id, prod._id)"
+                alt="Imagen del producto"
+              />
+            </div>
+            <div class="product-info">
+              <h3>{{ prod.name }}</h3>
+              <ul>
+                <li>
+                  <span>Medida:</span> {{ prod.composition.size.name }}
+                </li>
+                <li>
+                  <span>Diseño:</span>
+                  {{ prod.composition.baseStructure.name }}
+                </li>
+                <li>
+                  <span>Perfil:</span>
+                  {{ prod.composition.profile?.name }}
+                </li>
+                <li>
+                  <span>Variante:</span> {{ getVariantName(prod) }}
+                </li>
+                <li>
+                  <span>Material:</span>
+                  {{ prod.composition.material.name }}
+                </li>
+
+                <div class="settings-container">
+                  <p class="settings-title">Engastes:</p>
+                  @for (s of prod.composition.settings; track $index) {
+                    <div class="setting-group">
+                      <div class="setting-header">
+                        <span class="setting-name">{{
+                          s.setting?.name
+                        }}</span>
+                        @if (getClawInfo(s)) {
+                          <span class="claw-tag">{{
+                            getClawInfo(s)
+                          }}</span>
+                        }
+                      </div>
+                      <ul class="gem-list">
+                        <li>
+                          <span class="label">Gema:</span>
+                          {{ s.gemstone?.name }}
+                          <span class="gem-cut"
+                            >({{ s.gemstoneCut?.name }})</span
+                          >
+                        </li>
+                        @if (s.isSynthetic) {
+                          <li class="synthetic-badge">
+                            Gema creada
+                          </li>
+                        }@else {
+                          <li class="synthetic-badge">
+                            Gema natural
+                          </li>
+                        }
+                      </ul>
+                    </div>
+                  }
+                </div>
+              </ul>
+            </div>
+          </div>
+        }
+      </div>
+
+    </app-accordion-item>
+  }
+</div>

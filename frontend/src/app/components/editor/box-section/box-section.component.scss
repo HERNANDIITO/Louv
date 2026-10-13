@@ -1,0 +1,60 @@
+@use "../../../../styles/mixins" as mixins;
+@use "../../../../styles/variables" as vars;
+
+@include mixins.editor-items;
+
+.colors-wrapper {
+    display: flex;
+    flex-flow: column;
+
+    .description {
+        margin-bottom: 10px;
+
+        .bold {
+            font-weight: bold;
+        }
+    }
+
+    .palette {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+
+        span {
+            margin: auto 0;
+        }
+
+        .colors {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 100%;
+            gap: 16px;
+
+            button {
+                transition: all .1s;
+                width: 60px; height: 60px;
+                border-radius: 100%;
+                position: relative;
+                z-index: 2;
+                overflow: hidden;
+                
+                img {
+                    background-color: rgb(209, 109, 109);
+                    overflow: hidden;
+                    display: block;
+                    position: absolute;
+                    top: 0; left: 0; right: 0; bottom: 0;
+                    pointer-events: none;
+                    font-size: 0;
+                }
+                
+                &.selected {
+                    border: vars.$purple solid vars.$border-width;
+                    transform: scale(1.2);
+                    z-index: 3;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}

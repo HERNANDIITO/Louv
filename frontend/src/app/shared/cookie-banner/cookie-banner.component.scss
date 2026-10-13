@@ -1,0 +1,63 @@
+@use "../../../styles/variables" as vars;
+/* cookie-banner.component.css */
+.cookie-banner {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  max-width: 600px;
+  background: vars.$purple;
+  color: vars.$light-purple;
+  padding: 1.75rem;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,.3);
+}
+
+.cookie-banner p {
+  margin: .5rem 0 .75rem 0;
+  color: vars.$light-purple;
+}
+
+.actions {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  flex: 1;          
+  min-height: 44px;     
+  padding: 0.6rem 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: .4rem .7rem;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+button.primary {
+  background: vars.$light-purple;
+  color: vars.$purple;
+  
+}
+
+button.secondary {
+  background: vars.$purple;
+  color: vars.$light-purple;
+}
+
+button.primary:hover {
+  background: vars.$light-purple;
+}
+
+button.secondary:hover {
+  background: vars.$purple;
+}

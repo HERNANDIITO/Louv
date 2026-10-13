@@ -1,0 +1,11 @@
+
+<p class="section-title">Talla</p>
+
+<div class="select-wrapper">
+    <select class="light-button select" (change)="selectSize($event)">
+        @for (size of sizes(); track $index) {
+            <option value="{{size._id}}">{{size.name}}</option>
+        }
+    </select>
+    <fa-icon class="downArrow" [icon]="icons.faChevronDown" size="sm"></fa-icon>
+</div>

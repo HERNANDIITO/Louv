@@ -1,0 +1,59 @@
+<div class="stats-grid">
+    <div class="stats-subsection-capsule generalFilter">
+        <h2>Anillos</h2>
+        <div class="switch-container">
+            <app-big-switch     
+                [onValue]="'Diseñados'"
+                [offValue]="'Comprados'"
+                (status)="swapView($event)"
+                [checked]=view
+                class="viewFilter"
+            ></app-big-switch>
+        </div>
+    </div>
+    <div class="stats-subsection-capsule budget-dist">
+        <h2>Distribución del presupuesto</h2>
+        <div echarts [options]="option" class="chart-budget"></div>
+    </div>
+    <div class="stats-subsection-capsule metal-use">
+        <h2>Uso de los materiales</h2>
+        <div echarts [options]="materialUseOption" class="chart-materials"></div>
+    </div>
+    <div class="stats-subsection-capsule gems-and-cuts-use">
+        <div class="title-gems-and-cuts-use">
+            <h2>Uso de gemas y cortes</h2>
+            <div class="full-switch-container">
+                <p>Eje X:</p>
+                <div class="switch-container">
+                    <app-big-switch     
+                        [onValue]="'Gemas'"
+                        [offValue]="'Cortes'"
+                        (status)="swapX($event)"
+                        [checked]=xAxis
+                        class="viewFilter"
+                    ></app-big-switch>
+                </div>
+            </div>
+        </div>
+        <div echarts [options]="gemCutOption" class="chart-gems-cuts"></div>
+    </div>
+    <div class="stats-subsection-capsule metal-and-gem-combinations">
+        <h2>Combinaciones de metales y gemas más usadas</h2>
+
+        <div class="combinations-row">
+            @for (item of currentMetalGemCombinations; track item.metal + item.gem) {
+            <div class="combination-item">
+                <div class="combo-icons">
+                    <div class="combo-icon material metalIcon" [ngClass]="item.metalIcon"></div>
+                    <span class="plus">+</span>
+                    <img [src]="'/images/gemstones/' + item.gemIcon" [alt]="" class="combo-icon gemIcon">
+                </div>
+
+                <div class="percentage">{{ item.percentage }}%</div>
+                <div class="combo-label">{{ item.metal }} y {{ item.gem }}</div>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+<app-go-up-button></app-go-up-button>

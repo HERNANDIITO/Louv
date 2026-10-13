@@ -1,0 +1,54 @@
+@use "../../../../../styles/variables" as vars;
+
+.factu {
+  border: 0.0625rem solid vars.$light-gray;
+  border-radius: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background-color: #fff;
+  
+}
+
+.factu__titulo {
+  font-size: vars.$font-size-h3;
+  font-weight: 600;
+  color: vars.$dark-gray;
+  margin: 0 0 vars.$spacing-sm 0;
+}
+
+.factu__cards {
+  display: flex;
+  gap: vars.$spacing-sm;
+  width: 100%;  
+}
+
+.btn-icon {
+    background: none;     // Quita el fondo
+    border: none;         // Quita el borde
+    cursor: pointer;      // Cambia el cursor a la mano
+    color: #888;          // Color gris base
+    transition: color 0.2s ease, transform 0.2s ease;
+
+    fa-icon {
+      font-size: 1.2rem;  // Tamaño del icono
+    }
+
+    &:hover {
+      color: #555;        // Un gris más oscuro al pasar el ratón
+      transform: scale(1.1); // Un ligero efecto de aumento
+    }
+
+    &:active {
+      transform: scale(0.95); // Efecto de pulsado
+    }
+
+    &:focus {
+      outline: none;      // Quita el recuadro azul de enfoque (opcional)
+    }
+
+    &.disabled {
+      color: #ddd;         // Gris muy clarito
+      cursor: not-allowed; // Icono de "prohibido"
+      pointer-events: none; // Evita que se dispare el (click)
+      transform: none !important; // Evita que crezca al pasar el ratón
+    }
+  }

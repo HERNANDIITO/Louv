@@ -1,0 +1,24 @@
+<div class="stats-container">
+
+  <app-stats-sidebar activeSection="modifiers"></app-stats-sidebar>
+
+  <div class="orders-content">
+    <h1 class="admin-dashboard-section-title">Administración de modificadores</h1>
+
+    <div class="sections">
+      <span>NOMBRE</span>
+      <span>CATEGORÍA</span>
+      <span>DESCRIPCIÓN</span>
+      <span>IMAGEN</span>
+      <span>MODELO</span>
+      <span>VER DETALLES</span>
+    </div>
+
+    <div class="orders-list">
+      @for(m of modifiers(); track m.id){
+        <app-modifier-card [modifier]="m">
+        </app-modifier-card>
+      }
+    </div>
+  </div>
+</div>

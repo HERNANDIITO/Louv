@@ -1,0 +1,99 @@
+<div class="stats-grid">
+    <div class="stats-subsection-capsule setting-use">
+        <h2>Uso de los engastes</h2>
+        <div echarts [options]="settingUseOption" class="chart-setting-use"></div>
+    </div>
+
+    <div class="stats-subsection-capsule generalFilter">
+        <h2>Anillos</h2>
+        <div class="switch-container">
+            <app-big-switch     
+                [onValue]="'Diseñados'"
+                [offValue]="'Comprados'"
+                (status)="swapView($event)"
+                [checked]=view
+                class="viewFilter"
+            ></app-big-switch>
+        </div>
+    </div>
+
+    <div class="stats-subsection-capsule size-use">
+        <h2>Tallas más usadas</h2>
+        <div echarts [options]="sizeUseOption" class="chart-size-use"></div>
+    </div>
+
+    <div class="stats-subsection-capsule base-setting-combinations">
+        <h2>Combinaciones de base y engaste más usadas</h2>
+
+        <div class="combinations-row">
+            @for (item of currentBaseSettingCombinations; track item.base + item.setting) {
+            <div class="combination-item">
+                <div class="combo-icons">
+                    <img [src]="'/images/bases/' + item.baseIcon" [alt]="" class="combo-icon baseIcon">
+                    <span class="plus">+</span>
+                    <img [src]="'/images/settings/' + item.settingIcon" [alt]="" class="combo-icon settingIcon">
+                </div>
+
+                <div class="percentage">{{ item.percentage }}%</div>
+                <div class="combo-label">{{ item.base }} y {{ item.setting }}</div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="stats-subsection-capsule base-use">
+        <h2>Bases más usadas</h2>
+
+          <div class="base-use-layout">
+    <div
+      echarts
+      [options]="baseUseOption"
+      (chartClick)="onBaseClick($event)"
+      class="chart-base-bars">
+    </div>
+
+    <div class="base-details">
+      <div class="donut-block">
+        <h3>Perfil</h3>
+
+        <div class="donut-wrapper">
+          <div
+            echarts
+            [options]="profileDonutOption"
+            (chartClick)="onProfileDonutClick($event)"
+            class="chart-donut">
+          </div>
+
+          @if (selectedProfileItem) {
+            <div class="donut-center">
+              <img [src]="'/images/profiles/' + selectedProfileItem.image" [alt]="selectedProfileItem.name">
+              <span>{{ selectedProfileItem.percentage }}%</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <div class="donut-block">
+        <h3>Estilo</h3>
+
+        <div class="donut-wrapper">
+            <div
+                echarts
+                [options]="styleDonutOption"
+                (chartClick)="onStyleDonutClick($event)"
+                class="chart-donut">
+            </div>
+
+            @if (selectedStyleItem) {
+                <div class="donut-center">
+                <img [src]="'/images/bases/' + selectedStyleItem.image" [alt]="selectedStyleItem.name">
+                <span>{{ selectedStyleItem.percentage }}%</span>
+                </div>
+            }
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-go-up-button></app-go-up-button>

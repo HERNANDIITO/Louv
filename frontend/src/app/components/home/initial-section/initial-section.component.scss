@@ -1,0 +1,209 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 80%, vars.$light-purple 0%, #ffffff 50%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.start-button {
+  display: flex;
+  text-decoration: none;
+  p, .icon {
+    height: 100%;
+    align-content: center;
+  }
+}
+
+.hero-container {
+  display: flex;
+  position: relative; 
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+  width: 100%;
+  height: 100%; 
+}
+
+.ring-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  video{
+    padding-top: 2rem;
+  }
+}
+
+.content-section {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10%; 
+  transform: translateY(-60px);
+
+  .text-wrapper {
+    pointer-events: all; // Para que el botón sí se pueda clicar
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+.title-main {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-family: vars.$abhaya;
+  color: vars.$purple;
+
+  .title-1 {
+    text-align: right;
+    font-size: vars.$font-size-hero-sm;
+    font-weight: 200; 
+  }
+
+  .title-2 {
+    text-align: right;
+    font-size: vars.$font-size-hero;
+    font-weight: 400; 
+  }
+
+}
+
+.description {
+  font-size: vars.$font-size-text;
+  color: vars.$purple;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-minimal {
+  text-decoration: none;
+  font-size: vars.$font-size-h3;
+  font-weight: 600;
+  color: vars.$purple;
+  
+  display: inline-flex; // Cambia a inline-flex si es un botón pequeño
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: transform 0.3s ease;
+  
+  p{
+    padding-bottom: 0.2rem;
+  }
+  svg{
+    margin-top: 1rem;
+  }
+  &:hover {
+    transform: translateX(5px);
+    color: vars.$purple;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  z-index: 200;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  
+  .chevron {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-bottom: 2px solid vars.$purple;
+    border-right: 2px solid vars.$purple;
+    transform: rotate(45deg);
+    animation: bounce 2s infinite;
+  }
+}
+
+.patata-team {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 200;
+
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+
+  color: vars.$purple;
+  opacity: 0.75;
+
+  text-decoration: none;
+  text-transform: none;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    text-shadow 0.35s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: vars.$purple;
+
+    transform: scaleX(0);
+    transform-origin: left;
+
+    transition: transform 0.35s ease;
+  }
+
+  &:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+
+    text-shadow:
+      0 0 0.4px currentColor,
+      0 0 0.4px currentColor;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0) rotate(45deg);}
+  40% {transform: translateY(-10px) rotate(45deg);}
+  60% {transform: translateY(-5px) rotate(45deg);}
+}
+
+// Responsivo
+@media (max-width: 1024px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .canvas-container, .content-section { width: 100%; }
+  .title-main .sans-text { margin-left: 0; }
+  .description, .actions { text-align: center; justify-content: center; }
+}

@@ -1,0 +1,214 @@
+@use "../../../../../styles/variables" as vars;
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  overflow: auto;
+}
+
+.stats-subsection-capsule {
+  background-color: #fff;
+  border: 1px solid vars.$gray;
+  border-radius: 30px;
+  padding: 2rem;
+}
+
+h2 {
+    font-family: vars.$abhaya;
+    font-weight: 400;
+    font-size: 24px;
+    display: inline;
+    padding-right: 1.5rem;
+}
+
+h3 {
+    font-family: vars.$abhaya;
+    font-weight: 400;
+    font-size: 24px;
+    display: inline;
+    padding-right: 1.5rem;
+}
+
+.generalFilter {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  grid-area: 1 / 5 / 2 / 7;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .switch-container {
+    flex: 1;
+    min-width: 0;
+  }
+
+  app-big-switch {
+    display: block;
+    width: 100%;
+  }
+}
+
+.setting-use {
+  grid-area: 1 / 1 / 7 / 5;
+}
+
+.size-use {
+  grid-area: 2 / 5 / 7 / 7;
+}
+
+.base-setting-combinations {
+  grid-area: 7 / 1 / 10 / 7;
+}
+
+.base-use {
+  grid-area: 10 / 1 / 17 / 7;
+  max-height: 95%;
+}
+
+.chart-setting-use {
+  width: 100%;
+  height: 30rem;
+}
+
+.chart-size-use {
+  width: 100%;
+  height: 23rem;
+}
+
+.metal-and-gem-combinations {
+  display: flex;
+  flex-direction: column;
+}
+
+.combinations-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 1.5rem;
+}
+
+.combination-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 120px;
+}
+
+.combo-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.baseIcon {
+  width: 6rem;
+  margin-right: -0.6rem;
+}
+
+.settingIcon {
+  width: 5rem;
+  height: 5rem;
+  margin-left: -0.5rem;
+  object-fit: contain;
+}
+
+.plus {
+  font-size: 38px;
+  font-weight: 700;
+  color: #562172;
+}
+
+.percentage {
+  font-size: 40px;
+  font-weight: 800;
+  color: #562172;
+  line-height: 1;
+}
+
+.combo-label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #562172;
+}
+
+// para hacer scroll
+:host {
+  display: block;
+  overflow-y: auto;
+  height: 100%;
+}
+
+.base-use {
+  min-height: 560px;
+}
+
+.base-use-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.chart-base-bars {
+  width: 700px;
+  height: 100%;
+}
+
+.base-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.donut-block h3 {
+  margin: 0 0 8px;
+}
+
+.donut-wrapper {
+  width: 360px;
+  max-width: 100%;
+  height: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-donut {
+  width: 100%;
+  height: 100%;
+}
+
+.donut-center {
+  position: absolute;
+  left: 38%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 92px;
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.donut-center img {
+  max-width: 72px;
+  max-height: 52px;
+  object-fit: contain;
+  margin-bottom: 4px;
+}
+
+.donut-center span {
+  color: #562172;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}

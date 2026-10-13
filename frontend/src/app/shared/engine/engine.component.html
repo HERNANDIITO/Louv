@@ -1,0 +1,11 @@
+<div [class.hidden]="!isLoading()" [class.big-loader]="!mini()" [class.mini-loader]="mini()" class="loader" >
+  <app-loading-spinner class="spinner"></app-loading-spinner>
+</div>
+
+@if (engineSelector()) {
+  <!-- Canvas para WebGL -->
+  <canvas [class.no-bg]="noBackground()" #rendererCanvas class="render-canvas" key="webgl"></canvas>
+} @else {
+  <!-- Canvas para ThreeJS -->
+  <canvas [class.no-bg]="noBackground()" #rendererCanvas class="render-canvas" key="threejs"></canvas>
+}

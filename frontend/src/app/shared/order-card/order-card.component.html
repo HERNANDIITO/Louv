@@ -1,0 +1,47 @@
+<div class="order-card">
+  <div class="orderRow" [class.details-visible]="showDetails">
+    <div class="firstDetails">
+      <span class="value order">{{ order.orderNumber }}</span>
+      <span class="value date">{{
+        getFormattedDate(order.cartCreationDate)
+      }}</span>
+      <span class="value name">{{ getUserFullName() }}</span>
+      <span class="value price">{{ (+order.totalPrice).toFixed(2) }}€</span>
+      <span class="value state" [ngClass]="getStateClass(order.state)">
+        {{ order.state }}
+      </span>
+      <button
+        class="value flecha"
+        (click)="toggleDetails()"
+        [ngClass]="{ rotated: showDetails }"
+      >
+        <fa-icon [icon]="faChevronLeft"></fa-icon>
+      </button>
+    </div>
+
+    <div *ngIf="showDetails">
+      <div class="sectionsDos">
+        <span>DIRECCIÓN</span>
+        <span>PRODUCTOS</span>
+      </div>
+
+      <div class="seconDetails">
+        <span class="value">{{ getFullAddress() }}</span>
+        <div class="products-list">
+          <div class="product" *ngFor="let p of order.products">
+            <ng-container *ngIf="p">
+              <span class="value product-name">{{ p.name }} </span>
+              <span class="value product-material"
+                >({{ p.composition.material.name }})</span
+              >
+            </ng-container>
+            
+            <span class="value dedication" *ngIf="p.dedication">
+              — Dedicatoria: "{{ p.dedication }}"
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

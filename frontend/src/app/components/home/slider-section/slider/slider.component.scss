@@ -1,0 +1,55 @@
+:host {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 2rem;
+}
+
+:host > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  width: 2rem;
+  height: 2rem;
+  padding: 1.5rem;
+  border-radius: 50%; /* completamente redondo */
+  border: none;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  transition: 
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+:host > button:hover {
+  transform: scale(1.15); /* efecto de crecimiento */
+  background: rgb(0, 0, 0); /* fondo más brillante al hover */
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); /* sombra más intensa */
+  color: rgb(255, 255, 255);
+}
+
+
+:host > button > span {
+  font-size: 3rem;
+}
+
+.viewport {
+  width: 62rem;
+  overflow: hidden;
+}
+
+.cards-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 4rem;
+
+  will-change: transform; // <--- OPTIMIZACIÓN CLAVE
+  transform: translateZ(0);
+}
+
+.card {
+  min-width: 16rem;
+}

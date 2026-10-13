@@ -1,0 +1,111 @@
+@if(filteredEmbededSettings().length > 0 || selectedClawTypeObj()){
+  <!-- <app-gem-selection></app-gem-selection> -->
+    <!-- Listado de Cortes -->
+  @if(filteredEmbededSettings().length > 0){
+    <app-multi-switch 
+      [options]="gemOptions()" 
+      [selectedIndex]="selectedGemIndex()"
+      (selectionChange)="updateSelectedIndex($event)">
+    </app-multi-switch>
+    <!-- Listado de Gemas -->
+    <p class="section-title">Clase</p>
+    @if( jewel().settings && selectedGemIndex() < jewel().settings.length) {
+      <div class="gem items">
+        @for (item of gemStones(); track item._id) {
+            @if (jewel().settings[selectedGemIndex()] && jewel().settings[selectedGemIndex()].gem && item.name != "None") {
+                <app-item
+                    [selected]="jewel().settings[selectedGemIndex()].gem.id === item._id" 
+                    [item]="item" 
+                    [img] = "'/images/gemstones/' + item.image"
+                    (beenSelected)="onGemClick($event)">
+                    
+                </app-item>
+            }
+        }
+      </div>
+    }
+
+    <!-- Checkbox Gema Sintética -->
+    @if(selectedGem()?.hasSynthetic) {
+      <p class="section-title">Origen</p>
+      <p class="description">Forjada por la naturaleza o por la mano experta del hombre cada gema cuenta una historia  única. La elección está en tus manos:</p>
+      <app-big-switch [onValue]="'Natural'" [offValue]="'Creada'" [checked]="jewel().settings[selectedGemIndex()].gem.synthetic" (status)="onSyntheticToggle($event)"></app-big-switch>
+    }
+
+    <!-- Listado de Cortes -->
+    <p class="section-title">Forma</p>
+    @if(jewel().settings && selectedGemIndex() < jewel().settings.length) {
+      <div class="cut items">
+        @for (item of cuts(); track item._id) {
+            @if (jewel().settings[selectedGemIndex()] && jewel().settings[selectedGemIndex()].gem) {
+                <app-item 
+                    [selected]="jewel().settings[selectedGemIndex()].gem.cut === item._id" 
+                    [isCompatibleGem]="isCompatible(item._id)"
+                    [item]="item" 
+                    [img] = "'/images/cuts/' + item.image"
+                    (beenSelected)="onCutClick($event)">
+                </app-item>
+            }
+        }
+      </div>
+    }
+    @if(someIncompatible()) {
+      <footer class="legend-note">
+        <fa-icon [icon]="faWarning" class="note-icon"></fa-icon>
+        <span> Los cortes indicados con este icono no son compatibles con tu engaste. Si eliges uno de ellos se remplazará el engaste por uno compatible.</span>
+      </footer>
+    }
+    
+  }
+  @if(selectedClawTypeObj()){
+    <p class="section-title">Patrón</p>
+    <div class="gem items">
+      @for (p of selectedClawTypeObj()?.availablePatterns; track p._id) {
+           <app-item
+                [selected]="jewel().settings[patternSettingIndex()].pattern?.pattern === p._id" 
+                [item]="p" 
+                [img] = "'/images/patterns/' + p.patternImage"
+                (beenSelected)="onPatternClick(p._id)">
+                
+            </app-item>
+      }
+    </div>
+    @if (patternGroups().length > 0) {
+          <!-- Switch para elegir que grupo editar -->
+        <div class="group-selector-wrapper">
+          <app-multi-switch 
+            [options]="patternGroupOptions()" 
+            [selectedIndex]="selectedPatternGroupIndex()"
+            (selectionChange)="updateSelectedGroup($event)"
+            optionType="group">
+          </app-multi-switch>
+        </div>
+
+        <!-- Listado de gemas para el grupo seleccionado -->
+        <div class="gem items group-gem-selection">
+          @for (gem of gemStones(); track gem._id) {
+            @if (gem.name !== 'None') {
+              <app-item
+                [selected]="currentGroupGemId() === gem._id" 
+                [item]="gem" 
+                [img]="'/images/gemstones/' + gem.image"
+                (beenSelected)="onGroupGemChange(patternGroups()[selectedPatternGroupIndex()], gem._id)">
+              </app-item>
+            }
+          }
+        </div>
+
+        
+        @if(selectedPatternGem()?.hasSynthetic) {
+          <p class="section-title">Origen</p>
+          <p class="description">Forjada por la naturaleza o por la mano experta del hombre cada gema cuenta una historia  única. La elección está en tus manos:</p>
+          <app-big-switch [onValue]="'Natural'" [offValue]="'Creada'" [checked]="isSyntheticPat()" (status)="onSyntheticPatToggle($event)"></app-big-switch>
+        }
+      }
+  }
+  
+}@else {
+  <div >
+      <p>No hay opciones disponibles para tu configuración actual.</p>
+  </div>
+}

@@ -1,0 +1,13 @@
+@use "../../../../styles/mixins" as mixins;
+
+@include mixins.editor-items;
+
+.profiles {
+    display: flex;
+    flex-flow: row;
+    gap: 18px;
+}
+
+.selected {
+    justify-content: left;
+}

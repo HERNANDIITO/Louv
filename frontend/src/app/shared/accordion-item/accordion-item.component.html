@@ -1,0 +1,15 @@
+<div [class]="containerClass()" class="accordion-item" >
+  <button [class]="headerClass()" class="accordion-header" (click)="toggle()">
+    <div class="title-wrapper">
+      <ng-content select="[slot=title]"></ng-content>
+        <fa-icon [class.open]="open()" [icon]="faChevronDown"></fa-icon>
+    </div>
+    <ng-content select="[slot=subtitle]"></ng-content>
+  </button>
+
+  @if (open()) {
+    <div [class]="bodyClass()" class="accordion-body">
+      <ng-content></ng-content>
+    </div>
+  }
+</div>

@@ -1,0 +1,70 @@
+@use "../../../styles/variables" as vars;
+
+.accordion-item {
+  border-bottom: 1px solid vars.$purple;
+  overflow: hidden;
+}
+
+.accordion-header {
+  width: 100%;
+  background: vars.$white;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: column;
+}
+
+.title-wrapper {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+
+  > fa-icon {
+    color: vars.$dark-gray;
+    transition: rotate 0.2s ease;
+    height: fit-content;
+    margin: auto 0;
+
+    &.open {
+      rotate: 180deg;
+    }
+  }
+}
+
+.accordion-body {
+  animation: desplegar 0.3s ease;
+}
+
+// Para personalizarlo
+
+.no-margin {
+  margin: 0;
+}
+
+.no-border-bottom {
+  border-bottom: none;
+}
+
+.scroll-margin {
+  scroll-margin-top: 0px;
+}
+
+.margin-bottom {
+  margin-bottom: 70px;
+}
+
+@keyframes desplegar {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

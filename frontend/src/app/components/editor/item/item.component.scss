@@ -1,0 +1,223 @@
+@use "../../../../styles/variables" as vars;
+
+.item-wrapper {
+    display: flex;
+    flex-flow: column;
+    width: 120px;
+    padding-bottom: 10px;
+    position: relative;
+
+    &:hover {
+        cursor: pointer;
+    }
+     
+    .item-image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 140px; /* Asegura que todos los botones midan lo mismo */
+      padding: 1rem;
+      gap: 10px;
+      border: 1px solid transparent; /* Para que no salte al seleccionar */
+      transition: all 0.2s ease;
+    }
+
+    .warning-icon {
+      position: absolute;
+      top: 5px;  
+      right: 5px; 
+      color: vars.$warningOrange; 
+      background: vars.$white;
+      border-radius: 50%;
+      font-size: 0.8rem; 
+      z-index: 10;
+      pointer-events: none; 
+    }
+
+    img {
+      width: 100%;
+      height: 80px;      /* Forzamos un alto fijo para el área de la imagen */
+      object-fit: contain; /* Mantiene la proporción sin estirar, añade espacio si sobra */
+      display: block;
+    }
+    img[src$=".svg"] {
+      padding: 0.5rem;   
+      box-sizing: border-box;
+    }
+
+
+    span {
+        color: vars.$purple;
+        border-radius: vars.$border-radius;
+        border-style: solid;
+        border-color: transparent;
+        border-width: vars.$border-width;
+        outline: none;
+        font-size: 1rem;
+        transition: all .1s;
+    }
+
+    border-color: transparent;
+    border-width: 3px;
+    border-radius: vars.$selected-border-radius;
+    border-style: solid;
+
+    &:hover:not(.selected):not(.incompatible) {
+        span {
+            background-color: vars.$white;
+            border-style: solid;
+            border-color: vars.$light-purple;
+        }
+    }
+
+}
+
+.selected {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom: none;
+    z-index: 100;
+
+    span {
+        background-color: vars.$light-purple;
+    }
+ 
+}
+
+.open {
+    &.main {
+        background: vars.$selected-gray;
+        border-color: vars.$selected-dark-gray;
+        height: 100%;
+    }
+}
+
+.incompatible {
+    cursor: not-allowed !important;
+    img {
+        opacity: 0.33;
+    }
+}
+
+// MATERIALS
+
+.material {
+    border-radius: 100%;
+    padding: 1px;
+    height: auto;
+    width: 80% !important;
+    aspect-ratio: 1 / 1;
+    margin: 1rem auto;
+}
+
+/* Oro Amarillo 9k */
+.gold9K {
+  background: linear-gradient(-33deg, 
+    #D4AF37,  /* Gold, base */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #B38A3A,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */ 
+    #B38A3A  /* Mid gold */
+  );
+}
+
+/* Oro Amarillo 14k */
+.gold14K {
+  background: linear-gradient(-33deg, 
+    #F1C27D,  /* Yellowish gold, base */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #D69A2A,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #D69A2A  /* Mid gold */
+  );
+}
+
+/* Oro Amarillo 18k */
+.gold18K {
+  background: linear-gradient(-33deg, 
+    #F2A900,  /* Rich yellow gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #C78C3D,  /* Mid gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #C78C3D  /* Mid gold */
+  );
+}
+
+/* Oro Rosa 9k */
+.roseGold9K {
+  background: linear-gradient(-33deg, 
+    #E4B7A0,  /* Soft rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #C08C70,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #C08C70  /* Mid rose gold */
+  );
+}
+
+/* Oro Rosa 14k */
+.roseGold14K {
+  background: linear-gradient(-33deg, 
+    #D18F6B,  /* Richer rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #B8775C,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #B8775C  /* Mid rose gold */
+  );
+}
+
+/* Oro Rosa 18k */
+.roseGold18K {
+  background: linear-gradient(-33deg, 
+    #C07A5A,  /* Deep rose gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A7664D,  /* Mid rose gold */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A7664D  /* Mid rose gold */
+  );
+}
+
+/* Oro Blanco 9k */
+.whiteGold9K {
+  background: linear-gradient(-33deg, 
+    #D3D3D3,  /* Light silver/gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A8A8A8,  /* Mid silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A8A8A8  /* Mid silver */
+  );
+}
+
+/* Oro Blanco 14K */
+.whiteGold14K {
+  background: linear-gradient(-33deg, 
+    #B4B4B4,  /* Silverish gold */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #8A8A8A,  /* Mid silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #8A8A8A  /* Mid silver */
+  );
+}
+
+/* Oro Blanco 18k */
+.whiteGold18K {
+  background: linear-gradient(-33deg, 
+    #A9A9A9,  /* Silver */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #707070,  /* Dark silver */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #707070  /* Dark silver */
+  );
+}
+
+/* Platino */
+.Pt950 {
+  background: linear-gradient(-33deg, 
+    #B0C4DE,  /* Platinum grayish blue */
+    #FCF6BA 55%,  /* Light gold highlight */
+    #A8A8A8,  /* Mid gray */
+    #FCF6BA 10%,  /* Light gold highlight */
+    #A8A8A8  /* Mid gray */
+  );
+}

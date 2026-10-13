@@ -1,0 +1,37 @@
+<div class="hero-container">
+  <div class="ring-container">
+    <video #videoPlayer muted loop playsinline preload="auto" style="width:750px;">
+      <source src="/videos/anillo_landing.webm" type="video/webm">
+    </video>
+
+  </div>
+  <section class="content-section">
+    <div class="text-wrapper">
+      <h1 class="title-main">
+        <span class="title-1">Algunas piezas se compran...</span>
+        <span class="title-2">otras se crean.</span>
+      </h1>
+
+      <p class="description">
+        Diseñe el anillo de sus sueños. <br>
+        Personalice cada detalle y cree una <br>
+        joya única que cuente su historia.
+      </p>
+
+      <div class="actions">
+        <a routerLink="/editor3d" class="dark-button start-button">
+          <p>Comience a crear</p>
+          <fa-icon [icon]="faAngleRight" class="icon" size="sm"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="scroll-indicator" (click)="scrollTo()">
+    <span class="chevron"></span>
+  </div>
+
+  <a href="https://louv.ovh/patataTeam/" target="_blank" class="patata-team">
+    Consulta nuestro blog
+  </a>
+</div>

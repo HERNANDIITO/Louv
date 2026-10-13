@@ -1,0 +1,84 @@
+@use "../../../styles/variables" as vars;
+
+.main-footer {
+  color: vars.$purple;
+  padding-block: 2rem;
+  padding-inline: 4rem;
+
+}
+
+fa-icon {
+  color: vars.$purple
+}
+
+.footer-content {
+  display: flex;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  width: fit-content;
+}
+
+.footer-section h3 {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: vars.$purple;
+}
+
+.footer-section ul li a {
+  color: vars.$purple;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-social {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  margin-block: 20px;
+  flex-basis: 100%;
+  justify-content: flex-end;
+
+  p{
+    width: 100%;
+    text-align: left;
+  }
+}
+.footer-social {
+    a {
+        color: vars.$light-purple;
+        font-size: 24px;
+        margin-left: 20px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: vars.$purple;
+        }
+    }
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.8em;
+  color: vars.$purple;
+}

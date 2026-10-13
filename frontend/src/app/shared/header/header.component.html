@@ -1,0 +1,36 @@
+@if (!isEditor3d() && !isAdminSection()) {
+  <header
+    class="header-container"
+    class="header-container"
+    [class.scrolled]="isScrolled()"
+  >
+    @if (!isEditor3d()) {
+      <div class="logo-section">
+        <a routerLink="" title="Ir al inicio">
+          <img
+            [src]="'/logos/louv_black.png'"
+            alt="inicio"
+            title="Ir al inicio"
+            class="logo"
+          />
+        </a>
+      </div>
+    }
+
+    @if (!authService.isAuthenticated()) {
+      <div class="auth-section">
+        <a routerLink="/registro" class="purple-link">Registro</a>
+        <a routerLink="/inicio-sesion" class="purple-link"
+          >Iniciar sesión</a
+        >
+        <a routerLink="/editor3d" class="purple-link">Comenzar a crear</a>
+      </div>
+    } @else {
+      <div class="auth-section">
+        <app-user-profile-dropwdown
+          [isLanding]="isLandingPage()"
+        ></app-user-profile-dropwdown>
+      </div>
+    }
+  </header>
+}

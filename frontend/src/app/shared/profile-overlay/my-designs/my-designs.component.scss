@@ -1,0 +1,82 @@
+@use "../../../../styles/variables" as vars;
+
+
+.wrapper {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+  position: relative;
+
+  .separator {
+    margin: 0 19px;
+  }
+
+  .grid-rings {
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    height: 100%;
+    overflow-y: scroll;
+
+    .new-design {
+      display: flex;
+      flex-flow: row;
+      gap: 8px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .no-rings {
+      margin-top: 20px;
+    }
+  }
+
+  .viewport {
+    flex: 1;
+    position: relative;
+
+    .altText {
+      text-align: center;
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .ui {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 1;
+
+      .bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        flex-flow: row;
+        gap: 8px;
+        justify-content: center;
+        pointer-events: auto;
+
+        .share-component {
+          position: absolute;
+          bottom: calc(100% + 20px);
+        }
+      }
+    }
+
+    img {
+      width: auto;
+      height: 100%;
+      display: block;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+  }
+}

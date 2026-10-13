@@ -1,0 +1,35 @@
+<div class="wrapper">
+  <div class="grid-rings">
+    <button class="dark-button new-design" (click)="newRing()"> <fa-icon [icon]="icons.faPlusCircle"></fa-icon> <span>Crear nuevo diseño</span> </button>
+    @if (rings().length <= 0) {
+      <span class="no-rings">Todavía no tienes ningún diseño.</span>
+    }
+    @for (ring of rings(); track ring.id) {
+      <app-ring-card
+        (click)="selectRing(ring)"
+        [ringData]="ring"
+        [selected]="ring.id === selectedRing().id"
+      ></app-ring-card>
+    }
+  </div>
+  <hr class="separator">
+  <div class="viewport">
+    @if (selectedRing().id != '') {
+      <div class="ui">
+        <div class="bottom">
+          @if (share()) {
+            <app-share class="share-component" [jewelID]="selectedRing().id"></app-share>
+          }
+          <button class="light-button only-icon" (click)="onDeleteRing(selectedRing().id)"><fa-icon [icon]="icons.faTrash"></fa-icon></button>
+          <button class="light-button only-icon" (click)="onCopy(selectedRing().id)"><fa-icon [icon]="icons.faCopy"></fa-icon></button>
+          <button class="light-button only-icon" (click)="toggleShare()"><fa-icon [icon]="icons.faShareNodes"></fa-icon></button>
+          <button class="dark-button" (click)="onEditRing(selectedRing().id)"><fa-icon [icon]="icons.faPen"></fa-icon> Continuar diseñando</button>
+          <button class="purple-button" (click)="buyRing()"> Encargar anillo <fa-icon [icon]="icons.faChevronRight"></fa-icon> </button>
+        </div>
+      </div>
+      <app-visor [isMyDesigns]="true" [noBG]="true" [fullscreen]="false" [jewelID]="selectedRing().id" ></app-visor>
+    } @else {
+      <h2 class="altText">Seleccione un anillo para consultarlo</h2>
+    }
+  </div>
+</div>

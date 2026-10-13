@@ -1,0 +1,86 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: flex;
+  flex-direction: row;
+  background-color: #000000;
+  padding: 7rem;
+  gap: 2rem;
+  contain: content;
+
+  fa-icon {
+    color: vars.$light-purple;
+  }
+  
+  > section {
+    padding: 2rem;
+    > h2 {
+      color: vars.$light-purple;
+      // text-transform: uppercase;
+      // font-style: italic;
+    }
+
+    > h3 {
+      color: vars.$light-purple;
+      // text-transform: uppercase;
+      font-style: italic;
+      font-weight: lighter;
+    }
+
+    > p {
+      margin-top: 2rem;
+      color: #ffffff;
+      font-size: vars.$font-size-h3;
+    }
+    
+    .lux-features {
+        margin-block: 1.3rem;
+        padding: 0;
+        list-style: none;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            color: #ffffff;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+
+            padding: 0.75rem 1.25rem;
+            border-left: 2px solid vars.$light-purple;
+            transition: transform 0.3s ease, background 0.3s ease;
+
+            &:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(6px);
+            }
+
+            .icon {
+            font-size: 16px;
+            color: vars.$purple;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            }
+        }
+    }
+  }
+
+  > iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; // Evita saltos de layout
+    height: auto; // Deja que el aspect-ratio mande
+    border-radius: 0.5rem;
+    
+    // Indica al navegador que este elemento es independiente 
+    // y no afecta al resto del layout al scrollear
+    contain: strict; 
+    will-change: transform;
+  }
+}

@@ -1,0 +1,28 @@
+.go-up-button {
+  position: fixed;
+  right: 55px;
+  bottom: 110px;
+  z-index: 999;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+
+  background-color: #562172;
+  color: white;
+  font-size: 28px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.go-up-button:hover {
+  transform: translateY(-5px);
+}

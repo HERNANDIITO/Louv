@@ -1,0 +1,196 @@
+@if (isLoading()) {
+  <app-loading-spinner></app-loading-spinner>
+}
+
+
+  <div class="wrapper">
+    <div class="title-wrapper">
+      <h1 class="h1-primary h1-primary--center h1-primary--stylish">
+        Registro
+      </h1>
+      <p>Nos emociona darte la bienvenida</p>
+    </div>
+
+    <form
+      [formGroup]="registerForm"
+      (ngSubmit)="onSubmit()"
+      class="register-form"
+    >
+      <div class="form-group">
+        <div class="input-container">
+          <app-custom-input
+            id="name"
+            label="Nombre"
+            [control]="registerForm.controls.name"
+            placeholder="Escriba su nombre"
+            [required]="true"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isFieldInvalid(registerForm.controls.name)) {
+            <span class="control-error">El nombre es obligatorio</span>
+          }
+        </div>
+
+        <div class="input-container bigger">
+          <app-custom-input
+            id="surname"
+            label="Apellido"
+            [control]="registerForm.controls.surname"
+            placeholder="Escriba su apellido"
+            [required]="true"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isFieldInvalid(registerForm.controls.surname)) {
+            <span class="control-error">El apellido es obligatorio</span>
+          }
+        </div>
+      </div>
+
+      <div class="form-group option-wrapper">
+        <label class="option">Tratamiento</label>
+        <div class="options">
+          <label class="option-label">
+            <input
+              type="radio"
+              value="Mr."
+              [formControl]="registerForm.controls.title"
+            />
+            Sr.
+          </label>
+          <label class="option-label">
+            <input
+              type="radio"
+              value="Ms."
+              [formControl]="registerForm.controls.title"
+            />
+            Sra.
+          </label>
+          <label class="option-label">
+            <input
+              type="radio"
+              [value]="null"
+              [formControl]="registerForm.controls.title"
+            />
+            Prefiero no decirlo
+          </label>
+        </div>
+      </div>
+
+      <div class="input-container">
+        <app-custom-input
+          id="email"
+          label="Email"
+          [control]="registerForm.controls.email"
+          placeholder="Escriba su email"
+          [required]="true"
+          [showErrors]="false"
+        ></app-custom-input>
+        @if (registerForm.controls.email.pending) {
+          <small class="text-info">Comprobando disponibilidad...</small>
+        }
+        @if (isFieldInvalid(registerForm.controls.email)) {
+          <span class="control-error">
+            @if (registerForm.controls.email.hasError("emailNotUnique")) {
+              Este email ya está registrado.
+            } @else if (registerForm.controls.email.hasError("email")) {
+              Formato de email inválido.
+            } @else {
+              El email es obligatorio.
+            }
+          </span>
+        }
+      </div>
+
+      <div class="form-group">
+        <div class="input-container bigger">
+          <app-custom-input
+            id="password"
+            type="password"
+            label="Contraseña"
+            [control]="registerForm.controls.password"
+            placeholder="Mín. 8 caracteres"
+            [required]="true"
+            [showErrors]="false"
+          ></app-custom-input>
+        </div>
+        <div class="input-container bigger">
+          <app-custom-input
+            id="repassword"
+            type="password"
+            label="Repetir contraseña"
+            [control]="registerForm.controls.repassword"
+            placeholder="Repita su contraseña"
+            [required]="true"
+            [showErrors]="false"
+          ></app-custom-input>
+        </div>
+      </div>
+
+      <div class="error-wrapper">
+        @if (isFieldInvalid(registerForm.controls.password)) {
+          <span class="control-error"
+            >La contraseña debe tener como mínimo una mayúscula, una minúscula,
+            un número y uno de los símbolos &#33; &#35; &#36; &#37; &#38; &#61;
+            &#63; &#161; &#191; &#45; &#95; &#64; &#59; &#43; &#45; &#42; &#47;
+            &#91; &#93; &#60; &#62;</span
+          >
+        }
+        @if (submitted() && registerForm.hasError("PasswordNoMatch")) {
+          <span class="control-error">Las contraseñas no coinciden.</span>
+        }
+      </div>
+
+      <div class="form-group">
+        <div class="input-container full-width">
+          <app-custom-input
+            id="tel"
+            label="Teléfono"
+            [control]="registerForm.controls.phone"
+            placeholder="Ej: 600 00 00 00"
+            [showErrors]="false"
+          ></app-custom-input>
+          @if (isFieldInvalid(registerForm.controls.phone)) {
+            <span class="control-error">
+              @if (registerForm.controls.phone.hasError("invalidPhone")) {
+                Formato no válido. Ejemplo: 600123456 (móvil), 912345678 (fijo)
+                o con +34.
+              } @else {
+                El teléfono no es válido.
+              }
+            </span>
+          }
+        </div>
+      </div>
+
+      <div class="terms-container">
+        <label class="text-primary conditions">
+          <input
+            type="checkbox"
+            class="checkbox"
+            [formControl]="registerForm.controls.acceptTerms"
+          />
+          <span>
+            He leído y acepto los
+            <a href="/terminos" class="purple-link">Términos</a> y
+            <a href="/privacidad" class="purple-link">Política de Privacidad</a
+            >.
+          </span>
+        </label>
+        @if (isFieldInvalid(registerForm.controls.acceptTerms)) {
+          <span class="control-error"
+            >Debes aceptar los términos para continuar.</span
+          >
+        }
+      </div>
+
+      <div class="button-wrapper">
+        <button type="submit" class="purple-button">
+          Registrarme <fa-icon [icon]="icons.faChevronRight"></fa-icon>
+        </button>
+        <button type="button" class="dark-button" (click)="oauth()">
+          <img class="google-icon" src="icons/google-icon.svg" alt="Google" />
+          Continuar con Google
+        </button>
+      </div>
+    </form>
+  </div>

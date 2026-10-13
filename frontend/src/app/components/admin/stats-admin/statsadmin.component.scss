@@ -1,0 +1,206 @@
+@use "../../../../styles/variables" as vars;
+
+::ng-deep body {
+  background: vars.$white !important;
+} 
+
+.stats-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow: scroll;
+  padding: 2rem 20px;
+  height: 100vh;
+}
+
+app-stats-sidebar {
+  flex: 0 0 280px;
+  border-right: 1px solid vars.$light-gray;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1em 2em 2em 2em;
+  overflow: hidden;
+
+  .graficos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 2em;
+    justify-content: center;
+    align-items: center;
+
+    /* Scroll vertical */
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 120px);
+
+    /* Separa la barra de scroll del contenido */
+    padding-right: 1em;
+    box-sizing: content-box;
+
+    /* Scrollbar Chrome, Edge, Safari */
+    &::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: black;
+      border-radius: 4px;
+    }
+
+    /* Scrollbar Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: black transparent;
+  }
+}
+
+// .page-title-stats {
+//   display: block;
+//   align-content: center;
+//   align-self: center;
+//   margin-top: .3rem;
+//   margin-bottom: 1rem;
+//   display: flex;
+//   justify-content: center;
+//   gap: 1rem;
+
+//   h1 {
+//     text-align: center;
+//     margin: 0;
+//   }
+// }
+
+.page-title-stats {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: .3rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+  gap: 1rem;
+
+  .download-dropdown {
+    position: relative;
+
+    .dropdown-menu {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      background-color: vars.$white;
+      min-width: 200px; 
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      border: 1px solid vars.$light-gray;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.2s ease-out;
+
+      .year-selector {
+        padding: 0.8rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        background-color: rgba(vars.$light-purple, 0.3); 
+
+        label {
+          font-size: 11px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          color: vars.$purple;
+          font-weight: 700;
+        }
+
+        select {
+          padding: 5px;
+          border-radius: 4px;
+          border: 1px solid vars.$light-gray;
+          font-size: 14px;
+          color: vars.$black;
+          outline: none;
+          cursor: pointer;
+
+          &:focus {
+            border-color: vars.$purple;
+          }
+        }
+      }
+
+      .separator {
+        height: 1px;
+        background-color: vars.$light-gray;
+        margin: 0;
+      }
+
+      button {
+        background: none;
+        border: none;
+        padding: 0.8rem 1.2rem;
+        text-align: left;
+        font-size: 14px;
+        color: vars.$black;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: vars.$light-purple;
+          color: vars.$purple;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid vars.$light-gray;
+        }
+      }
+    }
+  }
+}
+
+.page-title-stats h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.navigation-sections-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 1rem;
+  transition: all 0.5s;
+
+
+  .clear-button.active {
+    background-color: vars.$light-purple;
+    color: vars.$purple;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid vars.$purple;
+  }
+
+  .clear-button {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+// Pequeña animación para que no aparezca de golpe
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

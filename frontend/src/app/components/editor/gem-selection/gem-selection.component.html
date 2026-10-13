@@ -1,0 +1,27 @@
+<!-- Solo mostramos el selector si la variante tiene más de una gema -->
+@if (variant(); as activeVariant) {
+    @if (filteredEmbededSettings().length > 1) {
+        <div class="selected">
+            <div class="gem">
+                <fa-icon [icon]="faCircleInfo"></fa-icon>
+
+                <label for="gems">Gema:</label>
+                
+                <select 
+                    (change)="onSelectedChange($event)" 
+                    [value]="selectedGemIndex()" 
+                    name="gems" 
+                    id="gems">
+                    
+                    @for (item of filteredEmbededSettings(); track item.originalIndex) {
+                        <option [value]="item.originalIndex">
+                        {{ item.originalIndex + 1 }}
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <p class="description">Deseleccionar</p>
+        </div>
+    }
+}

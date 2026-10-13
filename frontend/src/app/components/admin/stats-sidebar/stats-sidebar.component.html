@@ -1,0 +1,28 @@
+<aside class="sidebar">
+    <nav>
+        <button routerLink="/estadisticas-admin" class="clear-button"  [class.dark-button]="activeSection === 'stats'" >
+            <fa-icon [icon]="faChartPie" size="sm"></fa-icon>
+            Estadísticas
+        </button>
+        <button routerLink="/pedidos-admin" class="clear-button" [class.dark-button]="activeSection === 'orders'">
+            <fa-icon [icon]="faTruck" size="sm"></fa-icon>
+            Pedidos
+        </button>
+        <button routerLink="/modificadores-admin" class="clear-button" [class.dark-button]="activeSection === 'modifiers'">
+            <fa-icon [icon]="faGem" size="sm"></fa-icon>
+            Modificadores
+        </button>
+        <button routerLink="/configuracion-admin" class="clear-button" [class.dark-button]="activeSection === 'config'">
+            <fa-icon [icon]="faGear" size="sm"></fa-icon>
+            Configuración
+        </button>
+        <button routerLink="/" class="clear-button" [class.dark-button]="activeSection === 'home'">
+            <fa-icon [icon]="faHome" size="sm"></fa-icon>
+            Inicio
+        </button>
+    </nav>
+</aside>
+
+<app-user-profile-dropwdown class="top-right"
+    [isLanding]="false"
+></app-user-profile-dropwdown>

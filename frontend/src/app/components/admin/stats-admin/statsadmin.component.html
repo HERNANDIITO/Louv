@@ -1,0 +1,87 @@
+<div class="stats-container">
+
+  <app-stats-sidebar activeSection="stats"></app-stats-sidebar>
+
+  <div class="content">
+    <div class="page-title-stats">
+      <h1 class="admin-dashboard-section-title">Panel de estadísticas</h1>
+        <div #menuContainer class="download-dropdown">
+          <button class="dark-button only-icon" (click)="toggleDownloadMenu()">
+          <fa-icon [icon]="faDownload"></fa-icon>
+          </button>
+        
+          @if (showDownloadMenu) {
+            <div class="dropdown-menu">
+              <div class="year-selector">
+                <label>Periodo del Reporte</label>
+                <select [(ngModel)]="selectedYear" (click)="$event.stopPropagation()">
+                  @for (year of availableYears; track year) {
+                    <option [value]="year">{{ year }}</option>
+                  }
+                </select>
+              </div>
+
+              <div class="separator"></div>
+
+              <button (click)="downloadReport('pdf')">Descargar PDF</button>
+              <button (click)="downloadReport('excel')">Descargar Excel</button>
+            </div>
+          }
+        </div>
+    </div>
+    <div class="navigation-sections-stats">
+      <button 
+        class="clear-button" 
+        [class.active]="selectedSection === 'facturacion'"
+        (click)="switchTab('facturacion')">
+        <fa-icon [icon]="faCreditCard" size="sm"></fa-icon>
+        Facturación
+      </button>
+      <button 
+        class="clear-button" 
+        [class.active]="selectedSection === 'usuarios'"
+        (click)="switchTab('usuarios')">
+        <fa-icon [icon]="faUsers" size="sm"></fa-icon>
+        Usuarios
+      </button>
+      <button 
+        class="clear-button" 
+        [class.active]="selectedSection === 'gemas-metales'"
+        (click)="switchTab('gemas-metales')">
+        <fa-icon [icon]="faGem" size="sm"></fa-icon>
+        Gemas y metales
+      </button>
+      <button 
+        class="clear-button"
+        [class.active]="selectedSection === 'bases-engastes'"
+        (click)="switchTab('bases-engastes')">
+        <fa-icon [icon]="faRing" size="sm"></fa-icon>
+        Bases y engastes
+      </button>
+      <!-- <button 
+        class="clear-button"
+        [class.active]="selectedSection === 'cajas'"
+        (click)="switchTab('cajas')">
+        <fa-icon [icon]="faBoxes" size="sm"></fa-icon>
+        Cajas
+      </button> -->
+    </div>
+    @switch (selectedSection) {
+      @case ("facturacion") {
+        <app-facturacion></app-facturacion>
+      }
+      @case ("usuarios") {
+        <app-usuarios></app-usuarios>
+      }
+      @case ("gemas-metales") {
+        <app-gemas-metales></app-gemas-metales>
+      }
+      @case ("bases-engastes") {
+        <app-bases-engastes></app-bases-engastes>
+      }
+      @case ("cajas") {
+        <app-cajas></app-cajas>
+      }
+    }
+  </div>
+</div>

@@ -1,0 +1,147 @@
+@use "../../../styles/variables" as vars;
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding-inline: 3rem;
+  width: 100%;
+  z-index: 1000;
+
+  // --- COMPORTAMIENTO POR DEFECTO (Cualquier página que NO sea landing) ---
+  position: relative;
+  background-color: vars.$purple; // Fondo oscuro/azul
+  color: vars.$light-purple; // Textos blancos por defecto
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  padding-inline: 3rem;
+  padding-block: 2.4rem;
+
+  transition: background-color .3s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(0deg, transparent 50%, vars.$white 100%);
+
+    transition: height .1s;
+  }
+
+  .nav-links li a,
+  .auth-link,
+  .separator {
+    color: vars.$purple !important;
+  }
+
+  .auth-link:hover {
+    color: vars.$purple !important;
+  }
+
+  &.scrolled {
+    background-color: vars.$white;
+
+    &::after {
+      height: 30px;
+    }
+  }
+
+  // --- ESTILOS ESTRUCTURALES (Se aplican siempre) ---
+  .nav-links {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 4rem;
+    }
+
+    li a {
+      position: relative;
+      text-decoration: none;
+      color: vars.$light-purple; // Blanco por defecto para resto de la web
+      font-weight: 600;
+      font-size: 1em;
+      padding: 5px 0;
+      transition: all 0.3s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 2px;
+        bottom: 0;
+        left: 50%;
+        background-color: vars.$purple;
+        border-radius: 2px;
+        transition:
+          width 0.4s ease,
+          left 0.4s ease;
+      }
+
+      &:hover::after,
+      &.active::after {
+        width: 100%;
+        left: 0;
+      }
+
+      &:hover {
+        color: vars.$purple; // Al hacer hover siempre se pone acento
+      }
+    }
+  }
+
+  .auth-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .auth-link {
+      text-decoration: none;
+      color: vars.$light-purple; // Blanco por defecto
+      font-weight: 600;
+      font-size: 0.95em;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: vars.$purple;
+      }
+    }
+  }
+}
+
+// Estructura fija
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+
+  .logo {
+    height: 30px;
+  }
+}
+
+.center-nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.isAdmin {
+  flex-flow: row-reverse;
+  pointer-events: none;
+
+  .auth-section * {
+    pointer-events: all;
+  }
+}

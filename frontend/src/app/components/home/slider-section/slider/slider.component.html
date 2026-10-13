@@ -1,0 +1,13 @@
+<button (click)="previous()">
+  <fa-icon [icon]="faChevronLeft" size="xl"></fa-icon>
+</button>
+<ul class="viewport">
+  <li class="cards-container" [style.transform]="transform()">
+    @for (card of cards(); track $index) {
+      <app-card class="card" [cardData]="card" />
+    }
+  </li>
+</ul>
+<button (click)="next()">
+  <fa-icon [icon]="faChevronRight" size="xl"></fa-icon>
+</button>

@@ -1,0 +1,18 @@
+<div class="factu">
+  <h2 class="factu__titulo">
+    <button (click)="prevMonth()" class="btn-icon"><fa-icon [icon]="faAngleLeft"></fa-icon></button>
+
+    Facturación {{ getMonthName() }} {{ year }}
+
+    <button class="btn-icon" 
+            (click)="nextMonth()" 
+            [disabled]="esFuturo()"
+            [class.disabled]="esFuturo()">
+      <fa-icon [icon]="faAngleRight"></fa-icon>
+    </button>
+  </h2>
+
+  <div class="factu__cards">
+    <app-stat-card *ngFor="let stat of stats" [data]="stat"></app-stat-card>
+  </div>
+</div>

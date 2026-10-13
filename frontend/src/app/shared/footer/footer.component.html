@@ -1,0 +1,53 @@
+<footer class="main-footer">
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>Soporte</h3>
+      <ul>
+        <li>San Vicent del Raspeig, Alicante</li>
+        <li>louv.spain&#64;gmail.com</li>
+      </ul>
+    </div>
+      @if (authService.isAdmin()) {
+      <div class="footer-section">
+        <h3>Administración</h3>
+        <ul>
+          <li><a routerLink="/estadisticas-admin">Panel de administración</a></li>
+          <li><a routerLink="/politica-de-privacidad">Configuración</a></li>
+        </ul>
+      </div>
+    }
+    <div class="footer-section">
+      <h3>Información legal</h3>
+      <ul>
+        <li><a routerLink="/politica-de-privacidad">Política de Privacidad</a></li>
+        <li><a routerLink="/terminos-y-condiciones">Términos de Uso</a></li>
+        <li><a routerLink="/politica-de-cookies">Política de cookies</a></li>
+        <li><a (click)="openCookies()">Configuración de Cookies</a></li>
+        <li> <a href="https://louv.ovh/patataTeam/contacto/">Contacto</a></li>
+        <li><a routerLink="/datos-abiertos">Datos Abiertos</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+        <p>Este sitio ha sido creado con fines académicos, sin ánimo comercial.</p>
+        <a href="https://louv.ovh/patataTeam/" title="Ir a la web corporativa"
+            >
+            <fa-icon [icon]="faWordPress"></fa-icon>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61581505537492&locale=es_ES" title="Ir a la cuenta de Facebook"
+            >
+            <fa-icon [icon]="faFacebook"></fa-icon>
+        </a>
+        <a href="https://www.instagram.com/louv_spain" title="Ir a la cuenta de Instagram"
+            >
+            <fa-icon [icon]="faInstagram"></fa-icon>
+        </a>
+        <a href="https://www.tiktok.com/@louv.spain?is_from_webapp=1&sender_device=pc" title="Ir a la cuenta de TikTok"
+            ><fa-icon [icon]="faTiktok"></fa-icon>
+        </a>
+    </div>
+  </div>
+  <hr class="separator">
+  <div class="footer-bottom">
+    <p>&copy; Copyright Louv 2025. All right reserved</p>
+  </div>
+</footer>

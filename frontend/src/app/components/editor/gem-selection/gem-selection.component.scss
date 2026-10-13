@@ -1,0 +1,36 @@
+@use "../../../../styles/mixins" as mixins;
+@use "../../../../styles/variables" as vars;
+
+@include mixins.editor-items;
+
+.selected {
+    display: flex;
+    flex-flow: row;
+    background-color: vars.$selected-gray;
+    padding: 1rem 1rem;
+    border-radius: vars.$border-radius;
+    align-items: center;
+    
+    .gem {
+        flex: 1;
+        gap: 5px;
+        flex-flow: row;
+        display: flex;
+        align-items: center;
+
+        select {
+            border: none;
+            background: none;
+            color: vars.$purple;
+            font-size: 1.2rem;
+        }
+    }
+
+    p {
+        cursor: pointer;
+        transition: all .1s;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

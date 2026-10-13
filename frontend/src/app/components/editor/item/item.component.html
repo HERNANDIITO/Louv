@@ -1,0 +1,29 @@
+<button 
+  [id]="item()._id" 
+  (click)="select()" 
+  [class.incompatible]="!isCompatible()" 
+  [class.selected]="selected()"
+  [class.open]="open()"
+  [class.main]="isMain()"
+  [disabled]="!isCompatible()"
+  class="btn--clear item-wrapper"
+  >
+  @if (material()) {
+    <div [class.material]="!!material()" [class]="material()"></div>
+  } 
+  @else {
+    <img 
+      [src]="img()" 
+      alt="jewelry part" 
+      (error)="getDefault($event)"
+    >
+  }
+
+  <span>
+    {{ item().name || item().purity || item().profile?.name || item().patternName || 'Sin nombre' }}
+  </span>
+  
+  @if (!isCompatibleGem()) {
+    <fa-icon [icon]="faWarning" class="warning-icon"></fa-icon>
+  }
+</button>

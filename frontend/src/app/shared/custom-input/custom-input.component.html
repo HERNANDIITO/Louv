@@ -1,0 +1,110 @@
+<div
+  class="input-container"
+  [class.row]="layout() === 'row'"
+  [class.column]="layout() === 'column'"
+>
+  @if (label()) {
+    <label [for]="id()">
+      {{ label() }}
+      @if (required()) {
+        <span class="required-asterisk">*</span>
+      }
+    </label>
+  }
+  <div class="input-logo-container">
+    @switch (type()) {
+      @case ("text") {
+        <input
+          type="text"
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        />
+      }
+      @case ("tel") {
+        <input
+          type="tel"
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        />
+      }
+      @case ("email") {
+        <input
+          type="email"
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        />
+      }
+      @case ("number") {
+        <input
+          type="number"
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        />
+      }
+      @case ("password") {
+        <input
+          [type]="passwordVisibility() ? 'text' : 'password'"
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        />
+        <button type="button" (click)="switchVisibility()" class="button-icon">
+          @if (passwordVisibility()) {
+            <fa-icon [icon]="faEye" role="button"></fa-icon>
+          } @else {
+            <fa-icon [icon]="faEyeSlash" role="button"></fa-icon>
+          }
+        </button>
+      }
+      @case ("textarea") {
+        <textarea
+          [id]="id()"
+          [required]="required()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+          (blur)="control().markAsTouched()"
+        ></textarea>
+      }
+      @case ("select") {
+        <div class="select-wrapper">
+          <select [id]="id()" [required]="required()" [formControl]="control()">
+            <option [ngValue]="null" disabled hidden>
+              {{ placeholder() || "Seleccionar" }}
+            </option>
+            <ng-content></ng-content>
+          </select>
+          <svg class="select-arrow" viewBox="0 0 24 24">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </div>
+      }
+      @default {
+        <input
+          [type]="type()"
+          [id]="id()"
+          [required]="required()"
+          (blur)="control().markAsTouched()"
+          [placeholder]="placeholder()"
+          [formControl]="control()"
+        />
+      }
+    }
+  </div>
+  @if (hasErrorAndTouched) {
+    <span class="control-error">Este campo es obligatorio.</span>
+  }
+</div>

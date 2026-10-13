@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <label class="switch">
+        <input type="checkbox" [checked]="checked()" (change)="change($event)">
+        <span class="slider round"></span>
+    </label>
+    @if(text()) {
+        <p>{{text()}}</p>
+    }
+</div>

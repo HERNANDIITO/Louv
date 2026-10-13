@@ -1,0 +1,74 @@
+@use "variables" as vars;
+
+//---------------------------
+// Enlaces
+//---------------------------
+
+.blue-link {
+  color: #1077c0;
+  text-decoration: underline;
+  font-size: vars.$font-size-text;
+  &:hover {
+    color: vars.$purple;
+    cursor: pointer;
+  }
+}
+
+.white-link {
+  color: vars.$light-purple;
+  text-decoration: underline;
+  font-size: vars.$font-size-text;
+  &:hover {
+    color: vars.$purple;
+    cursor: pointer;
+  }
+}
+
+.link {
+  color: vars.$black;
+  text-decoration: none;
+  position: relative;
+
+  &:hover {
+    &::after {
+      height: 2px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: vars.$black;
+
+    transition: height 0.075s ease-in;
+  }
+}
+
+.purple-link {
+  color: vars.$purple;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+
+  &:hover {
+    &::after {
+      height: 2px;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    background-color: vars.$purple;
+
+    transition: height 0.075s ease-in;
+  }
+}

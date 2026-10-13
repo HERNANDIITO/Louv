@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="value">{{data.value}}</div>
+  <div class="title">{{data.title}}</div>
+  <span [ngClass]="{
+  positive: data.change > 0,
+  negative: data.change < 0,
+  neutral: data.change === 0
+}">
+  {{ data.change > 0 ? '↑' : (data.change < 0 ? '↓' : '—') }}
+  {{ data.change }}%
+</span>
+  <p class="simple-text">respecto al mes pasado</p>
+  <div *ngIf="chartOption" echarts [options]="chartOption" class="chart"></div>
+</div>

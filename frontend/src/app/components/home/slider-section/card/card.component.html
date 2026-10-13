@@ -1,0 +1,10 @@
+<img
+  [ngSrc]="'images/' + cardData().imageFileName"
+  width="400"
+  height="400"
+  loading="lazy"
+  [alt]="cardData().alt"
+/>
+<h4>{{ cardData().title }}</h4>
+<h5>{{ cardData().subtitle }}</h5>
+<p>{{ cardData().description }}</p>

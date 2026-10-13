@@ -1,0 +1,246 @@
+@use "variables" as vars;
+@use "mixins" as mixins;
+
+// Botones rediseño
+
+.only-icon {
+  height: 48px;
+  width: 48px;
+}
+
+.clear-button,
+.light-button,
+.dark-button,
+.purple-button {
+  font-family: vars.$google-sans-24;
+  color: vars.$purple;
+  border-radius: vars.$border-radius;
+  border-style: solid;
+  border-color: transparent;
+  border-width: vars.$border-width;
+  outline: none;
+  font-size: 1rem;
+  height: 48px;
+
+  &:not(.only-icon) {
+    padding: 5px 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.clear-button {
+  background-color: transparent;
+  transition: all 0.1s;
+  transition: border-color 0.5s;
+  transition: box-shadow 0.5s;
+
+  &:hover {
+    border: 2px solid vars.$purple;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px vars.$purple;
+  }
+}
+
+.light-button {
+  background-color: vars.$white;
+  border-style: solid;
+  border-color: vars.$light-purple;
+
+  &:hover {
+    background-color: vars.$purple;
+    color: vars.$white;
+    border-color: vars.$light-purple;
+    transition: all 0.1s;
+  }
+}
+
+.purple-button {
+  background-color: vars.$purple;
+  color: vars.$white;
+  font-weight: bold;
+
+  &:hover {
+    border-color: vars.$purple;
+    background-color: vars.$light-purple;
+    color: vars.$purple;
+    transition: all 0.1s;
+  }
+}
+
+.dark-button {
+  background-color: vars.$light-purple;
+
+  &:hover {
+    border-color: vars.$purple;
+    background-color: vars.$purple;
+    color: vars.$white;
+    transition: all 0.1s;
+  }
+}
+
+.swal2-cancel,
+.swal2-deny {
+  @extend .light-button;
+}
+
+.swal2-confirm {
+  @extend .dark-button;
+}
+
+.swal2-popup {
+  border-radius: 32px;
+}
+
+.btn {
+  @include mixins.button-base;
+
+  &--fit {
+    width: fit-content;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--small {
+    padding: 0.6rem 1rem;
+    font-size: vars.$font-size-text;
+  }
+
+  &--large {
+    padding: 1.5rem 1rem;
+    font-size: vars.$font-size-h2;
+  }
+
+  &--accent {
+    background-color: vars.$purple;
+    color: vars.$light-purple;
+    border: none;
+    @include mixins.hover-bg(vars.$light-purple);
+    @include mixins.shine-wave;
+  }
+
+  &--primary {
+    background-color: vars.$purple;
+    color: vars.$light-purple;
+    border: none;
+    @include mixins.hover-bg(vars.$purple);
+    @include mixins.shine-wave;
+  }
+
+  &--outline {
+    background-color: vars.$light-purple;
+    color: vars.$purple;
+    border: 1.5px solid vars.$purple;
+    @include mixins.hover-bg(#f5f5f5);
+    @include mixins.shine-wave;
+  }
+
+  &--round {
+    min-width: 41px;
+    height: 41px;
+    background-color: vars.$purple;
+    color: vars.$light-purple;
+    border: none;
+    @include mixins.hover-bg(vars.$purple);
+    border-radius: 100%;
+  }
+
+  &--round-flex {
+    // para botones de editor con icono y texto
+    display: flex;
+    width: fit-content;
+    height: 41px;
+    background-color: vars.$purple;
+    color: vars.$light-purple;
+    border: none;
+    @include mixins.hover-bg(vars.$purple);
+    border-radius: 100px;
+    padding-inline: 18px;
+    font-size: vars.$font-size-text;
+  }
+
+  &--round-big {
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+  }
+
+  &--clear {
+    background: none;
+    border: none;
+    outline: none;
+  }
+}
+
+.icon-button {
+  //iconos botón del header
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  cursor: pointer;
+  color: vars.$light-purple;
+  transition: transform 0.2s ease;
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    transform: scale(1.1);
+    color: vars.$purple;
+  }
+
+  &.is-landing {
+    color: vars.$purple;
+
+    &:hover {
+      color: vars.$purple;
+    }
+  }
+}
+
+.checkbox {
+  cursor: pointer;
+  background-color: transparent;
+  width: 15px;
+  height: 15px;
+  appearance: none;
+  border: 2px solid vars.$dark-gray;
+  border-radius: 2px;
+  position: relative;
+  padding: 0;
+
+  transition: background-color .05s ease;
+
+  &:not(checked)::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: -1px;
+    width: 3px;
+    height: 10px;
+    border: solid vars.$white;
+    border-width: 0px;
+    transform: rotate(45deg);
+
+    transition: border-width .05s ease .15s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:checked {
+    background-color: vars.$purple;
+    &::after {
+      border-width: 0 2px 2px 0;
+    }
+  }
+}
+
+input[type="radio"] {
+  accent-color: vars.$purple;
+}

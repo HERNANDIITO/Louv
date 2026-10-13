@@ -1,0 +1,76 @@
+<!-- <fa-icon class="resize-icon" size="xs" [icon]="faArrowsUpDown" rotate="-45deg"></fa-icon> -->
+<svg class="resize-icon" width="16px" height="16px" viewBox="0 0 18 18" mirror-in-rtl="true">
+    <path fill="#494c4e"
+        d="M8.5 16.2a1 1 0 0 1-.707-1.707l4.13-4.13a1 1 0 1 1 1.414 1.414l-4.13 4.13a1 1 0 0 1-.707.293zm-4.8 0a1 1 0 0 1-.707-1.707L11.5 6.01a1 1 0 1 1 1.414 1.414L4.407 15.914a1 1 0 0 1-.707.293z" />
+</svg>
+
+<div class="chat-container" [style.width.px]="width" [style.height.px]="height">
+
+    <div class="resizer resizer-top" (mousedown)="initResize($event, 'top')"></div>
+    <div class="resizer resizer-left" (mousedown)="initResize($event, 'left')"></div>
+    <div class="resizer resizer-corner" (mousedown)="initResize($event, 'corner')"></div>
+
+    <div class="chat-header">
+        <span class="h3-primary">
+            <fa-icon [icon]="faMoon" class="icono-rosa" size="sm"></fa-icon> LUNA
+        </span>
+
+        <div class="header-actions">
+            <button class="language-button" type="button" (click)="toggleLanguage()">
+                <img [src]="currentLanguage === 'es' ? 'images/england.png' : 'images/spain.png'"
+                    [alt]="currentLanguage === 'es' ? 'Cambiar a inglés' : 'Cambiar a español'" />
+            </button>
+
+            <button class="reload-button" type="button" (click)="resetChat()">
+                <fa-icon [icon]="faArrowsRotate"></fa-icon>
+            </button>
+        </div>
+    </div>
+
+    <div class="chat-messages" #chatMessages>
+
+        @for (msg of messages; track msg) {
+        <div class="message" [ngClass]="msg.sender">
+            <div class="message-content" [innerHTML]="msg.text"></div>
+        </div>
+        }
+
+        @if (activeButtons?.length) {
+        <div class="message bot">
+            <div class="buttons-container">
+                @for (btn of activeButtons; track btn) {
+                <button (click)="onButtonClick(btn)" [innerHTML]="btn.title"></button>
+                }
+            </div>
+        </div>
+        }
+
+        @if (isTyping) {
+        <div class="message bot">
+            <div class="typing">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        }
+
+    </div>
+
+    <div class="chat-input-container">
+        <p class="chat-disclaimer">
+            {{ currentLanguage === 'es'
+                ? 'Luna no es una persona real. Los datos que compartas podrían usarse para mejorar la experiencia de usuario.'
+                : 'Luna is not a real person. The data you share may be used to improve the user experience.' }}
+        </p>
+
+        <div class="chat-input-row">
+            <input type="text" #messageInput
+                [placeholder]="currentLanguage === 'es' ? 'Escribe tu mensaje...' : 'Write your message...'"
+                autocomplete="off" (keypress)="onKeyPress($event)">
+
+            <button type="button" (click)="sendMessage()">
+                <fa-icon [icon]="faPaperPlane"></fa-icon>
+            </button>
+        </div>
+    </div>
+
+</div>

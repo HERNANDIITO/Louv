@@ -1,0 +1,29 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  background-color: vars.$purple;
+  overflow: visible;
+}
+
+:host > img {
+  position: absolute;
+  top: -11.8rem;
+  left: -8rem;
+  clip-path: inset(0 0 10rem 0);
+
+  pointer-events: none;
+
+  will-change: transform, clip-path; // Avisa al navegador para optimizar esta capa
+  transform: translateZ(0);
+}
+
+:host > p {
+  margin-block: 2rem;
+  font-size: vars.$font-size-hero-sm;
+  color: vars.$light-purple;
+  font-family: vars.$abhaya;
+}

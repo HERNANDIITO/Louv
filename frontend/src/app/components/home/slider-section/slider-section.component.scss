@@ -1,0 +1,24 @@
+@use "../../../../styles/variables" as vars;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 6rem;
+  padding-inline: 8rem;
+  contain: content;
+  
+  background: linear-gradient(155deg, vars.$purple 0%, #ffffff 50%);
+
+  > h2 {
+    color: vars.$purple;
+    margin-top: 0;
+  }
+
+  > h3 {
+    font-style: italic;
+    font-weight: lighter;
+    color: vars.$purple;
+    margin-bottom: 4rem;
+  }
+}

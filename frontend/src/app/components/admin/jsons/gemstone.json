@@ -1,0 +1,460 @@
+[
+  {
+    "_id": "677010aa9a1bcd01b1000001",
+    "name": "Diamante",
+    "description": "La gema más dura y brillante, símbolo de pureza.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000001",
+        "image": "images/diamond_round.png"
+      },
+      {
+        "cut": "677001aa9a1bcd01a2000004",
+        "image": "images/diamond_oval.png"
+      }
+    ],
+    "meaning": "Claridad, fuerza interior, equilibrio.",
+    "zodiac": ["ARIES", "LEO"],
+    "recommendedMaterials": [
+      "676f1aaa9a1bcd01a1000101",
+      "676f1aaa9a1bcd01a1000104"
+    ],
+    "recommendedCuts": [
+      "677001aa9a1bcd01a2000001",
+      "677001aa9a1bcd01a2000003"
+    ],
+    "color": ["WHITE", "TRANSPARENT"],
+    "texture": "crystalline",
+    "hardness": 10.0,
+    "hasSynthetic": true,
+    "origin": "África, Rusia, Canadá",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001001",
+        "caratRangeMin": 0.2,
+        "caratRangeMax": 1,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.3,
+        "pricePerCaratNatural": "3500.00",
+        "pricePerCaratSynthetic": "800.00"
+      },
+      {
+        "_id": "677010aa9a1bcd01b1001002",
+        "caratRangeMin": 1,
+        "caratRangeMax": 5,
+        "minScaleFactor": 1.3,
+        "maxScaleFactor": 1.8,
+        "pricePerCaratNatural": "6500.00",
+        "pricePerCaratSynthetic": "1200.00"
+      }
+    ]
+  },
+  {
+    "_id": "677010aa9a1bcd01b1000002",
+    "name": "Zafiro",
+    "description": "Gema azul profunda asociada a la realeza.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000003",
+        "image": "images/sapphire_emerald.png"
+      }
+    ],
+    "meaning": "Sabiduría, lealtad y protección.",
+    "zodiac": ["TAURUS", "LIBRA"],
+    "recommendedMaterials": [
+      "676f1aaa9a1bcd01a1000110"
+    ],
+    "recommendedCuts": [
+      "677001aa9a1bcd01a2000003",
+      "677001aa9a1bcd01a2000006"
+    ],
+    "color": ["BLUE"],
+    "texture": "smooth",
+    "hardness": 9.0,
+    "hasSynthetic": true,
+    "origin": "Sri Lanka, Birmania, Madagascar",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001003",
+        "caratRangeMin": 0.5,
+        "caratRangeMax": 2,
+        "minScaleFactor": 1.1,
+        "maxScaleFactor": 1.4,
+        "pricePerCaratNatural": "900.00",
+        "pricePerCaratSynthetic": "150.00"
+      }
+    ]
+  },
+  {
+    "_id": "677010aa9a1bcd01b1000003",
+    "name": "Rubí",
+    "description": "Gema roja intensa, símbolo de pasión y valentía.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000002",
+        "image": "images/ruby_princess.png"
+      }
+    ],
+    "meaning": "Energía, amor y vitalidad.",
+    "zodiac": ["LEO", "SCORPIO"],
+    "recommendedMaterials": [
+      "676f1aaa9a1bcd01a1000113"
+    ],
+    "recommendedCuts": [
+      "677001aa9a1bcd01a2000001"
+    ],
+    "color": ["RED"],
+    "texture": "smooth",
+    "hardness": 9.0,
+    "hasSynthetic": true,
+    "origin": "Birmania, Tailandia",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001004",
+        "caratRangeMin": 0.3,
+        "caratRangeMax": 3,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.5,
+        "pricePerCaratNatural": "2500.00",
+        "pricePerCaratSynthetic": "300.00"
+      }
+    ]
+  },
+  {
+    "_id": "677010aa9a1bcd01b1000004",
+    "name": "Esmeralda",
+    "description": "Verde vibrante, asociada a la prosperidad.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000003",
+        "image": "images/emerald_emeraldcut.png"
+      }
+    ],
+    "meaning": "Abundancia y armonía emocional.",
+    "zodiac": ["GEMINI", "VIRGO"],
+    "recommendedMaterials": ["676f1aaa9a1bcd01a1000114"],
+    "recommendedCuts": ["677001aa9a1bcd01a2000003"],
+    "color": ["GREEN"],
+    "texture": "crystalline",
+    "hardness": 7.5,
+    "hasSynthetic": true,
+    "origin": "Colombia, Zambia",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001005",
+        "caratRangeMin": 0.5,
+        "caratRangeMax": 5,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.6,
+        "pricePerCaratNatural": "1800.00",
+        "pricePerCaratSynthetic": "200.00"
+      }
+    ]
+  },
+  {
+    "_id": "677010aa9a1bcd01b1000005",
+    "name": "Amatista",
+    "description": "Cuarzo púrpura de energía calmante.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000007",
+        "image": "images/amethyst_heart.png"
+      }
+    ],
+    "meaning": "Tranquilidad, estabilidad emocional.",
+    "zodiac": ["PISCIS"],
+    "recommendedMaterials": [],
+    "recommendedCuts": ["677001aa9a1bcd01a2000007"],
+    "color": ["PURPLE"],
+    "texture": "smooth",
+    "hardness": 7.0,
+    "hasSynthetic": true,
+    "origin": "Brasil, Uruguay",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001006",
+        "caratRangeMin": 1,
+        "caratRangeMax": 20,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.2,
+        "pricePerCaratNatural": "30.00",
+        "pricePerCaratSynthetic": "10.00"
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000006",
+    "name": "Topacio Azul",
+    "description": "Gema azul clara muy popular en joyería.",
+    "imagePerCut": [
+      {
+        "cut": "677001aa9a1bcd01a2000010",
+        "image": "images/topaz_blue_asscher.png"
+      }
+    ],
+    "meaning": "Claridad mental y comunicación.",
+    "zodiac": ["SAGITTARIUS"],
+    "recommendedMaterials": [],
+    "recommendedCuts": ["677001aa9a1bcd01a2000010"],
+    "color": ["BLUE", "LIGHT_BLUE"],
+    "texture": "smooth",
+    "hardness": 8.0,
+    "hasSynthetic": false,
+    "origin": "Brasil, Nigeria",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001007",
+        "caratRangeMin": 1,
+        "caratRangeMax": 10,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.4,
+        "pricePerCaratNatural": "50.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000007",
+    "name": "Citrino",
+    "description": "Cuarzo amarillo cálido.",
+    "imagePerCut": [],
+    "meaning": "Energía positiva y creatividad.",
+    "zodiac": ["ARIES"],
+    "recommendedMaterials": [],
+    "recommendedCuts": ["677001aa9a1bcd01a2000001"],
+    "color": ["YELLOW"],
+    "texture": "smooth",
+    "hardness": 7.0,
+    "hasSynthetic": true,
+    "origin": "Brasil",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001008",
+        "caratRangeMin": 1,
+        "caratRangeMax": 30,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.3,
+        "pricePerCaratNatural": "20.00",
+        "pricePerCaratSynthetic": "5.00"
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000008",
+    "name": "Ópalo",
+    "description": "Gema iridiscente con patrones únicos.",
+    "imagePerCut": [],
+    "meaning": "Inspiración y creatividad.",
+    "zodiac": ["CANCER"],
+    "recommendedMaterials": [],
+    "recommendedCuts": [],
+    "color": ["WHITE", "RAINBOW"],
+    "texture": "smooth",
+    "hardness": 5.5,
+    "hasSynthetic": true,
+    "origin": "Australia, Etiopía",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001009",
+        "caratRangeMin": 0.5,
+        "caratRangeMax": 10,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.4,
+        "pricePerCaratNatural": "80.00",
+        "pricePerCaratSynthetic": "20.00"
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000009",
+    "name": "Turmalina",
+    "description": "Gema conocida por su amplia variedad de colores.",
+    "imagePerCut": [],
+    "meaning": "Protección y estabilidad emocional.",
+    "zodiac": ["LIBRA"],
+    "recommendedCuts": [],
+    "recommendedMaterials": [],
+    "color": ["GREEN", "PINK", "BLACK"],
+    "texture": "smooth",
+    "hardness": 7.0,
+    "hasSynthetic": false,
+    "origin": "Brasil, Afganistán",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001010",
+        "caratRangeMin": 0.2,
+        "caratRangeMax": 5,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.5,
+        "pricePerCaratNatural": "150.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000010",
+    "name": "Granate",
+    "description": "Gema roja oscura muy tradicional.",
+    "imagePerCut": [],
+    "meaning": "Fuerza y pasión.",
+    "zodiac": ["CAPRICORN"],
+    "recommendedMaterials": [],
+    "recommendedCuts": [],
+    "color": ["RED"],
+    "texture": "crystalline",
+    "hardness": 7.5,
+    "hasSynthetic": false,
+    "origin": "India, Sri Lanka",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001011",
+        "caratRangeMin": 1,
+        "caratRangeMax": 15,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.2,
+        "pricePerCaratNatural": "25.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000011",
+    "name": "Aguamarina",
+    "description": "Gema azul pastel muy apreciada.",
+    "imagePerCut": [],
+    "meaning": "Calma, pureza y confianza.",
+    "zodiac": ["PISCIS"],
+    "recommendedMaterials": [],
+    "recommendedCuts": [],
+    "color": ["LIGHT_BLUE"],
+    "texture": "smooth",
+    "hardness": 7.5,
+    "hasSynthetic": false,
+    "origin": "Pakistán, Afganistán",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001012",
+        "caratRangeMin": 0.5,
+        "caratRangeMax": 10,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.4,
+        "pricePerCaratNatural": "200.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000012",
+    "name": "Peridoto",
+    "description": "Gema verde limón perfecta para joyería ligera.",
+    "imagePerCut": [],
+    "meaning": "Renovación y energía positiva.",
+    "zodiac": ["LEO"],
+    "recommendedCuts": [],
+    "recommendedMaterials": [],
+    "color": ["GREEN", "LIGHT_GREEN"],
+    "texture": "smooth",
+    "hardness": 6.5,
+    "hasSynthetic": false,
+    "origin": "China, Myanmar",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001013",
+        "caratRangeMin": 0.3,
+        "caratRangeMax": 5,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.3,
+        "pricePerCaratNatural": "60.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000013",
+    "name": "Jade",
+    "description": "Gema sagrada en muchas culturas orientales.",
+    "imagePerCut": [],
+    "meaning": "Equilibrio y prosperidad.",
+    "zodiac": ["TAURUS"],
+    "recommendedCuts": [],
+    "recommendedMaterials": [],
+    "color": ["GREEN"],
+    "texture": "waxy",
+    "hardness": 6.0,
+    "hasSynthetic": true,
+    "origin": "China, Birmania",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001014",
+        "caratRangeMin": 1,
+        "caratRangeMax": 50,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.2,
+        "pricePerCaratNatural": "40.00",
+        "pricePerCaratSynthetic": "8.00"
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000014",
+    "name": "Lapislázuli",
+    "description": "Gema azul intensa con vetas doradas.",
+    "imagePerCut": [],
+    "meaning": "Sabiduría y poder espiritual.",
+    "zodiac": ["SAGITTARIUS"],
+    "recommendedCuts": [],
+    "recommendedMaterials": [],
+    "color": ["BLUE", "GOLD"],
+    "texture": "grainy",
+    "hardness": 5.0,
+    "hasSynthetic": false,
+    "origin": "Afganistán, Chile",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001015",
+        "caratRangeMin": 2,
+        "caratRangeMax": 40,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.1,
+        "pricePerCaratNatural": "15.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  },
+
+  {
+    "_id": "677010aa9a1bcd01b1000015",
+    "name": "Onix",
+    "description": "Gema negra profunda de protección.",
+    "imagePerCut": [],
+    "meaning": "Fuerza, enfoque y estabilidad.",
+    "zodiac": ["CAPRICORN"],
+    "recommendedCuts": [],
+    "recommendedMaterials": [],
+    "color": ["BLACK"],
+    "texture": "smooth",
+    "hardness": 6.5,
+    "hasSynthetic": false,
+    "origin": "Brasil, India",
+    "qualities": [
+      {
+        "_id": "677010aa9a1bcd01b1001016",
+        "caratRangeMin": 1,
+        "caratRangeMax": 20,
+        "minScaleFactor": 1.0,
+        "maxScaleFactor": 1.2,
+        "pricePerCaratNatural": "10.00",
+        "pricePerCaratSynthetic": null
+      }
+    ]
+  }
+]

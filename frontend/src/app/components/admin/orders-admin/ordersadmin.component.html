@@ -1,0 +1,154 @@
+<div class="stats-container">
+  <app-stats-sidebar activeSection="orders"></app-stats-sidebar>
+
+  <div class="orders-content">
+    <h1 class="admin-dashboard-section-title">
+      Administración de pedidos
+    </h1>
+    <div class="orders-page">
+      <form [formGroup]="orderSelectorForm" class="orders-filters">
+        <div class="filters-group">
+          <app-custom-input
+            id="username"
+            type="text"
+            label="Nombre de usuario"
+            [control]="orderSelectorForm.controls.username"
+            placeholder="Nombre de usuario"
+          ></app-custom-input>
+
+          <app-custom-input
+            id="fromDate"
+            type="date"
+            label="Desde"
+            [control]="orderSelectorForm.controls.fromDate"
+          ></app-custom-input>
+
+          <app-custom-input
+            id="toDate"
+            type="date"
+            label="Hasta"
+            [control]="orderSelectorForm.controls.toDate"
+          ></app-custom-input>
+        </div>
+        <div class="filters-group filters-group--status">
+          <label>Estado del pedido</label>
+
+          <div class="options">
+            <label
+              ><input type="radio" formControlName="status" value="" />
+              Todos</label
+            >
+            <label
+              ><input type="radio" formControlName="status" value="inCart" /> En
+              carrito</label
+            >
+            <label
+              ><input type="radio" formControlName="status" value="ordered" />
+              Pendiente</label
+            >
+            <label
+              ><input type="radio" formControlName="status" value="delivered" />
+              Entregado</label
+            >
+          </div>
+        </div>
+        <div class="filters-group">
+          <app-custom-input
+            id="minTotal"
+            type="number"
+            label="Importe Mínimo"
+            placeholder="Importe mínimo"
+            min="0"
+            [control]="orderSelectorForm.controls.minTotal"
+          ></app-custom-input>
+          <app-custom-input
+            id="maxTotal"
+            type="number"
+            label="Importe Máximo"
+            placeholder="Importe máximo"
+            min="0"
+            [control]="orderSelectorForm.controls.maxTotal"
+          ></app-custom-input>
+        </div>
+        <div class="filters-group">
+          <app-custom-input
+            id="sortField"
+            type="select"
+            label="Ordenar por"
+            placeholder="Seleccione"
+            [control]="orderSelectorForm.controls.sort"
+          >
+            <option value="cartCreationDate">Fecha creación</option>
+            <option value="lastUpdate">Última actualización</option>
+            <option value="user">Usuario</option>
+            <option value="state">Estado</option>
+            <option value="deliveryDate">Fecha entrega</option>
+          </app-custom-input>
+          <div class="filters-group filters-group--status">
+            <label>Tipo de orden</label>
+
+            <div class="options">
+              <label>
+                <input type="radio" formControlName="order" value="asc" />
+                Ascendente
+              </label>
+
+              <label>
+                <input type="radio" formControlName="order" value="desc" />
+                Descendente
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="filters-group actions">
+          <button
+            (click)="onReset()"
+            type="reset"
+            class="light-button"
+          >
+            Restablecer
+          </button>
+          <button
+            (click)="onSubmit()"
+            type="submit"
+            class="light-button"
+          >
+            Aplicar
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="sections">
+      <span>Nº PEDIDO</span>
+      <span>FECHA</span>
+      <span>USUARIO</span>
+      <span>TOTAL</span>
+      <span>ESTADO</span>
+      <span>VER DETALLES</span>
+    </div>
+    <div class="orders-list">
+      @for (order of orders(); track order._id) {
+        <app-order-card [order]="order"></app-order-card>
+      }
+    </div>
+    <div class="pagination-controls">
+      <button
+        class="btn btn--secondary"
+        (click)="prevPage()"
+        [disabled]="orderSelectorForm.controls.page.value <= 1"
+      >
+        Anterior
+      </button>
+
+      <span>Página {{ orderSelectorForm.controls.page.value }}</span>
+
+      <button
+        class="btn btn--secondary"
+        (click)="nextPage()"
+        [disabled]="orderSelectorForm.controls.page.value >= totalPages()"
+      >
+        Siguiente
+      </button>
+    </div>
+  </div>
+</div>

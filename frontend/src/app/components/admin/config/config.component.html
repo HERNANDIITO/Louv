@@ -1,0 +1,127 @@
+<div class="stats-container">
+  <app-stats-sidebar activeSection="config"></app-stats-sidebar>
+
+  <div class="content">
+    <h1 class="admin-dashboard-section-title">Configuración</h1>
+    <div class="configurations">
+      <h2 class="h2-primary h2-primary--margin-bottom">
+        <fa-icon [icon]="faKey" size="sm"></fa-icon>Cambiar contraseña
+      </h2>
+      <form [formGroup]="passwordForm" (ngSubmit)="onChangePassword()">
+        <div class="form-section no-border">
+          <div class="form-row">
+            <div class="input-container full-width">
+              <div class="input-with-error-wrapper">
+                <app-custom-input
+                  id="currentPassword"
+                  type="password"
+                  label="Contraseña actual *"
+                  [control]="passwordForm.controls.currentPassword"
+                  placeholder="Escriba su contraseña actual"
+                  [showErrors]="false"
+                ></app-custom-input>
+                @if (isPasswordInvalid(passwordForm.controls.currentPassword)) {
+                  <span class="field-error-right">Obligatorio</span>
+                }
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-container">
+              <div class="input-with-error-wrapper">
+                <app-custom-input
+                  id="newPassword"
+                  type="password"
+                  label="Nueva contraseña *"
+                  [control]="passwordForm.controls.newPassword"
+                  placeholder="Mín. 8 caracteres..."
+                  [showErrors]="false"
+                ></app-custom-input>
+                @if (isPasswordInvalid(passwordForm.controls.newPassword)) {
+                  <span class="field-error-right">{{
+                    getErrorMessage(passwordForm.controls.newPassword)
+                  }}</span>
+                }
+              </div>
+            </div>
+
+            <div class="input-container">
+              <div class="input-with-error-wrapper">
+                <app-custom-input
+                  id="confirmNewPassword"
+                  type="password"
+                  label="Repetir nueva contraseña *"
+                  [control]="passwordForm.controls.confirmNewPassword"
+                  placeholder="Repita la contraseña"
+                  [showErrors]="false"
+                ></app-custom-input>
+                @if (
+                  isPasswordInvalid(passwordForm.controls.confirmNewPassword)
+                ) {
+                  <span class="field-error-right">No coincide</span>
+                }
+              </div>
+            </div>
+          </div>
+
+          @if (
+            submittedPassword() && passwordForm.hasError("passwordsMismatch")
+          ) {
+            <div class="mismatch-container">
+              <span class="field-error-right"
+                >Las contraseñas no coinciden.</span
+              >
+            </div>
+          }
+
+          <div class="button-container-right">
+            <button type="submit" class="dark-button btn--fit">
+              Confirmar cambios
+            </button>
+          </div>
+        </div>
+      </form>
+      <div class="totp">
+        <div class="inlineTOTP">
+          <h2 class="h2-primary">
+            <fa-icon [icon]="faQrcode" size="sm"></fa-icon>Autenticación de
+            doble factor
+          </h2>
+          @if (authService.user()) {
+            <span
+              [class]="
+                authService.totp() ? 'totp-configurado' : 'totp-no-configurado'
+              "
+            >
+              <fa-icon
+                [icon]="authService.totp() ? faShield : faTriangleExclamation"
+              ></fa-icon>
+              {{ authService.totp() ? "Configurado" : "No configurado" }}
+            </span>
+          }
+        </div>
+
+        <p class="text-primary">
+          Protege tu cuenta con un código temporal generado por la aplicación de
+          autenticación Google Authenticator. Cada vez que inicies sesión se te
+          pedirá el código de 6 dígitos.
+        </p>
+        @if (authService.totp()) {
+          <p class="already-totp">
+            Ya está configurado el código TOTP para esta cuenta.
+          </p>
+        } @else {
+          <button class="dark-button" (click)="openTOTPModal()">
+            Configurar
+          </button>
+        }
+      </div>
+      <div class="logout">
+        <button class="dark-button" (click)="authService.logout()">
+          <fa-icon [icon]="faArrowRightFromBracket"></fa-icon>
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+@use "./variables" as vars;
+
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('/fonts/GoogleSansFlex/GoogleSansFlex_72pt-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans Flex';
+  src: url('/fonts/GoogleSansFlex/GoogleSansFlex_72pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: semibold;
+}
+
+
+@font-face {
+  font-family: 'Google Sans Flex 24';
+  src: url('/fonts/GoogleSansFlex/GoogleSansFlex_24pt-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Google Sans Flex 24';
+  src: url('/fonts/GoogleSansFlex/GoogleSansFlex_24pt-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: semibold;
+}
+
+// Encabezados
+.h1-hero{
+  font-size: vars.$font-size-hero;
+  font-weight: 500;
+  color: vars.$purple;
+}
+
+.h1-primary {
+  font-size: vars.$font-size-h1;
+  font-weight: 600;
+  color: vars.$purple;
+  text-transform: uppercase;  
+  &--center {
+    text-align: center;
+  }
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  &--margin-bottom {
+    margin-bottom: 1rem;
+  }
+  &--stylish{
+    font-family: vars.$abhaya;
+    text-transform: none; 
+    font-weight: 400;
+    font-size: 64px;
+  }
+}
+
+.h2-primary {
+  font-size: vars.$font-size-h2;
+  font-weight: 600;
+  color: vars.$purple;
+
+  &--center {
+    text-align: center;
+  }
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  &--thin {
+    font-weight: 500;
+  }
+
+  &--margin-bottom {
+    margin-bottom: 1rem;
+  }
+}
+
+.h3-primary {
+  font-size: vars.$font-size-h3;
+  font-weight: 600;
+  color: vars.$purple;
+
+  &--center {
+    text-align: center;
+  }
+  &--left {
+    text-align: left;
+  }
+  &--right {
+    text-align: right;
+  }
+  &--thin {
+    font-weight: 500;
+  }
+}
+
+.admin-dashboard-section-title {
+  font-family: vars.$abhaya, regular;
+  color: vars.$black;
+  background-color: transparent;
+  font-weight: 100;
+  margin-bottom: .8em;
+}
+
+.subtitle {
+  font-size: vars.$font-size-h1;
+  font-weight: 500;
+  color: vars.$purple;
+}
+
+// Párrafos
+.text-primary {
+  font-size: vars.$font-size-text;
+  color: vars.$black;
+}

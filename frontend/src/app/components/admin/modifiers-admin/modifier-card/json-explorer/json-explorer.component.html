@@ -1,0 +1,20 @@
+<div class="json-tree">
+  @for (item of objectEntries(); track $index) {
+    <div class="tree-node" [class.array-item]="isArray(data())">
+      
+      @if (!isArray(data())) {
+        <span class="key">{{ item.key }}:</span>
+      }
+
+      @if (isObject(item.value)) {
+        <div class="nested-content">
+          <app-json-explorer [data]="item.value"></app-json-explorer>
+        </div>
+      } @else {
+        <span class="value" [class.number]="isNumber(item.value)">
+          {{ formatValue(item.value) }}
+        </span>
+      }
+    </div>
+  }
+</div>

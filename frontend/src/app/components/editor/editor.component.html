@@ -1,0 +1,333 @@
+<div class="wrapper">
+  <div id="fullscreen">
+    <a
+      id="logoFullscreen"
+      [class.shown]="expandedView() || finalView()"
+      routerLink=""
+      title="Ir al inicio"
+      ><img
+        [src]="'/logos/louv_black.png'"
+        alt="inicio"
+        title="Ir al inicio"
+        class="logo"
+    /></a>
+    <button
+      id="finishFullscreen"
+      class="dark-button big end-design"
+      [class.shown]="expandedView()"
+      (click)="toggleFinal(); toggleExpand()"
+    >
+      Finalizar diseño
+      <fa-icon [icon]="icons.faChevronRight"></fa-icon>
+    </button>
+  </div>
+
+  <div
+    class="sidebar"
+    #sidebar
+    [class.expandedView]="expandedView() || finalView()"
+    (transitionstart)="onTransitionStart($event)"
+    (transitionend)="onTransitionEnd($event)"
+  >
+    <div class="logo-wrapper">
+      <button (click)="toggleSidebar()">
+        <fa-icon
+          class="cross"
+          [class.hidden]="!menuOpen()"
+          [icon]="icons.faXmark"
+        ></fa-icon>
+        <fa-icon [class.hidden]="menuOpen()" [icon]="icons.faBars"></fa-icon>
+      </button>
+      <a routerLink="" title="Ir al inicio"
+        ><img
+          [src]="'/logos/louv_black.png'"
+          alt="inicio"
+          title="Ir al inicio"
+          class="logo"
+      /></a>
+    </div>
+
+    <div class="menu-editor">
+      <div class="menu-user" [class.open]="menuOpen()">
+        <button
+          (click)="showNewRingWarning(); toggleSidebar();"
+          class="btn--clear menu-entry"
+        >
+          <p>Crear nuevo diseño</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="openMyDesigns()" class="btn--clear menu-entry">
+          <p>Abrir diseño</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="saveRing()" class="btn--clear menu-entry">
+          <p>Guardar diseño</p>
+        </button>
+        <hr class="menu-divider" />
+        <button class="btn--clear menu-entry" (click)="modifyCopy()">
+          <p>Duplicar diseño...</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="justDownload.set(true); toggleShare()" class="btn--clear menu-entry">
+          <p>Compartir diseño</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="justDownload.set(false); toggleShare()" class="btn--clear menu-entry">
+          <p>Descargar ficha técnica del diseño</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="toggleSidebar()" class="btn--clear menu-entry">
+          <p>Continuar diseñando</p>
+        </button>
+        <hr class="menu-divider" />
+        <button (click)="returnToMainMenu()" class="btn--clear menu-entry">
+          <p>Volver al menú principal</p>
+        </button>
+        <hr class="menu-divider" />
+      </div>
+
+      <div class="main-wrapper">
+        <app-accordion-item #baseAccordion [containerClass]="'no-margin no-border-bottom scroll-margin'">
+          <div class="accordion-title" slot="title">
+            <h3 class="">Base del anillo</h3>
+          </div>
+          <div class="accordion-subtitle" slot="subtitle">
+            El comienzo de una obra maestra.
+          </div>
+          <div class="section-wrapper">
+            <app-base-section [section]="baseStructures()"></app-base-section>
+          </div>
+        </app-accordion-item>
+
+        <hr />
+
+        <app-accordion-item #materialAccordion [containerClass]="'no-margin no-border-bottom scroll-margin'">
+          <div class="accordion-title" slot="title">
+            <h3>Material</h3>
+          </div>
+          <div class="accordion-subtitle" slot="subtitle">
+            Garantía de una calidad excepcional.
+          </div>
+          <div class="section-wrapper">
+            <app-material-section
+              [section]="materials()"
+            ></app-material-section>
+          </div>
+        </app-accordion-item>
+
+        <hr />
+
+        @if (canHaveGems()) {
+          <app-accordion-item #gemAccordion [containerClass]="'no-margin no-border-bottom scroll-margin'">
+            <div class="accordion-title" slot="title">
+              <h3>Gemas</h3>
+            </div>
+            <div class="accordion-subtitle" slot="subtitle">
+              Aporte de luz con su belleza incomparable.
+            </div>
+            <div class="section-wrapper">
+              <app-gem-section
+                [gemStones]="gems()"
+                [cuts]="cuts()"
+              ></app-gem-section>
+            </div>
+          </app-accordion-item>
+
+          <hr />
+
+          <app-accordion-item #settingAccordion [containerClass]="'no-margin no-border-bottom scroll-margin'">
+            <div class="accordion-title" slot="title">
+              <h3>Engastes</h3>
+            </div>
+            <div class="accordion-subtitle" slot="subtitle">
+              Fusión entre diseño y durabilidad.
+            </div>
+            <div class="section-wrapper">
+              <app-setting-section [section]="settings()"></app-setting-section>
+            </div>
+          </app-accordion-item>
+
+          <hr />
+        }
+
+        <!-- <app-accordion-item #boxAccordion [containerClass]="'no-margin no-border-bottom scroll-margin margin-bottom'">
+          <div class="accordion-title" slot="title">
+            <h3>Empaquetado</h3>
+          </div>
+          <div class="accordion-subtitle" slot="subtitle">
+            El modo ideal de resaltar la pieza.
+          </div>
+          <div class="section-wrapper">
+            <app-box-section [boxShapes]="boxShapes()"></app-box-section>
+          </div>
+        </app-accordion-item> -->
+      </div>
+      <div class="button-wrapper">
+        @if (shareOpen() && !finalView() && !menuOpen()) {
+          <app-share
+            [jewelID]="this.jewelID()"
+            (downloadDone)="toggleShare()"
+            [toggler]="smallShareToggler"
+            class="share-component"
+          ></app-share>
+        }
+        <button #smallShareToggler (click)="toggleShare()" class="light-button only-icon icon-toggler">
+          <fa-icon class="icon" [class.hidden]="shareOpen()" [icon]="icons.faShareNodes"></fa-icon>
+          <fa-icon class="icon" [class.hidden]="!shareOpen()" [icon]="icons.faX"/>
+        </button>
+        <button (click)="saveRing()" class="light-button save-button">
+          <fa-icon
+            [icon]="editJewelService.ringSaved() ? icons.faCheckCircle : icons.faFloppyDisk"
+            class="dynamicIcon"
+            [class.saved]="editJewelService.ringSaved()"
+          ></fa-icon>
+          {{ editJewelService.ringSaved() ? "Guardado" : "Guardar" }}
+        </button>
+        <button (click)="toggleFinal()" class="dark-button big end-design">
+          Finalizar diseño
+          <fa-icon [icon]="icons.faChevronRight"></fa-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="viewport" [class.menuOpen]="menuOpen()">
+    <app-engine
+      #engineComponent
+      [engineSelector]="engineSelector()"
+      [autoRotation]="autoRotation()"
+    ></app-engine>
+
+    @if (menuOpen() && shareOpen() && !finalView()) {
+      <app-share
+        [jewelID]="this.jewelID()"
+        (downloadDone)="toggleShare()"
+        [initialPDFOrLink]="justDownload()"
+        class="share-component center-on-viewport"
+      ></app-share>
+    }
+
+    <div class="ui">
+      <div
+        class="top-left"
+        [class.fullscreen]="expandedView()"
+        [class.finalview]="finalView()"
+      >
+        <h2 class="jewel-name">
+          <input [style.width.ch]="inputWidth()" #nameInput maxlength="30" type="text" value="{{ editJewelService.jewel().name }}" placeholder="El nombre es obligatorio" (input)="onNameChange($event)"/>
+          <fa-icon [icon]="icons.faPen"></fa-icon>
+        </h2>
+        <div class="price">
+          <span class="sumPrice" [style.opacity]="isLoadingPrice() ? 0.5 : 1">
+            @if (isLoadingPrice() && currentPrice() === 0) {
+              Cargando...
+            } @else {
+              {{
+                currentPrice() | currency: "EUR" : "symbol" : "1.2-2" : "es-ES"
+              }}
+            }
+          </span>
+          <fa-icon
+            [class.priceOpen]="priceOpen"
+            (click)="priceOpen = !priceOpen"
+            [icon]="icons.faChevronUp"
+          ></fa-icon>
+          <div class="fullPrice" [style.opacity]="isLoadingPrice() ? 0.5 : 1" [class.shown]="priceOpen">
+            <span>Diseño {{getDesignPrice()}}</span>
+            @if (fullPrice().gemsPrice) {
+              @for (gem of fullPrice().gemsPrice.priceList; track $index) {
+                @if (gem.name && gem.name != "None") {
+                  <span>{{getGemPrice(gem)}}</span>
+                } @else {
+                  @if (gem.price > 0) {
+                    <span>Gemas de acento: {{toLocalePrice(gem.price)}}</span>
+                  }
+                }
+              }
+              @if (fullPrice().settingPrice) {
+                @for (setting of fullPrice().settingPrice.priceList; track $index) {
+                  @if (setting.name && setting.price > 0) {
+                    <span>{{getSettingPrice(setting)}}</span>
+                  }
+                }
+              }
+            }
+            <span>Impuestos: {{toLocalePrice(fullPrice().taxes)}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="top-right" [class.fullscreen]="expandedView() || finalView()">
+        @if (!authService.isAuthenticated()) {
+          <button class="light-button" (click)="goToAuth('/inicio-sesion')">Inicio de sesión</button>
+          <button class="dark-button" (click)="goToAuth('/registro')">Registro</button>
+        } @else {
+          <div class="auth-section">
+            <app-user-profile-dropwdown
+              [isLanding]="false"
+            ></app-user-profile-dropwdown>
+          </div>
+        }
+      </div>
+      <div class="bottom-right" [class.finalview]="finalView()">
+        <button class="dark-button only-icon icon-toggler" (click)="toggleControls()">
+          <fa-icon class="icon" [class.hidden]="showControls" [icon]="icons.faQuestion"></fa-icon>
+          <fa-icon class="icon" [class.hidden]="!showControls" [icon]="icons.faX"/>
+        </button>
+        @if (showControls) {
+          <div class="controls">
+            <app-controls></app-controls>
+          </div>
+        }
+        <button (click)="toggleExpand()" class="dark-button only-icon icon-toggler">
+          <fa-icon class="icon" [class.hidden]="expandedView()" [icon]="icons.faExpand"></fa-icon>
+          <fa-icon class="icon" [class.hidden]="!expandedView()" [icon]="icons.faCompress"></fa-icon>
+        </button>
+      </div>
+      <div
+        class="bottom-left"
+        [class.fullscreen]="expandedView() || finalView()"
+      >
+        <app-switch
+          [text]="'Movimiento automático'"
+          (status)="toggleAutoRotation($event)"
+          [checked]="autoRotation()"
+        ></app-switch>
+        <app-big-switch
+          [onValue]="'ThreeJS'"
+          [offValue]="'WebGL'"
+          (status)="swapEngine($event)"
+          [checked]="engineSelector()"
+        ></app-big-switch>
+      </div>
+      <div class="bottom-center" [class.finalview]="finalView()">
+        <button (click)="toggleFinal()" class="light-button">
+          <fa-icon [icon]="icons.faChevronLeft"> </fa-icon> Seguir diseñando
+        </button>
+        <button (click)="modifyCopy()" class="light-button">
+          <fa-icon [icon]="icons.faPen"> </fa-icon> Modificar copia
+        </button>
+        <button (click)="toggleShare()" class="light-button">
+          <fa-icon [icon]="icons.faShareNodes"> </fa-icon> Compartir
+        </button>
+        <button (click)="saveRing()" class="light-button save-button">
+          <fa-icon
+            [icon]="this.editJewelService.ringSaved() ? icons.faCheckCircle : icons.faFloppyDisk"
+            class="dynamicIcon"
+            [class.saved]="this.editJewelService.ringSaved()"
+          ></fa-icon>
+          {{ editJewelService.ringSaved() ? "Guardado" : "Guardar" }}
+        </button>
+        <button (click)="buyRing()" class="dark-button">
+          Encargar anillo <fa-icon [icon]="icons.faChevronRight"></fa-icon>
+        </button>
+        @if (shareOpen() && finalView() && !menuOpen()) {
+          <app-share
+            [jewelID]="this.jewelID()"
+            (downloadDone)="toggleShare()"
+            class="share-component"
+          ></app-share>
+        }
+      </div>
+    </div>
+  </div>
+</div>
