@@ -67,9 +67,9 @@ export class OpenDataComponent implements OnInit {
       "@graph": [
         {
           "@type": "Organization",
-          "@id": "https://louv.ovh/#organization",
+          "@id": "https://louv.phg21.es/#organization",
           "name": "Patata Team",
-          "url": "https://louv.ovh/",
+          "url": "https://louv.phg21.es/",
           "address": {
             "@type": "PostalAddress",
             "addressCountry": "ES"
@@ -77,11 +77,11 @@ export class OpenDataComponent implements OnInit {
         },
         {
           "@type": "WebSite",
-          "@id": "https://louv.ovh/#website",
-          "url": "https://louv.ovh/",
+          "@id": "https://louv.phg21.es/#website",
+          "url": "https://louv.phg21.es/",
           "name": "Louv",
           "publisher": {
-            "@id": "https://louv.ovh/#organization"
+            "@id": "https://louv.phg21.es/#organization"
           },
           "inLanguage": [
             "es",
@@ -89,18 +89,18 @@ export class OpenDataComponent implements OnInit {
         },
         {
           "@type": "WebPage",
-          "@id": "https://louv.ovh/datos-abiertos/#webpage",
-          "url": "https://louv.ovh/datos-abiertos/",
+          "@id": "https://louv.phg21.es/datos-abiertos/#webpage",
+          "url": "https://louv.phg21.es/datos-abiertos/",
           "name": "Open Data",
           "description": "Página de descarga de datos estadísticos y métricas internas exportables en formato CSV comprimido en ZIP.",
           "isPartOf": {
-            "@id": "https://louv.ovh/#website"
+            "@id": "https://louv.phg21.es/#website"
           },
           "about": {
-            "@id": "https://louv.ovh/datos-abiertos/#dataset"
+            "@id": "https://louv.phg21.es/datos-abiertos/#dataset"
           },
           "publisher": {
-            "@id": "https://louv.ovh/#organization"
+            "@id": "https://louv.phg21.es/#organization"
           },
           "inLanguage": [
             "es",
@@ -108,8 +108,8 @@ export class OpenDataComponent implements OnInit {
         },
         {
           "@type": "Dataset",
-          "@id": "https://louv.ovh/datos-abiertos/#dataset",
-          "url": "https://louv.ovh/datos-abiertos/",
+          "@id": "https://louv.phg21.es/datos-abiertos/#dataset",
+          "url": "https://louv.phg21.es/datos-abiertos/",
           "name": "Louv Open Data",
           "description": "Colección de métricas internas y datos estadísticos exportables relacionados con tráfico, gemas, metales, engastes y tipos de bases.",
           "keywords": [
@@ -125,10 +125,10 @@ export class OpenDataComponent implements OnInit {
             "analytics"
           ],
           "creator": {
-            "@id": "https://louv.ovh/#organization"
+            "@id": "https://louv.phg21.es/#organization"
           },
           "publisher": {
-            "@id": "https://louv.ovh/#organization"
+            "@id": "https://louv.phg21.es/#organization"
           },
           "license": "https://creativecommons.org/licenses/by/4.0/",
           "isAccessibleForFree": true,
@@ -141,7 +141,7 @@ export class OpenDataComponent implements OnInit {
               "@type": "DataDownload",
               "name": "Open Data ZIP Export",
               "encodingFormat": "application/zip",
-              "contentUrl": "https://louv.ovh/datos-abiertos/"
+              "contentUrl": "https://louv.phg21.es/datos-abiertos/"
             }
           ],
         }

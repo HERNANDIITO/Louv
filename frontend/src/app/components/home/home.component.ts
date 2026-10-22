@@ -130,13 +130,13 @@ export class HomeComponent implements OnInit {
       "@graph": [
         {
           "@type": "WebApplication",
-          "@id": "https://louv.ovh/#webapp",
+          "@id": "https://louv.phg21.es/#webapp",
           "name": "Louv",
-          "url": "https://louv.ovh/",
+          "url": "https://louv.phg21.es/",
           "applicationCategory": "BusinessApplication",
           "offers": {
             "@type": "Offer",
-            "url": "https://louv.ovh/",
+            "url": "https://louv.phg21.es/",
             "price": "0",
             "priceCurrency": "EUR"
           },
@@ -156,7 +156,7 @@ export class HomeComponent implements OnInit {
           },
           "copyrightHolder": {
             "@type": "Organization",
-            "@id": "https://louv.ovh/patataTeam#organization/"
+            "@id": "https://louv.phg21.es/patataTeam#organization/"
           },
           "countryOfOrigin": {
             "@type": "Country",
@@ -191,7 +191,7 @@ export class HomeComponent implements OnInit {
           ],
           "translator": {
             "@type": "Organization",
-            "@id": "https://louv.ovh/patataTeam#organization/"
+            "@id": "https://louv.phg21.es/patataTeam#organization/"
           }
         }
       ]

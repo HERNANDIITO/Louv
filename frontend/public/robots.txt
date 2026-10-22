@@ -7,4 +7,4 @@ Disallow: /registro/
 
 # Permitir todo lo demás
 Allow: /
-Sitemap: https://louv.ovh/sitemap-index.xml
+Sitemap: https://louv.phg21.es/sitemap-index.xml
