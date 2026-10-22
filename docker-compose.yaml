@@ -22,4 +22,7 @@ services:
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET}
       GOOGLE_REDIRECT_URL: ${GOOGLE_REDIRECT_URL}
+    volumes:
+    - /home/ubuntu/public.pem:/app/public.pem:ro
+    - /home/ubuntu/private.pem:/app/private.pem:ro
     restart: unless-stopped
