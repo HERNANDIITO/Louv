@@ -53,6 +53,17 @@
 }
 
 .featured {
-  height: 100% !important;
-  width: 500px !important;
+  height: auto !important;
+  width: 100% !important;
+}
+
+
+@media (max-width: 768px) {
+  .row {
+    flex-flow: column;
+  }
+
+  .six > *{
+    flex: 1 2;
+  }
 }

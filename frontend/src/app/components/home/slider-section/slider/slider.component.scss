@@ -53,3 +53,11 @@
 .card {
   min-width: 16rem;
 }
+
+
+@media (max-width: 768px) {
+  .cards-container {
+    overflow: auto;
+    padding-bottom: 1rem;
+  }
+}

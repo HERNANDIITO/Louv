@@ -197,13 +197,28 @@
   60% {transform: translateY(-5px) rotate(45deg);}
 }
 
-// Responsivo
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .hero-container {
-    flex-direction: column-reverse;
-    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    padding-bottom: 60px;
+
+    video {
+      padding: 0;
+    }
   }
-  .canvas-container, .content-section { width: 100%; }
-  .title-main .sans-text { margin-left: 0; }
-  .description, .actions { text-align: center; justify-content: center; }
+
+  .ring-container {
+    height: fit-content;
+  }
+
+  .content-section {
+    height: fit-content;
+    transform: none;
+  }
+
+  .ring-container {
+    position: relative;
+  }
 }

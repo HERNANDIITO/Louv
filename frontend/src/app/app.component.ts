@@ -7,13 +7,12 @@ import { faComment, faX } from '@fortawesome/free-solid-svg-icons';
 import { AuthService } from "./services/auth.service";
 import { SeoService } from "./services/seo.service";
 import { GoogleAnalyticsService } from "./services/google-analytics.service";
-import { AppChatbotComponent } from "./shared/chatbot/chatbot.component";
 import { CookieBannerComponent } from './shared/cookie-banner/cookie-banner.component';
 import { TrackingService } from "./services/tracking.service";
 
 @Component({
     selector: "app-root",
-    imports: [RouterOutlet, AppChatbotComponent, CookieBannerComponent, FontAwesomeModule],
+    imports: [RouterOutlet, CookieBannerComponent, FontAwesomeModule],
     templateUrl: "./app.component.html",
     styleUrl: "./app.component.scss",
     schemas: [CUSTOM_ELEMENTS_SCHEMA]

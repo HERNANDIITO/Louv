@@ -1,6 +1,6 @@
 @use "../../../../styles/variables" as vars;
 
-:host {
+.wrapper {
   display: flex;
   flex-direction: row;
   background-color: #000000;
@@ -82,5 +82,11 @@
     // y no afecta al resto del layout al scrollear
     contain: strict; 
     will-change: transform;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-flow: column;
   }
 }

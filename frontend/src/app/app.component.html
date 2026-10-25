@@ -1,18 +1,2 @@
 <app-cookie-banner></app-cookie-banner>
 <router-outlet></router-outlet>
-
-<button 
-  class="chat-toggle-btn" 
-  (click)="toggleChat()" 
-  aria-label="Abrir chat"
->
-
-<fa-icon class="icon" [class.hidden]="isChatVisible" [icon]="faComment"/>
-<fa-icon class="icon" [class.hidden]="!isChatVisible" [icon]="faCross"/>
-
-</button>
-
-@if(isChatVisible){
-    <app-chatbot></app-chatbot>
-}
-

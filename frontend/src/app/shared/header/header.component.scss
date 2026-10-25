@@ -6,7 +6,7 @@
   align-items: center;
   height: 60px;
   padding-inline: 3rem;
-  width: 100%;
+  width: 100vw;
   z-index: 1000;
 
   // --- COMPORTAMIENTO POR DEFECTO (Cualquier página que NO sea landing) ---
@@ -143,5 +143,11 @@
 
   .auth-section * {
     pointer-events: all;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding-inline: 1rem;
   }
 }
